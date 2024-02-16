@@ -1,5 +1,5 @@
 import { Embeddings } from "@langchain/core/embeddings"
-import { loadSource } from "./rulebook-combat.srd/rulebook-combat-srd";
+import { loadSource } from "./dataloader";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { VectorStore } from "@langchain/core/vectorstores";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
