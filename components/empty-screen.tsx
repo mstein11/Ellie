@@ -6,16 +6,16 @@ import { IconArrowRight } from '@/components/ui/icons'
 
 const exampleMessages = [
   {
-    heading: 'Explain technical concepts',
-    message: `What is a "serverless function"?`
+    heading: 'What is a Dexterity Saving Throw?',
+    message: `What is a Dexterity Saving Throw?`
   },
   {
-    heading: 'Summarize an article',
-    message: 'Summarize the following article for a 2nd grader: \n'
+    heading: 'What are the monster stats for a Goblin?',
+    message: 'What are the monster stats for a Goblin?'
   },
   {
-    heading: 'Draft an email',
-    message: `Draft an email to my boss about the following: \n`
+    heading: 'Under what legal license is this content available?',
+    message: `Under what legal license is this content available?`
   }
 ]
 
@@ -24,13 +24,13 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
     <div className="mx-auto max-w-2xl px-4">
       <div className="rounded-lg border bg-background p-8">
         <h1 className="mb-2 text-lg font-semibold">
-          Welcome to Next.js AI Chatbot!
+          Welcome to ElminsterGPT - AI Chatbot!
         </h1>
         <p className="mb-2 leading-normal text-muted-foreground">
-          This is an open source AI chatbot app template built with{' '}
-          <ExternalLink href="https://nextjs.org">Next.js</ExternalLink> and{' '}
-          <ExternalLink href="https://vercel.com/storage/kv">
-            Vercel KV
+          This is a chatbot built around the  
+          <ExternalLink href="https://dnd.wizards.com/">Dungeons and Dragons</ExternalLink> &nbsp;
+          <ExternalLink href="https://github.com/BTMorton/dnd-5e-srd">
+          SRD Content.
           </ExternalLink>
           .
         </p>

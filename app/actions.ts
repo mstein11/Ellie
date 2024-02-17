@@ -6,6 +6,11 @@ import { kv } from '@vercel/kv'
 
 import { auth } from '@/auth'
 import { type Chat } from '@/lib/types'
+import getData from '../lib/vectorstore/data/all'
+
+export async function getRulebook(all = false) {
+  return getData(all);
+}
 
 export async function getChats(userId?: string | null) {
   if (!userId) {
