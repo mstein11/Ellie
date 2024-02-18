@@ -1,17 +1,22 @@
-import { getRulebook } from '@/app/actions'
+'use client'
+//import { getRulebook } from '@/app/actions'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { cache } from 'react'
+import { cache, useEffect } from 'react'
 import { CodeBlock } from './ui/codeblock'
 import { MemoizedReactMarkdown } from './markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
+import getData from '../lib/vectorstore/data/all'
 
-const loadRulebook = cache(async () => {
-  return await getRulebook(true);
-})
 
-export async function RulebookContent() {
-  const rulebook = await loadRulebook();
+export function RulebookContent({scrollToId}) {
+
+    useEffect(() => {
+        const element = document.querySelector(`[data-line-start="${scrollToId}"]`);
+        element?.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const rulebook = getData();
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
@@ -20,8 +25,8 @@ export async function RulebookContent() {
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
-            p({ children }) {
-              return <p className="mb-2 last:mb-0">{children}</p>
+            p({ children, node }) {
+              return <p data-line-start={node.position.start.line} className="mb-2 last:mb-0">{children}</p>
             },
             code({ node, inline, className, children, ...props }) {
               if (children.length) {

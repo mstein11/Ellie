@@ -42,7 +42,7 @@ export async function Rulebook({ userId }: ChatHistoryProps) {
 
 
        
-        <RulebookContent />
+        <RulebookContent scrollToId={327}/>
 
       </React.Suspense>
     </div>
