@@ -1,4 +1,5 @@
 import { StreamingTextResponse, Message as VercelChatMessage } from 'ai'
+import { type LLMResult } from "langchain/schema";
 
 import { PromptTemplate } from "langchain/prompts";
 import { ChatOpenAI } from "@langchain/openai";
@@ -11,6 +12,8 @@ import {
   RunnableSequence
 } from "langchain/schema/runnable";
 import { auth } from '@/auth'
+import { nanoid } from '@/lib/utils';
+import { kv } from '@vercel/kv';
 
 export const runtime = 'edge'
 
@@ -19,12 +22,42 @@ const combineDocumentsFn = (docs: Document[]) => {
   return serializedDocs.join("\n\n");
 };
 
-const withLangchain = async (question: string) => {
+const saveChat = async (json: any, userId: string, content: string) => {
+  const title = json.messages[0].content.substring(0, 100)
+  const id = json.id ?? nanoid()
+  const createdAt = Date.now()
+  const path = `/chat/${id}`
+  const payload = {
+    id,
+    title,
+    userId,
+    createdAt,
+    path,
+    messages: [
+      ...json.messages,
+      {
+        content: content,
+        role: 'assistant'
+      }
+    ]
+  }
+  await kv.hmset(`chat:${id}`, payload)
+  await kv.zadd(`user:chat:${userId}`, {
+    score: createdAt,
+    member: `chat:${id}`
+  })
+}
+
+const withLangchain = async (json: any) => {
+
+  const { messages, previewToken } = json
+  const userId = (await auth())?.user.id
+  const currentMessageContent = messages[messages.length - 1].content;
 
   const repo = new VectoreStoreRepository();
   const retriever = await repo.getRetriever(5);
 
-  console.log(await retriever.getRelevantDocuments(question));
+  console.log(await retriever.getRelevantDocuments(currentMessageContent));
 
   const prompt =
     PromptTemplate.fromTemplate(`You are Elminster, a all knowing wizard whose purpose is it to answer questions about the rules of Dungeons and Dragons. 
@@ -48,7 +81,13 @@ const withLangchain = async (question: string) => {
     },
     prompt,
     new ChatOpenAI({
-      temperature: 0
+      temperature: 0,
+      callbacks: [{
+        handleLLMEnd: async (output: LLMResult) => {
+          console.log("saving chat");
+          await saveChat(json, userId ?? "no-id", output.generations[0][0].text)
+        },
+      }]
     }),
     new HttpResponseOutputParser(),
   ]);
@@ -76,7 +115,7 @@ export async function POST(req: Request) {
 
   //the above OpenAIStream but now with langchain follows here
 
-  const chain = await withLangchain(currentMessageContent);
+  const chain = await withLangchain(json);
 
   var stream = await chain.stream({
     input: currentMessageContent,
