@@ -1,4 +1,4 @@
-import { StreamingTextResponse, Message as VercelChatMessage } from 'ai/dist'
+import { StreamingTextResponse, Message as VercelChatMessage } from 'ai'
 
 import { PromptTemplate } from "langchain/prompts";
 import { ChatOpenAI } from "@langchain/openai";
@@ -73,11 +73,6 @@ export async function POST(req: Request) {
       status: 401
     })
   }
-
-  if (previewToken) {
-    openai.apiKey = previewToken
-  }
-
 
   //the above OpenAIStream but now with langchain follows here
 

@@ -1,5 +1,4 @@
 'use client'
-//import { getRulebook } from '@/app/actions'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { cache, useEffect } from 'react'
 import { CodeBlock } from './ui/codeblock'
@@ -9,7 +8,7 @@ import remarkMath from 'remark-math'
 import getData from '../lib/vectorstore/data/all'
 
 
-export function RulebookContent({scrollToId}) {
+export function RulebookContent({scrollToId = ''}) {
 
     useEffect(() => {
         const element = document.querySelector(`[data-line-start="${scrollToId}"]`);
@@ -26,7 +25,7 @@ export function RulebookContent({scrollToId}) {
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
             p({ children, node }) {
-              return <p data-line-start={node.position.start.line} className="mb-2 last:mb-0">{children}</p>
+              return <p data-line-start={node?.position?.start?.line} className="mb-2 last:mb-0">{children}</p>
             },
             code({ node, inline, className, children, ...props }) {
               if (children.length) {

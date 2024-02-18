@@ -20,7 +20,8 @@ const ChatSendContext = React.createContext<ChatSendContext | undefined>(
     const [isLoading, setLoading] = React.useState(true)
   
     React.useEffect(() => {
-      const value = localStorage.getItem(LOCAL_STORAGE_KEY)
+      //const value = localStorage.getItem(LOCAL_STORAGE_KEY)
+      const value = null;
       if (value) {
         setSidebarOpen(JSON.parse(value))
       }
@@ -30,7 +31,7 @@ const ChatSendContext = React.createContext<ChatSendContext | undefined>(
     const toggleSidebar = () => {
       setSidebarOpen(value => {
         const newState = !value
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newState))
+        //localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newState))
         return newState
       })
     }
@@ -41,7 +42,7 @@ const ChatSendContext = React.createContext<ChatSendContext | undefined>(
   
     return (
       <ChatSendContext.Provider
-        value={{ isSidebarOpen, toggleSidebar, isLoading }}
+        value={{ chatMessage: "" }}
       >
         {children}
       </ChatSendContext.Provider>
