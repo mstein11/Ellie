@@ -15,7 +15,7 @@ export function RulebookContent({scrollToId = ''}) {
         element?.scrollIntoView({ behavior: 'smooth' });
     });
 
-    const rulebook = getData();
+    const rulebook = getData(true);
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
