@@ -14,6 +14,25 @@ import { UserMenu } from '@/components/user-menu'
 import { SidebarMobile } from './sidebar-mobile'
 import { SidebarToggle } from './sidebar-toggle'
 import { ChatHistory } from './chat-history'
+import { Rulebook } from './rulebook'
+
+async function RightSidebarOrNothing() {
+  const session = await auth();
+  return (
+    <>
+      {session?.user ? (
+        <>
+          <SidebarMobile isRight={true}>
+            {/* <Rulebook userId={session.user.id} /> */}
+          </SidebarMobile>
+          <SidebarToggle isRight={true}/>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  )
+}
 
 async function UserOrLogin() {
   const session = await auth()
@@ -24,7 +43,7 @@ async function UserOrLogin() {
           <SidebarMobile>
             <ChatHistory userId={session.user.id} />
           </SidebarMobile>
-          <SidebarToggle />
+          <SidebarToggle isRight={false}/>
         </>
       ) : (
         <Link href="/" target="_blank" rel="nofollow">
@@ -64,12 +83,7 @@ export function Header() {
           <IconGitHub />
           <span className="hidden ml-2 md:flex">GitHub</span>
         </a>
-        <a
-          href="https://github.com/vercel/nextjs-ai-chatbot/"
-          target="_blank"
-          className={cn(buttonVariants())}
-        >
-        </a>
+        <RightSidebarOrNothing></RightSidebarOrNothing>
       </div>
     </header>
   )
