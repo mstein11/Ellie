@@ -24,7 +24,7 @@ export async function Rulebook({ userId }: ChatHistoryProps) {
           )}
         >
           <IconPlus className="-translate-x-2 stroke-2" />
-          New Chat
+            Searchbar Placeholder
         </Link>
       </div>
       <React.Suspense
