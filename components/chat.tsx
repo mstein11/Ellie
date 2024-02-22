@@ -52,7 +52,8 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
       },
       onFinish() {
         if (!path.includes('chat')) {
-          window.history.pushState({}, '', `/chat/${id}`)
+          router.push(`/chat/${id}`);
+          router.refresh();
         }
       }
     })
