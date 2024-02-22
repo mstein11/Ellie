@@ -1,12 +1,19 @@
 'use client'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { cache, useEffect } from 'react'
+import { cache, use, useEffect } from 'react'
 import { CodeBlock } from './ui/codeblock'
 import { MemoizedReactMarkdown } from './markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import getData from '../lib/vectorstore/data/all'
 
+
+async function getContent() {
+  const res = await fetch('/api/content').then(res => res.json());
+  console.log(res);
+  return null;
+
+}
 
 export function RulebookContent({scrollToId = ''}) {
 
@@ -15,7 +22,9 @@ export function RulebookContent({scrollToId = ''}) {
         element?.scrollIntoView({ behavior: 'smooth' });
     });
 
-    const rulebook = getData();
+    const rulebook = use(getContent());
+
+    //const rulebook = getData();
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">

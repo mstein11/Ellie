@@ -5,9 +5,14 @@ import { VectorStore } from "@langchain/core/vectorstores";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { SupabaseClient, createClient } from "@supabase/supabase-js"
 import { Document } from "langchain/document";
-import { config } from '../../middleware';
 import { metadata } from '../../app/layout';
 
+export interface DocumentModel {
+    id: string
+    content: string,
+    metadata: any,
+    embeddings: any
+}
 
 
 export interface VectoreStoreRepositoryDeps {
@@ -32,9 +37,9 @@ export class VectoreStoreRepository {
     private supabaseClient: SupabaseClient;
     private loadedVectoreStore: VectorStore;
 
-    constructor(deps: VectoreStoreRepositoryDeps) {
-        this.config = deps.config ?? { tableName: "documents", functionName: "match_documents" };
-        this.sourceLoaders = deps.sourceLoader ?? [loadSource];
+    constructor(deps?: VectoreStoreRepositoryDeps) {
+        this.config = deps?.config ?? { tableName: "documents", functionName: "match_documents" };
+        this.sourceLoaders = deps?.sourceLoader ?? [loadSource];
         this.supabaseClient = createClient(
             process.env.SUPABASE_URL!,
             process.env.SUPABASE_PRIVATE_KEY!,
@@ -71,10 +76,9 @@ export class VectoreStoreRepository {
         return this.loadedVectoreStore.asRetriever(k);
     }
 
-    async getAsContent() {
+    async getAsContent(): Promise<DocumentModel[]> {
         const res = await this.supabaseClient.from(this.config.tableName).select('*');
-
-        return res.data?.sort((docA: any, docB: any) => docA.metadata.loc.lines.from - docB.metadata.loc.lines.from);
+        return res.data?.sort((docA: any, docB: any) => docA.metadata.loc.lines.from - docB.metadata.loc.lines.from) as DocumentModel[];
     }
 
     protected getEmbeddings(): Embeddings {
