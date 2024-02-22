@@ -1,6 +1,6 @@
 'use client'
 
-import { useChat, type Message } from 'ai/react'
+import { useChat, type Message, CreateMessage } from 'ai/react'
 
 import { cn } from '@/lib/utils'
 import { ChatList } from '@/components/chat-list'
@@ -21,6 +21,7 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { toast } from 'react-hot-toast'
 import { usePathname, useRouter } from 'next/navigation'
+import { ChatRequestOptions } from 'ai'
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
@@ -37,7 +38,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
   )
   const [previewTokenDialog, setPreviewTokenDialog] = useState(IS_PREVIEW)
   const [previewTokenInput, setPreviewTokenInput] = useState(previewToken ?? '')
-  const { messages, append, reload, stop, isLoading, input, setInput } =
+  const { messages, append, reload, stop, isLoading, input, setInput, handleSubmit } =
     useChat({
       initialMessages,
       id,
@@ -54,9 +55,17 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         if (!path.includes('chat')) {
           router.push(`/chat/${id}`);
           router.refresh();
+          //call api endpoint /chat/retrieve
         }
       }
     })
+
+    const chatMessageSubmit = async (message: Message | CreateMessage, chatRequestOptions?: ChatRequestOptions): Promise<string | null | undefined> => {
+      console.log(JSON.stringify(message))
+      await fetch('/api/chat/retrieve', { method: "POST", body: JSON.stringify(message), headers: {'Content-Type': 'application/json'}});
+      return append(message, chatRequestOptions);
+    };
+
   return (
     <>
       <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
@@ -73,7 +82,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         id={id}
         isLoading={isLoading}
         stop={stop}
-        append={append}
+        append={chatMessageSubmit}
         reload={reload}
         messages={messages}
         input={input}
