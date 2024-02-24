@@ -1,17 +1,15 @@
 'use client'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { cache, use, useEffect } from 'react'
+import { use, useEffect } from 'react'
 import { CodeBlock } from './ui/codeblock'
 import { MemoizedReactMarkdown } from './markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import getData from '../lib/vectorstore/data/all'
 
 
 async function getContent() {
   const res = await fetch('/api/content').then(res => res.json());
-  console.log(res);
-  return null;
+  return res;
 
 }
 
@@ -22,19 +20,22 @@ export function RulebookContent({scrollToId = ''}) {
         element?.scrollIntoView({ behavior: 'smooth' });
     });
 
-    const rulebook = use(getContent());
+    const rulebook = use(getContent())
 
     //const rulebook = getData();
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
       <div className="flex-1 overflow-auto">
-      <MemoizedReactMarkdown
+      {rulebook.map((doc: {content: string, id: string}) => (
+        <>
+        <div data-id={doc.id}>
+      <MemoizedReactMarkdown key={doc.id}
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}
           components={{
-            p({ children, node }) {
-              return <p data-line-start={node?.position?.start?.line} className="mb-2 last:mb-0">{children}</p>
+            p(data) {
+              return <p data-line-start={data.node?.position?.start?.line} className="mb-2 last:mb-0">{data.children}</p>
             },
             code({ node, inline, className, children, ...props }) {
               if (children.length) {
@@ -68,8 +69,11 @@ export function RulebookContent({scrollToId = ''}) {
             }
           }}
         >
-          {rulebook}
+          {doc.content}
         </MemoizedReactMarkdown>
+        <br />
+        </div>
+        </>))}
       </div>
       <div className="flex items-center justify-between p-4">
         <ThemeToggle />
