@@ -1,6 +1,5 @@
-import { Embeddings } from "@langchain/core/embeddings"
 import { loadSource } from "./dataloader";
-import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { OpenAIEmbeddings } from "@langchain/openai";
 import { VectorStore } from "@langchain/core/vectorstores";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { SupabaseClient, createClient } from "@supabase/supabase-js"
@@ -88,7 +87,7 @@ export class VectoreStoreRepository {
     }
 
 
-    protected getEmbeddings(): Embeddings {
+    protected getEmbeddings(): OpenAIEmbeddings {
         return new OpenAIEmbeddings();
     }
 

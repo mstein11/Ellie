@@ -1,7 +1,7 @@
 import { StreamingTextResponse, Message as VercelChatMessage } from 'ai'
 import { type LLMResult } from "langchain/schema";
 
-import { PromptTemplate } from "langchain/prompts";
+import { PromptTemplate } from "@langchain/core/prompts";
 import { ChatOpenAI } from "@langchain/openai";
 import { VectoreStoreRepository } from '@/lib/vectorstore/VectorstoreRepository';
 import { Document } from "langchain/document";
@@ -10,7 +10,7 @@ import { Document } from "langchain/document";
 import { HttpResponseOutputParser } from "langchain/output_parsers";
 import {
   RunnableSequence
-} from "langchain/schema/runnable";
+} from "@langchain/core/runnables";
 import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils';
 import { kv } from '@vercel/kv';
@@ -56,8 +56,6 @@ const withLangchain = async (json: any) => {
 
   const repo = new VectoreStoreRepository();
   const retriever = await repo.getRetriever(5);
-
-  console.log(await retriever.getRelevantDocuments(currentMessageContent));
 
   const prompt =
     PromptTemplate.fromTemplate(`You are Elminster, a all knowing wizard whose purpose is it to answer questions about the rules of Dungeons and Dragons. 
