@@ -13,9 +13,5 @@ export async function POST(req: Request) {
 
     const res = documents.map(doc => { return { ...doc, id: repo.hashDocument(doc) } });
 
-    return new Response(JSON.stringify(res), {
-        headers: {
-            'content-type': 'application/json',
-        },
-    });
+    return Response.json(res);
 }
