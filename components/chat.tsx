@@ -22,6 +22,7 @@ import { Input } from './ui/input'
 import { toast } from 'react-hot-toast'
 import { usePathname, useRouter } from 'next/navigation'
 import { ChatRequestOptions } from 'ai'
+import useRetrievalResult from '@/lib/hooks/use-retrieval'
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
@@ -32,6 +33,9 @@ export interface ChatProps extends React.ComponentProps<'div'> {
 export function Chat({ id, initialMessages, className }: ChatProps) {
   const router = useRouter()
   const path = usePathname()
+
+  const { setRetrievalResultId} = useRetrievalResult()
+
   const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
     'ai-token',
     null
@@ -55,14 +59,18 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         if (!path.includes('chat')) {
           router.push(`/chat/${id}`);
           router.refresh();
-          //call api endpoint /chat/retrieve
         }
       }
     })
 
     const chatMessageSubmit = async (message: Message | CreateMessage, chatRequestOptions?: ChatRequestOptions): Promise<string | null | undefined> => {
       const res = await fetch('/api/chat/retrieve', { method: "POST", body: JSON.stringify(message), headers: {'Content-Type': 'application/json'}});
-      //console.log(res.json());
+      const json = await res.json();
+      if (json && json.length) {
+        setRetrievalResultId(json[0].id);
+      } else {
+        console.log('no retrieval result');
+      }
       return await append(message, chatRequestOptions);
     };
 

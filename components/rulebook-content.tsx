@@ -7,17 +7,15 @@ import { MemoizedReactMarkdown } from './markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import { Loading } from './loading'
+import useRetrievalResult from '@/lib/hooks/use-retrieval'
 
-
-async function getContent() {
-  const res = await fetch('/api/content');
-  return res.json();
-
-}
 
 export function RulebookContent({scrollToId = ''}) {
   const [rulebook, setData] = useState<{content: string, id: string}[] | null>(null)
   const [isLoading, setLoading] = useState(true)
+
+  const {retrievalResultId } = useRetrievalResult()
+  console.log('retrievalResultId:', retrievalResultId);
 
   useEffect(() => {
     fetch('/api/content')
@@ -29,8 +27,11 @@ export function RulebookContent({scrollToId = ''}) {
   }, [])
 
     useEffect(() => {
-        const element = document.querySelector(`[data-line-start="${scrollToId}"]`);
-        element?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.querySelector(`[data-id="${retrievalResultId}"]`);
+        if (element) {
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }
+        
     });
 
     if (isLoading) return <Loading />
