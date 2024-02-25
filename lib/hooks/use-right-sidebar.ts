@@ -2,7 +2,15 @@
 
 import { create } from 'zustand'
 
-const useRightSidebar = create((set) => ({
+
+interface RightSidebarContext {
+  rightSidebarOpen: boolean
+  openRightSidebar: () => void
+  closeRightSidebar: () => void
+  toggleRightSidebar: () => void
+}
+
+const useRightSidebar = create<RightSidebarContext>((set) => ({
   rightSidebarOpen: true,
   openRightSidebar: () => set({ rightSidebarOpen: true }),
   closeRightSidebar: () => set({ rightSidebarOpen: false }),

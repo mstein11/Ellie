@@ -16,7 +16,7 @@ async function getContent() {
 }
 
 export function RulebookContent({scrollToId = ''}) {
-  const [rulebook, setData] = useState(null)
+  const [rulebook, setData] = useState<{content: string, id: string}[] | null>(null)
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
