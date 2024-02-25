@@ -7,9 +7,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import {
   IconGitHub,
   IconNextChat,
-  IconSeparator,
-  IconVercel
-} from '@/components/ui/icons'
+  IconSeparator} from '@/components/ui/icons'
 import { UserMenu } from '@/components/user-menu'
 import { SidebarMobile } from './sidebar-mobile'
 import { SidebarToggle } from './sidebar-toggle'
