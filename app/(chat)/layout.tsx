@@ -1,16 +1,8 @@
 import { SidebarDesktop } from '@/components/sidebar-desktop'
-import { SidebarDesktopRight } from '@/components/sidebar-desktop-right';
-import useRightSidebar from '@/lib/hooks/use-right-sidebar';
-import { useSidebar } from '@/lib/hooks/use-sidebar';
 
 
 interface ChatLayoutProps {
   children: React.ReactNode
-}
-
-function useRightSideOpen(): boolean {
-  'use client'
-  return useRightSidebar((state) => state.rightSidebarOpen)
 }
 
 export default async function ChatLayout({ children }: ChatLayoutProps) {
@@ -23,7 +15,6 @@ export default async function ChatLayout({ children }: ChatLayoutProps) {
       </div>
 
       <SidebarDesktop isRight={true} />
-      {/* <SidebarDesktopRight /> */}
     </div>
   )
 }

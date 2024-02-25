@@ -63,7 +63,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     const chatMessageSubmit = async (message: Message | CreateMessage, chatRequestOptions?: ChatRequestOptions): Promise<string | null | undefined> => {
       const res = await fetch('/api/chat/retrieve', { method: "POST", body: JSON.stringify(message), headers: {'Content-Type': 'application/json'}});
       //console.log(res.json());
-      return append(message, chatRequestOptions);
+      return await append(message, chatRequestOptions);
     };
 
   return (

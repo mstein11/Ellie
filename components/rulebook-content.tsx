@@ -29,7 +29,7 @@ export function RulebookContent({scrollToId = ''}) {
       <div className="flex-1 overflow-auto">
       {rulebook.map((doc: {content: string, id: string}) => (
         <>
-        <div data-id={doc.id}>
+        <div key={doc.id} data-id={doc.id}>
       <MemoizedReactMarkdown key={doc.id}
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}

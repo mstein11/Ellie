@@ -5,7 +5,9 @@ import { VectorStore } from "@langchain/core/vectorstores";
 import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { SupabaseClient, createClient } from "@supabase/supabase-js"
 import { Document } from "langchain/document";
-import { metadata } from '../../app/layout';
+
+import crypto from 'crypto';
+
 
 export interface DocumentModel {
     id: string
@@ -80,6 +82,11 @@ export class VectoreStoreRepository {
         const res = await this.supabaseClient.from(this.config.tableName).select('*');
         return res.data?.sort((docA: any, docB: any) => docA.metadata.loc.lines.from - docB.metadata.loc.lines.from) as DocumentModel[];
     }
+
+    hashDocument(doc: Document): string {
+        return crypto.createHash('sha256').update(doc.pageContent).digest('hex')
+    }
+
 
     protected getEmbeddings(): Embeddings {
         return new OpenAIEmbeddings();

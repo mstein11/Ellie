@@ -3,11 +3,12 @@ import { Sidebar } from '@/components/sidebar'
 import { auth } from '@/auth'
 import { ChatHistory } from '@/components/chat-history'
 import { Rulebook } from './rulebook';
-import { RulebookContent } from './rulebook-content';
 import { SidebarRight } from './sidebar-right';
 
 const getRightSidebar = () => {
-  return <SidebarRight className='peer absolute right-0 inset-y-0 z-30 hidden border-l bg-muted duration-300 ease-in-out lg:flex lg:w-[500px] xl:w-[500px] data-[state-right=closed]:hidden'><Rulebook /></SidebarRight>;
+  return <SidebarRight className='peer absolute right-0 inset-y-0 z-30 hidden border-l bg-muted duration-300 ease-in-out lg:flex lg:w-[500px] xl:w-[500px] data-[state-right=closed]:hidden'>
+    <Rulebook />
+  </SidebarRight>;
 }
 
 const getLeftSidebar = (userId: string) => {

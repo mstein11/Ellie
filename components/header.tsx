@@ -14,7 +14,6 @@ import { UserMenu } from '@/components/user-menu'
 import { SidebarMobile } from './sidebar-mobile'
 import { SidebarToggle } from './sidebar-toggle'
 import { ChatHistory } from './chat-history'
-import { Rulebook } from './rulebook'
 
 async function RightSidebarOrNothing() {
   const session = await auth();
@@ -23,7 +22,7 @@ async function RightSidebarOrNothing() {
       {session?.user ? (
         <>
           <SidebarMobile isRight={true}>
-            {/* <Rulebook userId={session.user.id} /> */}
+            <></>
           </SidebarMobile>
           <SidebarToggle isRight={true}/>
         </>

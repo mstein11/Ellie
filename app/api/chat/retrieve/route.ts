@@ -10,10 +10,10 @@ export async function POST(req: Request) {
     const retriever = await repo.getRetriever(1);
 
     const documents = await retriever.getRelevantDocuments(content);
-    console.log(documents);
 
-    //return a nextjs Response object
-    return new Response(JSON.stringify(documents), {
+    const res = documents.map(doc => { return { ...doc, id: repo.hashDocument(doc) } });
+
+    return new Response(JSON.stringify(res), {
         headers: {
             'content-type': 'application/json',
         },
