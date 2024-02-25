@@ -1,6 +1,7 @@
 'use client'
+
 import { ThemeToggle } from '@/components/theme-toggle'
-import { use, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { CodeBlock } from './ui/codeblock'
 import { MemoizedReactMarkdown } from './markdown'
 import remarkGfm from 'remark-gfm'
@@ -8,21 +9,32 @@ import remarkMath from 'remark-math'
 
 
 async function getContent() {
-  const res = await fetch('/api/content').then(res => res.json());
-  return res;
+  const res = await fetch('/api/content');
+  console.log("asdadasd")
+  return res.json();
 
 }
 
 export function RulebookContent({scrollToId = ''}) {
+  const [rulebook, setData] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/content')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
 
     useEffect(() => {
         const element = document.querySelector(`[data-line-start="${scrollToId}"]`);
         element?.scrollIntoView({ behavior: 'smooth' });
     });
 
-    const rulebook = use(getContent())
-
-    //const rulebook = getData();
+    if (isLoading) return <p>Loading...</p>
+    if (!rulebook) return <p>No profile data</p>
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
