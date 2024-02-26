@@ -32,12 +32,14 @@ export async function loadSource(): Promise<{ documents: Document[], ids: string
         chunkOverlap: 0,
     });
 
-    //const output = await splitter.createDocuments([legaldata, racesdata, classesdata, beyond1stdata, equipmentdata, featsdata, mechanicsdata, combatdata, spellcastingdata, runningdata, magicitemsdata, monstersdata, conditionsdata, godsdata, planesdata, creaturesdata, npcsdata]);
-    const output = await splitter.createDocuments([racesdata]);
+
+    const data = [legaldata, racesdata, classesdata, beyond1stdata, equipmentdata, featsdata, mechanicsdata, combatdata, spellcastingdata, runningdata, magicitemsdata, monstersdata, conditionsdata, godsdata, planesdata, creaturesdata, npcsdata].join("\n");
+    const output = await splitter.createDocuments([data]);
+    // const output = await splitter.createDocuments([racesdata]);
     const ids = [];
     for (const doc of output) {
-
-        const hash = crypto.createHash('sha256').update(doc.pageContent).digest('hex')
+        const toHash = doc.pageContent + JSON.stringify(doc.metadata);
+        const hash = crypto.createHash('sha256').update(toHash).digest('hex')
         ids.push(hash)
     }
     return { documents: output, ids };

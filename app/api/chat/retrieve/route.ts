@@ -1,5 +1,7 @@
 import { VectoreStoreRepository } from "@/lib/vectorstore/VectorstoreRepository";
 
+export const revalidate = 0
+
 export async function POST(req: Request) {
     console.log("GET /api/chat/init");
     const { content } = await req.json()

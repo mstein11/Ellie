@@ -45,6 +45,7 @@ export class VectoreStoreRepository {
             process.env.SUPABASE_URL!,
             process.env.SUPABASE_PRIVATE_KEY!,
         );
+        console.log(this.config.tableName, this.config.functionName);
         this.loadedVectoreStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
             client: this.supabaseClient,
             tableName: this.config.tableName,
@@ -83,8 +84,8 @@ export class VectoreStoreRepository {
     }
 
     hashDocument(doc: Document): string {
-        //const toHash = doc.pageContent + JSON.stringify(doc.metadata);
-        return crypto.createHash('sha256').update("toHash").digest('hex')
+        const toHash = doc.pageContent + JSON.stringify(doc.metadata);
+        return crypto.createHash('sha256').update(toHash).digest('hex')
     }
 
 

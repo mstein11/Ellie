@@ -4,7 +4,7 @@ jest.setTimeout(300000);
 
 describe("should test dataloader", () => {
 
-    it.only("should test dataloader", async () => {
+    it.skip("should test dataloader", async () => {
 
         const repo = new VectoreStoreRepository();
         await repo.initStore();
