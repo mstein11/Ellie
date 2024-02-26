@@ -1,4 +1,4 @@
-create table documents_unittest (
+create table documents (
   id CHAR(64) PRIMARY KEY,
   content text, -- corresponds to Document.pageContent
   metadata jsonb, -- corresponds to Document.metadata
@@ -6,7 +6,7 @@ create table documents_unittest (
 );
 
 -- Create a function to search for documents
-create function match_documents_unittest (
+create function match_documents (
   query_embedding vector(1536),
   match_count int DEFAULT null,
   filter jsonb DEFAULT '{}'

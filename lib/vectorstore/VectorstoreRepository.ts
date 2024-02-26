@@ -83,7 +83,8 @@ export class VectoreStoreRepository {
     }
 
     hashDocument(doc: Document): string {
-        return crypto.createHash('sha256').update(doc.pageContent).digest('hex')
+        //const toHash = doc.pageContent + JSON.stringify(doc.metadata);
+        return crypto.createHash('sha256').update("toHash").digest('hex')
     }
 
 
