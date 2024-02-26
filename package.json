@@ -50,6 +50,7 @@
     "remark-gfm": "^3.0.1",
     "remark-math": "^5.1.1",
     "supabase": "^1.142.2",
+    "vercel": "^33.5.2",
     "zustand": "^4.5.1"
   },
   "devDependencies": {
