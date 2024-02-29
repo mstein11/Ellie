@@ -17,7 +17,6 @@ export function SidebarToggle({isRight}: {isRight?: boolean}) {
       className="-ml-2 hidden size-9 p-0 lg:flex"
       onClick={() => {
         if (isRight) {
-          console.log("insideIsRight")
           toggleRightSidebar();
         } else {
           toggleSidebar();

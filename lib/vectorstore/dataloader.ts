@@ -1,6 +1,7 @@
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+import { MarkdownTextSplitter, RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { Document } from "langchain/document";
-import crypto from 'crypto';
+
+import { randomUUID } from "crypto";
 
 import legaldata from './data/rulebook-00-legal-srd';
 import racesdata from './data/rulebook-01-races-srd';
@@ -25,22 +26,26 @@ export function loadSourceRaw(): string[] {
 }
 
 
-export async function loadSource(): Promise<{ documents: Document[], ids: string[] }> {
+export async function loadSource({
+    data = [racesdata, classesdata, beyond1stdata, equipmentdata, featsdata, mechanicsdata, combatdata, spellcastingdata, runningdata, magicitemsdata, monstersdata, conditionsdata, godsdata, planesdata, creaturesdata, npcsdata, legaldata].join("\n"),
+    idProvider = () => randomUUID()
+} = {}
+    ): Promise<{ documents: Document[], ids: string[] }> {
 
-    const splitter = RecursiveCharacterTextSplitter.fromLanguage("markdown", {
-        chunkSize: undefined,
+    
+
+    const splitter = MarkdownTextSplitter.fromLanguage("markdown", {
+        chunkSize: 10000,
         chunkOverlap: 0,
     });
 
-
-    const data = [legaldata, racesdata, classesdata, beyond1stdata, equipmentdata, featsdata, mechanicsdata, combatdata, spellcastingdata, runningdata, magicitemsdata, monstersdata, conditionsdata, godsdata, planesdata, creaturesdata, npcsdata].join("\n");
     const output = await splitter.createDocuments([data]);
-    // const output = await splitter.createDocuments([racesdata]);
+
     const ids = [];
     for (const doc of output) {
-        const toHash = doc.pageContent + JSON.stringify(doc.metadata);
-        const hash = crypto.createHash('sha256').update(toHash).digest('hex')
-        ids.push(hash)
+        const id = idProvider();
+        doc.metadata.id = id;
+        ids.push(id)
     }
     return { documents: output, ids };
 }

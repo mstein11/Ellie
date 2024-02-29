@@ -5,8 +5,6 @@ import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase"
 import { SupabaseClient, createClient } from "@supabase/supabase-js"
 import { Document } from "langchain/document";
 
-import crypto from 'crypto';
-
 
 export interface DocumentModel {
     id: string
@@ -45,7 +43,8 @@ export class VectoreStoreRepository {
             process.env.SUPABASE_URL!,
             process.env.SUPABASE_PRIVATE_KEY!,
         );
-        console.log(this.config.tableName, this.config.functionName);
+
+
         this.loadedVectoreStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
             client: this.supabaseClient,
             tableName: this.config.tableName,
@@ -67,14 +66,6 @@ export class VectoreStoreRepository {
     }
 
     async getRetriever(k: number = 5) {
-        //use supabase client to check if entries in database
-        const res = await this.supabaseClient.from(this.config.tableName).select('*', { count: 'exact' });
-        if (!res.count) {
-            await this.initStore();
-        }
-        if (!this.loadedVectoreStore) {
-            throw new Error("Vectorestore need to be loaded, call loadStore first.")
-        }
         return this.loadedVectoreStore.asRetriever(k);
     }
 
@@ -82,12 +73,6 @@ export class VectoreStoreRepository {
         const res = await this.supabaseClient.from(this.config.tableName).select('*');
         return res.data?.sort((docA: any, docB: any) => docA.metadata.loc.lines.from - docB.metadata.loc.lines.from) as DocumentModel[];
     }
-
-    hashDocument(doc: Document): string {
-        const toHash = doc.pageContent + JSON.stringify(doc.metadata);
-        return crypto.createHash('sha256').update(toHash).digest('hex')
-    }
-
 
     protected getEmbeddings(): OpenAIEmbeddings {
         return new OpenAIEmbeddings();

@@ -15,7 +15,6 @@ export function RulebookContent({scrollToId = ''}) {
   const [isLoading, setLoading] = useState(true)
 
   const {retrievalResultId } = useRetrievalResult()
-  console.log('retrievalResultId:', retrievalResultId);
 
   useEffect(() => {
     fetch('/api/content')
