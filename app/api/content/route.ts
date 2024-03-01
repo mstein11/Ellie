@@ -8,5 +8,5 @@ export async function GET() {
     const repo = new VectoreStoreRepository();
     const content = await repo.getAsContent();
     const responseData = content.map(doc => { return { id: doc.id.trim(), content: doc.content } });
-    return Response.json(responseData);
+    return Response.json(responseData, { headers: { 'Cache-Control': 'public, max-age=3600, immutable' } });
 }
