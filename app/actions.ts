@@ -12,14 +12,14 @@ export async function getRulebook(all = false) {
   return getData(all);
 }
 
-export async function getChats(userId?: string | null) {
+export async function getChats(userId?: string | null, start = 0, limit = -1) {
   if (!userId) {
     return []
   }
 
   try {
     const pipeline = kv.pipeline()
-    const chats: string[] = await kv.zrange(`user:chat:${userId}`, 0, -1, {
+    const chats: string[] = await kv.zrange(`user:chat:${userId}`, start, limit, {
       rev: true
     })
 
