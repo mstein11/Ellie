@@ -6,11 +6,13 @@ import { Button } from './ui/button'
 import { IconSpinner } from './ui/icons'
 import { getChats } from '@/app/actions'
 import { Chat } from '@/lib/types'
+import useKvStoreAvailableResult from '@/lib/hooks/use-kvstore-available'
 
 export function SidebarListClient({ userId }: { userId?: string }) {
   const [chats, setData] = useState<Chat[]>([])
   const [currentlyLoadedChats, setCurrentlyLoadedChats] = useState(0)
   const [isLoading, setLoading] = useState(true)
+  const {isRateLimited, setIsRateLimited} = useKvStoreAvailableResult();
 
   useEffect(() => {
     loadChats()
@@ -18,6 +20,13 @@ export function SidebarListClient({ userId }: { userId?: string }) {
 
   const loadChats = async (start = 0, limit = 10) => {
     const retrievedChats = await getChats(userId, start, limit);
+    if (retrievedChats === "rate-limited") {
+      setIsRateLimited(true);
+      setData(chats)
+      setLoading(false)
+      setCurrentlyLoadedChats(chats.length);
+      return;
+    }
     const newChats = [...chats, ...retrievedChats]
     setData(newChats)
     setLoading(false)
@@ -32,7 +41,12 @@ export function SidebarListClient({ userId }: { userId?: string }) {
         </div>
       ) : (
         <div className="p-8 text-center">
-          <p className="text-sm text-muted-foreground">No chat history</p>
+          {isRateLimited ? (
+            <p className="text-sm text-muted-foreground">Chat store rate limited, try again later</p>
+          ) : (
+            <p className="text-sm text-muted-foreground">No chat history</p>
+          )}
+          
         </div>
       )}
       <div className="flex justify-center p-4">

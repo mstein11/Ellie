@@ -31,7 +31,7 @@ export async function getChats(userId?: string | null, start = 0, limit = -1) {
 
     return results as Chat[]
   } catch (error) {
-    return []
+    return "rate-limited"
   }
 }
 
