@@ -12,7 +12,6 @@ export interface SidebarProps extends React.ComponentProps<'div'> {}
 export function Sidebar({ isRight, className, children }: SidebarProps & {isRight?: boolean}) {
   const { isSidebarOpen, isLoading } = useSidebar()
   const rightIsOpen = useRightSidebar((state: any) => state.rightSidebarOpen);
-  console.log("right is open: " + rightIsOpen);
 
   return (
     <div
