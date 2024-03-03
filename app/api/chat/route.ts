@@ -102,13 +102,6 @@ const formatMessage = (message: VercelChatMessage) => {
 export async function POST(req: Request) {
   const json = await req.json()
   const { messages } = json
-  const userId = (await auth())?.user.id
-
-  // if (!userId) {
-  //   return new Response('Unauthorized', {
-  //     status: 401
-  //   })
-  // }
 
   const chain = await withLangchain(json);
 
