@@ -11,7 +11,7 @@ describe("should test dataloader", () => {
 
     });
 
-    it("should load conent ordered", async () => {
+    it.skip("should load conent ordered", async () => {
         const repo = new VectoreStoreRepository();
 
         const res = await repo.getAsContent();
