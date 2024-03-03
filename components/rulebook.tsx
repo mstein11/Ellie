@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import { RulebookContent } from '@/components/rulebook-content'
 
 import { buttonVariants } from '@/components/ui/button'
-import { IconPlus } from '@/components/ui/icons'
+import { IconArrowDown } from '@/components/ui/icons'
 
 interface ChatHistoryProps {
   userId?: string
@@ -23,7 +23,7 @@ export async function Rulebook({ userId }: ChatHistoryProps) {
             'h-10 w-full justify-start bg-zinc-50 px-4 shadow-none transition-colors hover:bg-zinc-200/40 dark:bg-zinc-900 dark:hover:bg-zinc-300/10'
           )}
         >
-          <IconPlus className="-translate-x-2 stroke-2" />
+          <IconArrowDown className="-translate-x-2 stroke-2" />
             Dungeons and Dragons - Systems Reference Document
         </Link>
       </div>
