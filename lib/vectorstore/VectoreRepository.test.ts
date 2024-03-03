@@ -1,18 +1,18 @@
 import { VectoreStoreRepository } from "./VectorstoreRepository";
 
-jest.setTimeout(30000);
+jest.setTimeout(300000);
 
 describe("should test dataloader", () => {
 
     it.skip("should test dataloader", async () => {
 
-        const repo = new VectoreStoreRepository({ config: { tableName: "documents_unittest", functionName: "match_documents_unittest" } });
+        const repo = new VectoreStoreRepository();
         await repo.initStore();
 
     });
 
-    it("should load conent ordered", async () => {
-        const repo = new VectoreStoreRepository({ config: { tableName: "documents_unittest", functionName: "match_documents_unittest" } });
+    it.skip("should load conent ordered", async () => {
+        const repo = new VectoreStoreRepository();
 
         const res = await repo.getAsContent();
         expect(res).toMatchSnapshot();

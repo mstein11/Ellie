@@ -12,14 +12,14 @@ export async function getRulebook(all = false) {
   return getData(all);
 }
 
-export async function getChats(userId?: string | null) {
+export async function getChats(userId?: string | null, start = 0, limit = -1) {
   if (!userId) {
     return []
   }
 
   try {
     const pipeline = kv.pipeline()
-    const chats: string[] = await kv.zrange(`user:chat:${userId}`, 0, -1, {
+    const chats: string[] = await kv.zrange(`user:chat:${userId}`, start, limit, {
       rev: true
     })
 
@@ -31,18 +31,22 @@ export async function getChats(userId?: string | null) {
 
     return results as Chat[]
   } catch (error) {
-    return []
+    return "rate-limited"
   }
 }
 
 export async function getChat(id: string, userId: string) {
-  const chat = await kv.hgetall<Chat>(`chat:${id}`)
+  try {
+    const chat = await kv.hgetall<Chat>(`chat:${id}`)
+    if (!chat || (userId && chat.userId !== userId)) {
+    return null;
 
-  if (!chat || (userId && chat.userId !== userId)) {
-    return null
+    }
+  
+    return chat
+  } catch (error) {
+    return 'rate-limited'
   }
-
-  return chat
 }
 
 export async function removeChat({ id, path }: { id: string; path: string }) {

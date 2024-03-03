@@ -21,6 +21,9 @@ export async function generateMetadata({
   }
 
   const chat = await getChat(params.id, session.user.id)
+  if (chat === 'rate-limited') {
+    return {}
+  }
   return {
     title: chat?.title.toString().slice(0, 50) ?? 'Chat'
   }
@@ -28,12 +31,16 @@ export async function generateMetadata({
 
 export default async function ChatPage({ params }: ChatPageProps) {
   const session = await auth()
-
+  
   if (!session?.user) {
     redirect(`/sign-in?next=/chat/${params.id}`)
   }
 
   const chat = await getChat(params.id, session.user.id)
+
+  if (chat === 'rate-limited') {
+    redirect("/")
+  }
 
   if (!chat) {
     notFound()

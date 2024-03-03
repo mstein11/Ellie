@@ -20,8 +20,6 @@ const getLeftSidebar = (userId: string) => {
 export async function SidebarDesktop({isRight}:{isRight?: boolean}) {
   const session = await auth()
 
-  console.log("isRight: " + JSON.stringify(isRight));
-
   if (!session?.user?.id) {
     return null
   }
