@@ -15,20 +15,12 @@ import { ChatHistory } from './chat-history'
 import { Rulebook } from './rulebook'
 
 async function RightSidebarOrNothing() {
-  const session = await auth();
-  return (
-    <>
-      {session?.user ? (
-        <>
-          <SidebarMobile isRight={true}>
-            <Rulebook />
-          </SidebarMobile>
-          <SidebarToggle isRight={true}/>
-        </>
-      ) : (
-        <></>
-      )}
-    </>
+  return (<>
+    <SidebarMobile isRight={true}>
+      <Rulebook />
+    </SidebarMobile>
+    <SidebarToggle isRight={true}/>
+  </>
   )
 }
 
@@ -44,10 +36,9 @@ async function UserOrLogin() {
           <SidebarToggle isRight={false}/>
         </>
       ) : (
-        <Link href="/" target="_blank" rel="nofollow">
-          <IconNextChat className="size-6 mr-2 dark:hidden" inverted />
-          <IconNextChat className="hidden size-6 mr-2 dark:block" />
-        </Link>
+        <Button variant="link" asChild className="-ml-2">
+        <Link href="/newChat">New Chat</Link>
+      </Button>
       )}
       <div className="flex items-center">
         <IconSeparator className="size-6 text-muted-foreground/50" />
@@ -74,7 +65,7 @@ export function Header() {
       <div className="flex items-center justify-end space-x-2">
         <a
           target="_blank"
-          href="https://github.com/vercel/nextjs-ai-chatbot/"
+          href="https://github.com/mstein11/elminster-gpt"
           rel="noopener noreferrer"
           className={cn(buttonVariants({ variant: 'outline' }))}
         >

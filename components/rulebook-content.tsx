@@ -37,7 +37,7 @@ export function RulebookContent({scrollToId = ''}) {
     if (!rulebook) return <p>No profile data</p>
 
   return (
-    <div className="flex flex-1 flex-col overflow-hidden">
+    <div className="flex flex-1 flex-col overflow-hidden p-[25px] pt-0">
       <div className="flex-1 overflow-auto">
       {rulebook.map((doc: {content: string, id: string}) => (
           <div key={doc.id} data-id={doc.id}>

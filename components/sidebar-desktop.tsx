@@ -20,13 +20,13 @@ const getLeftSidebar = (userId: string) => {
 export async function SidebarDesktop({isRight}:{isRight?: boolean}) {
   const session = await auth()
 
+  if (isRight) {
+    return getRightSidebar();
+  }
+
   if (!session?.user?.id) {
     return null
   }
 
-  return (
-    <>
-      {isRight ? getRightSidebar() : getLeftSidebar(session.user.id)}
-    </>
-  )
+  return getLeftSidebar(session.user.id);
 }

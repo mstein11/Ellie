@@ -14,7 +14,7 @@ interface ChatHistoryProps {
 
 export async function Rulebook({ userId }: ChatHistoryProps) {
   return (
-    <div className="flex flex-col h-full p-[25px]">
+    <div className="flex flex-col h-full">
       <div className="px-2 my-4">
         <Link
           href="/"
@@ -24,7 +24,7 @@ export async function Rulebook({ userId }: ChatHistoryProps) {
           )}
         >
           <IconPlus className="-translate-x-2 stroke-2" />
-            Searchbar Placeholder
+            Dungeons and Dragons - Systems Reference Document
         </Link>
       </div>
       <React.Suspense
@@ -39,11 +39,7 @@ export async function Rulebook({ userId }: ChatHistoryProps) {
           </div>
         }
       >
-
-
-       
-        <RulebookContent scrollToId={"327"}/>
-
+        <RulebookContent />
       </React.Suspense>
     </div>
   )

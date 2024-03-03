@@ -12,10 +12,10 @@ export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
       )}
       {...props}
     >
-      Open source AI chatbot built with{' '}
-      <ExternalLink href="https://nextjs.org">Next.js</ExternalLink> and{' '}
-      <ExternalLink href="https://vercel.com/storage/kv">
-        Vercel KV
+      Open source RAG powered AI chatbot based on {' '}
+      <ExternalLink href="https://dnd.wizards.com/">Dungeon and Dragons</ExternalLink> and its{' '}
+      <ExternalLink href="https://dnd.wizards.com/resources/systems-reference-document">
+        SRD content
       </ExternalLink>
       .
     </p>

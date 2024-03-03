@@ -50,9 +50,7 @@ const saveChat = async (json: any, userId: string, content: string) => {
 
 const withLangchain = async (json: any) => {
 
-  const { messages, previewToken } = json
   const userId = (await auth())?.user.id
-  const currentMessageContent = messages[messages.length - 1].content;
 
   const repo = new VectoreStoreRepository();
   const retriever = await repo.getRetriever(5);
@@ -82,8 +80,12 @@ const withLangchain = async (json: any) => {
       temperature: 0,
       callbacks: [{
         handleLLMEnd: async (output: LLMResult) => {
-          console.log("saving chat");
-          await saveChat(json, userId ?? "no-id", output.generations[0][0].text)
+          if (userId) {
+            console.log("saving chat")
+            await saveChat(json, userId ?? "no-id", output.generations[0][0].text)
+          } else {
+            console.log("no user id found, not saving chat")
+          }
         },
       }]
     }),
@@ -99,21 +101,19 @@ const formatMessage = (message: VercelChatMessage) => {
 
 export async function POST(req: Request) {
   const json = await req.json()
-  const { messages, previewToken } = json
+  const { messages } = json
   const userId = (await auth())?.user.id
-  const formattedPreviousMessages = messages.slice(0, -1).map(formatMessage);
-  const currentMessageContent = messages[messages.length - 1].content;
 
-
-  if (!userId) {
-    return new Response('Unauthorized', {
-      status: 401
-    })
-  }
-
-  //the above OpenAIStream but now with langchain follows here
+  // if (!userId) {
+  //   return new Response('Unauthorized', {
+  //     status: 401
+  //   })
+  // }
 
   const chain = await withLangchain(json);
+
+  const formattedPreviousMessages = messages.slice(0, -1).map(formatMessage);
+  const currentMessageContent = messages[messages.length - 1].content;
 
   var stream = await chain.stream({
     input: currentMessageContent,
@@ -121,42 +121,3 @@ export async function POST(req: Request) {
   })
   return new StreamingTextResponse(stream)
 }
-
-
-
-// const res = await openai.chat.completions.create({
-//   model: 'gpt-3.5-turbo',
-//   messages,
-//   temperature: 0.7,
-//   stream: true
-// })
-
-
-
-// const stream = OpenAIStream(res, {
-//   async onCompletion(completion) {
-//     const title = json.messages[0].content.substring(0, 100)
-//     const id = json.id ?? nanoid()
-//     const createdAt = Date.now()
-//     const path = `/chat/${id}`
-//     const payload = {
-//       id,
-//       title,
-//       userId,
-//       createdAt,
-//       path,
-//       messages: [
-//         ...messages,
-//         {
-//           content: completion,
-//           role: 'assistant'
-//         }
-//       ]
-//     }
-//     await kv.hmset(`chat:${id}`, payload)
-//     await kv.zadd(`user:chat:${userId}`, {
-//       score: createdAt,
-//       member: `chat:${id}`
-//     })
-//   }
-// })

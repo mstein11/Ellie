@@ -17,6 +17,7 @@ import {
   DialogTitle
 } from '@/components/ui/dialog'
 import { useState } from 'react'
+import { useSession } from 'next-auth/react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 import { toast } from 'react-hot-toast'
@@ -34,6 +35,9 @@ export interface ChatProps extends React.ComponentProps<'div'> {
 export function Chat({ id, initialMessages, className }: ChatProps) {
   const router = useRouter()
   const path = usePathname()
+  const { data: session } = useSession();
+
+  
 
   const { setRetrievalResultId } = useRetrievalResult()
   const { isRateLimited } = useKvStoreAvailableResult();
@@ -66,7 +70,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
       }
     },
     onFinish() {
-      if (!path.includes('chat') && !isRateLimited) {
+      if (!path.includes('chat') && !isRateLimited && session?.user?.id) {
         router.push(`/chat/${id}`)
         router.refresh()
       }

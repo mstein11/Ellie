@@ -9,7 +9,7 @@ import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
 
 export const metadata = {
-  metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
+  metadataBase: new URL(`https://elminster-gpt.vercel.app/`),
   title: {
     default: 'ElminsterGPT AI Chatbot'
   },
