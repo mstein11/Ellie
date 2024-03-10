@@ -15,8 +15,6 @@ import { auth } from '@/auth'
 import { nanoid } from '@/lib/utils';
 import { kv } from '@vercel/kv';
 
-export const runtime = 'edge'
-
 const combineDocumentsFn = (docs: Document[]) => {
   const serializedDocs = docs.map((doc) => doc.pageContent);
   return serializedDocs.join("\n\n");

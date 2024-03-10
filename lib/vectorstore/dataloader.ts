@@ -35,7 +35,6 @@ export async function loadSource({
     
 
     const splitter = MarkdownTextSplitter.fromLanguage("markdown", {
-        chunkSize: 10000,
         chunkOverlap: 0,
     });
 

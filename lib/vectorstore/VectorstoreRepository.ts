@@ -1,84 +1,36 @@
-import { loadSource } from "./dataloader";
-import { OpenAIEmbeddings } from "@langchain/openai";
-import { VectorStore } from "@langchain/core/vectorstores";
-import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
-import { SupabaseClient, createClient } from "@supabase/supabase-js"
-import { Document } from "langchain/document";
-
-
-export interface DocumentModel {
-    id: string
-    content: string,
-    metadata: any,
-    embeddings: any
-}
-
+import { OpenAIEmbeddings } from '@langchain/openai'
+import { VectorStore } from '@langchain/core/vectorstores'
+import { PrismaVectorStore } from '@langchain/community/vectorstores/prisma'
+import {
+  Prisma,
+  Document as DocumentEntity,
+  PrismaClient
+} from '@prisma/client'
 
 export interface VectoreStoreRepositoryDeps {
-    sourceLoader?: (() => Promise<{ documents: Document[], ids: number[] }>)[],
-    config?: VectoreStoreRepositoryConfig
-}
-
-export interface LoadSourceResult {
-    paragraphs: string[]
-    metadata: any[]
-}
-
-export interface VectoreStoreRepositoryConfig {
-    tableName: string,
-    functionName: string
+  prisma?: PrismaClient
 }
 
 export class VectoreStoreRepository {
+  private loadedVectoreStore: VectorStore
 
-    private config: VectoreStoreRepositoryConfig;
-    private sourceLoaders: (() => Promise<{ documents: Document[], ids: string[] | number[] }>)[];
-    private supabaseClient: SupabaseClient;
-    private loadedVectoreStore: VectorStore;
+  constructor({
+    prisma = new PrismaClient()
+  }: VectoreStoreRepositoryDeps = {}) {
+    this.loadedVectoreStore = PrismaVectorStore.withModel<DocumentEntity>(
+      prisma
+    ).create(new OpenAIEmbeddings(), {
+      prisma: Prisma,
+      tableName: 'Document',
+      vectorColumnName: 'embedding',
+      columns: {
+        id: PrismaVectorStore.IdColumn,
+        content: PrismaVectorStore.ContentColumn
+      }
+    })
+  }
 
-    constructor(deps?: VectoreStoreRepositoryDeps) {
-        this.config = deps?.config ?? { tableName: "documents", functionName: "match_documents" };
-        this.sourceLoaders = deps?.sourceLoader ?? [loadSource];
-        this.supabaseClient = createClient(
-            process.env.SUPABASE_URL!,
-            process.env.SUPABASE_PRIVATE_KEY!,
-        );
-
-
-        this.loadedVectoreStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
-            client: this.supabaseClient,
-            tableName: this.config.tableName,
-            queryName: this.config.functionName,
-        });
-    }
-
-
-
-    async initStore() {
-        console.log(await this.supabaseClient.from(this.config.tableName).delete().neq("id", "0"));
-
-        for (const sourceLoader of this.sourceLoaders) {
-            const sourceLoaderResult = await sourceLoader();
-            await this.loadedVectoreStore.addDocuments(sourceLoaderResult.documents, { ids: sourceLoaderResult.ids });
-
-            await (this.loadedVectoreStore as SupabaseVectorStore).addDocuments(sourceLoaderResult.documents, { ids: sourceLoaderResult.ids });
-        }
-    }
-
-    async getRetriever(k: number = 5) {
-        return this.loadedVectoreStore.asRetriever(k);
-    }
-
-    async getAsContent(): Promise<DocumentModel[]> {
-        const res = await this.supabaseClient.from(this.config.tableName).select('*');
-        return res.data?.sort((docA: any, docB: any) => docA.metadata.loc.lines.from - docB.metadata.loc.lines.from) as DocumentModel[];
-    }
-
-    protected getEmbeddings(): OpenAIEmbeddings {
-        return new OpenAIEmbeddings();
-    }
-
-    protected getName(): string {
-        return "OpenAI";
-    }
+  async getRetriever(k: number = 5) {
+    return this.loadedVectoreStore.asRetriever(k)
+  }
 }
