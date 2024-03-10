@@ -1,3 +1,4 @@
+import { DocumentRepository } from '@/lib/dal/DocumentRepository'
 import { PrismaClient } from '@prisma/client'
 
 export const fetchCache = 'force-no-store'
@@ -7,14 +8,8 @@ export async function GET() {
 
   const prisma = new PrismaClient()
 
-  const content = await prisma.document
-    .findMany()
-    .then(docs =>
-      docs.sort(
-        (docA: any, docB: any) =>
-          docA.metadata.loc.lines.from - docB.metadata.loc.lines.from
-      )
-    )
+  const content = DocumentRepository.getInstance().getAllDocuments();
+  
   return Response.json(content, {
     headers: { 'Cache-Control': 'public, max-age=3600, immutable' }
   })
