@@ -57,12 +57,4 @@ export class VectoreStoreRepository {
     async getRetriever(k: number = 5) {
         return this.loadedVectoreStore.asRetriever(k);
     }
-    
-    protected getEmbeddings(): OpenAIEmbeddings {
-        return new OpenAIEmbeddings();
-    }
-
-    protected getName(): string {
-        return "OpenAI";
-    }
 }
