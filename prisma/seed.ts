@@ -19,19 +19,20 @@ async function main() {
 
   const source = await loadSource()
 
-  await vectorStore.addModels(
-    await prisma.$transaction(
-      source.documents.map((doc, index) =>
-        prisma.document.create({
-          data: {
-            content: doc.pageContent,
-            metadata: doc.metadata,
-            id: source.ids[index]
-          }
-        })
-      )
+  const docs = await prisma.$transaction(
+    source.documents.map((doc) =>
+      prisma.document.create({
+        data: {
+          content: doc.pageContent,
+          metadata: doc.metadata,
+          id: doc.metadata.id,
+        }
+      })
     )
   )
+  docs.forEach(async (doc) => {
+    await vectorStore.addModels([doc])
+  });
 }
 
 main()
