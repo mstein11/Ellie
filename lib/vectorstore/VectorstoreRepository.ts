@@ -1,9 +1,6 @@
-import { loadSource } from "./dataloader";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { VectorStore } from "@langchain/core/vectorstores";
-import { SupabaseVectorStore } from "@langchain/community/vectorstores/supabase";
 import { PrismaVectorStore } from '@langchain/community/vectorstores/prisma'
-import { SupabaseClient, createClient } from "@supabase/supabase-js"
 import { Document } from "langchain/document";
 import { Prisma, PrismaClient, Document as DocumentEntity } from '@prisma/client'
 
