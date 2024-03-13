@@ -57,6 +57,9 @@ const withLangchain = async (json: any) => {
     PromptTemplate.fromTemplate(`You are Elminster, a all knowing wizard whose purpose is it to answer questions about the rules of Dungeons and Dragons. 
     When you answer questions, please only use the given context. 
     
+    Conversation History:
+    {chat_history}
+
     Context: 
     {context}
 
@@ -72,6 +75,7 @@ const withLangchain = async (json: any) => {
         retrievalChain,
       ]),
       input: (input) => input.input,
+      chat_history: (input) => input.chat_history,
     },
     prompt,
     new ChatOpenAI({
