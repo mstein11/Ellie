@@ -1,12 +1,17 @@
+import { getrephraseQuestionChain } from "@/lib/langchains/rephraseQuestionChain";
 import { VectoreStoreRepository } from "@/lib/vectorstore/VectorstoreRepository";
 
 export async function POST(req: Request) {
-    const { content } = await req.json()
-
+    const { newMessage, messages } = await req.json()
+    console.log("asdasd", newMessage, messages, "asdasd");
     const repo = new VectoreStoreRepository();
-    const retriever = await repo.getRetriever(1);
+    const retriever = repo.getRetriever(1);
 
-    const documents = await retriever.getRelevantDocuments(content);
+    const rephraseQuestionChain = getrephraseQuestionChain();
+
+    const rephrasedQuestion = await rephraseQuestionChain.invoke({ input: newMessage, chat_history: messages });
+    const documents = await retriever.getRelevantDocuments(rephrasedQuestion);
+
     const res = documents.map(doc => { return { ...doc, id: doc.metadata.id } });
 
     return Response.json(res);

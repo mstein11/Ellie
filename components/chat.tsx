@@ -83,7 +83,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
   ): Promise<string | null | undefined> => {
     fetch('/api/chat/retrieve', {
       method: 'POST',
-      body: JSON.stringify(message),
+      body: JSON.stringify({ newMessage: message.content, messages: messages.map(m => m.content)}),
       headers: { 'Content-Type': 'application/json' }
     }).then(async res => {
       const json = await res.json()

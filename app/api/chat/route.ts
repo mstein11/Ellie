@@ -10,7 +10,7 @@ const saveChat = async ({ title, chatId, userId, newMessage, oldMessages} : {tit
   const createdAt = Date.now()
   const path = `/chat/${chatId}`
   const payload = {
-    chatId,
+    id: chatId,
     title,
     userId,
     createdAt,
