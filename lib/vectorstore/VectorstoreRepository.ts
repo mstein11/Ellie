@@ -32,7 +32,7 @@ export class VectoreStoreRepository {
     })
   }
 
-  async getRetriever(k: number = 5) {
+  getRetriever(k: number = 5) {
     //return this.loadedVectoreStore.asRetriever(k,undefined, undefined, undefined, undefined, true)
     return this.loadedVectoreStore.asRetriever(k)
   }
