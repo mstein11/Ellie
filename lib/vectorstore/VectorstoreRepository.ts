@@ -7,18 +7,20 @@ import {
   PrismaClient
 } from '@prisma/client'
 
+import prisma from '@/lib/dal/prisma'
+
 export interface VectoreStoreRepositoryDeps {
-  prisma?: PrismaClient
+  prismaClient?: PrismaClient
 }
 
 export class VectoreStoreRepository {
   private loadedVectoreStore: VectorStore
 
   constructor({
-    prisma = new PrismaClient()
+    prismaClient = prisma
   }: VectoreStoreRepositoryDeps = {}) {
     this.loadedVectoreStore = PrismaVectorStore.withModel<DocumentEntity>(
-      prisma
+      prismaClient
     ).create(new OpenAIEmbeddings(), {
       prisma: Prisma,
       tableName: 'Document',
@@ -31,6 +33,7 @@ export class VectoreStoreRepository {
   }
 
   async getRetriever(k: number = 5) {
+    //return this.loadedVectoreStore.asRetriever(k,undefined, undefined, undefined, undefined, true)
     return this.loadedVectoreStore.asRetriever(k)
   }
 }
