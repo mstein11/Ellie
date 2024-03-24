@@ -9,39 +9,46 @@ import { Chat } from '@/lib/types'
 import useKvStoreAvailableResult from '@/lib/hooks/use-kvstore-available'
 import useRepopulateChatHistoryResult from '@/lib/hooks/use-repopulate-chat-history'
 
-export function SidebarListClient({ userId }: { userId?: string }) {
-  const [chats, setData] = useState<Chat[]>([])
-  const [isLoading, setLoading] = useState(true)
+export function SidebarListClient({ userId, isRateLimited, chats = [] }: { userId?: string, isRateLimited: boolean, chats?: Chat[] }) {
+  const [chatsState, setChatsState] = useState<Chat[]>(chats)
+  const [isLoading, setLoading] = useState(false)
   const [maxChats, setMaxChats] = useState(10)
+  const { isRateLimitedClientState , setIsRateLimited } = useKvStoreAvailableResult((state) => { return { isRateLimitedClientState: state.isRateLimited, setIsRateLimited: state.setIsRateLimited } });
 
-  const { isRateLimited, setIsRateLimited } = useKvStoreAvailableResult();
-  const { lastPopulationRequest } = useRepopulateChatHistoryResult()
+  if (isRateLimited) {
+    setIsRateLimited(true);
+  }
 
   useEffect(() => {
-    loadChats(0, maxChats)
-  }, [lastPopulationRequest, maxChats])
+    const unsub = useRepopulateChatHistoryResult.subscribe((cur, prev) => {
+      console.log("loading Chats", cur, prev );
+      loadChats();
+    });
+    return unsub;
+  })
+  
 
-  const loadChats = async (start = 0, limit = 10) => {
-    const retrievedChats = await getChats(userId, start, limit);
+  const loadChats = async () => {
+    const retrievedChats = await getChats(userId, 0, maxChats);
     if (retrievedChats === "rate-limited") {
       setIsRateLimited(true);
-      setData(chats)
+      setChatsState(chats)
       setLoading(false)
       return;
     }
-    setData(retrievedChats)
+    setChatsState(retrievedChats)
     setLoading(false)
   }
 
   return (
     <div className="flex-1 overflow-auto">
-      {chats?.length ? (
+      {chatsState?.length ? (
         <div className="space-y-2 px-2">
-          <SidebarItems chats={chats} />
+          <SidebarItems chats={chatsState} />
         </div>
       ) : (
         <div className="p-8 text-center">
-          {isRateLimited ? (
+          {isRateLimitedClientState ? (
             <p className="text-sm text-muted-foreground">Chat store rate limited, try again later</p>
           ) : (
             <p className="text-sm text-muted-foreground">No chat history</p>
@@ -53,6 +60,7 @@ export function SidebarListClient({ userId }: { userId?: string }) {
         <Button variant="ghost" onClick={() => {
             setLoading(true)
             setMaxChats(maxChats + 10)
+            loadChats()
         }}>
           {isLoading && <IconSpinner className="mr-2" />}
           Load more
