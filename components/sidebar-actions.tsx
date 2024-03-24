@@ -23,6 +23,7 @@ import {
   TooltipContent,
   TooltipTrigger
 } from '@/components/ui/tooltip'
+import useRepopulateChatHistoryResult from '@/lib/hooks/use-repopulate-chat-history'
 
 interface SidebarActionsProps {
   chat: Chat
@@ -39,6 +40,8 @@ export function SidebarActions({
   const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false)
   const [shareDialogOpen, setShareDialogOpen] = React.useState(false)
   const [isRemovePending, startRemoveTransition] = React.useTransition()
+
+  const { requestRepopulation } = useRepopulateChatHistoryResult();
 
   return (
     <>
@@ -101,6 +104,10 @@ export function SidebarActions({
                     id: chat.id,
                     path: chat.path
                   })
+
+                  requestRepopulation();
+
+                  useRepopulateChatHistoryResult
 
                   if (result && 'error' in result) {
                     toast.error(result.error)

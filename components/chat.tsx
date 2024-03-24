@@ -25,6 +25,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { ChatRequestOptions } from 'ai'
 import useRetrievalResult from '@/lib/hooks/use-retrieval'
 import useKvStoreAvailableResult from '@/lib/hooks/use-kvstore-available'
+import useRepopulateChatHistoryResult from '@/lib/hooks/use-repopulate-chat-history'
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
@@ -41,6 +42,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
 
   const { setRetrievalResultId } = useRetrievalResult()
   const { isRateLimited } = useKvStoreAvailableResult();
+  const { requestRepopulation } = useRepopulateChatHistoryResult();
   
   const [previewToken, setPreviewToken] = useLocalStorage<string | null>(
     'ai-token',
@@ -72,7 +74,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     onFinish() {
       if (!path.includes('chat') && !isRateLimited && session?.user?.id) {
         router.push(`/chat/${id}`)
-        router.refresh()
+        requestRepopulation()
       }
     }
   })

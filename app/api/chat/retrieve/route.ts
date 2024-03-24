@@ -3,7 +3,6 @@ import { VectoreStoreRepository } from "@/lib/vectorstore/VectorstoreRepository"
 
 export async function POST(req: Request) {
     const { newMessage, messages } = await req.json()
-    console.log("asdasd", newMessage, messages, "asdasd");
     const repo = new VectoreStoreRepository();
     const retriever = repo.getRetriever(1);
 

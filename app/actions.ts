@@ -18,11 +18,16 @@ export async function getChats(userId?: string | null, start = 0, limit = -1) {
   }
 
   try {
-    const pipeline = kv.pipeline()
+
     const chats: string[] = await kv.zrange(`user:chat:${userId}`, start, limit, {
       rev: true
     })
 
+    if (!chats.length) {
+      return [];
+    }
+
+    const pipeline = kv.pipeline()
     for (const chat of chats) {
       pipeline.hgetall(chat)
     }
