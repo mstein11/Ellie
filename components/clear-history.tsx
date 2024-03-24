@@ -65,7 +65,7 @@ export function ClearHistory({
                   }
                   requestRepopulation();
                   setOpen(false)
-                  router.push('/')
+                  router.push('/newChat')
                 })
               })
             }}

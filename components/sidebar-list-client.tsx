@@ -15,7 +15,6 @@ export function SidebarListClient({ userId }: { userId?: string }) {
   const [maxChats, setMaxChats] = useState(10)
 
   const { isRateLimited, setIsRateLimited } = useKvStoreAvailableResult();
-
   const { lastPopulationRequest } = useRepopulateChatHistoryResult()
 
   useEffect(() => {
@@ -25,7 +24,6 @@ export function SidebarListClient({ userId }: { userId?: string }) {
   const loadChats = async (start = 0, limit = 10) => {
     const retrievedChats = await getChats(userId, start, limit);
     if (retrievedChats === "rate-limited") {
-      console.log("is rate limited");
       setIsRateLimited(true);
       setData(chats)
       setLoading(false)

@@ -73,7 +73,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     },
     onFinish() {
       if (!path.includes('chat') && !isRateLimited && session?.user?.id) {
-        router.push(`/chat/${id}`)
+        router.push(`/chat/${id}`, { scroll: false })
         requestRepopulation()
       }
     }

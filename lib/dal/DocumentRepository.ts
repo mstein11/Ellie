@@ -1,9 +1,10 @@
 import { PrismaClient } from '@prisma/client'
+import prismaInstance from '@/lib/dal/prisma' 
 
 export class DocumentRepository {
   private prismaClient: PrismaClient
 
-  constructor({ prisma = new PrismaClient() }: { prisma?: PrismaClient } = {}) {
+  constructor({ prisma = prismaInstance }: { prisma?: PrismaClient } = {}) {
     this.prismaClient = prisma
   }
 
