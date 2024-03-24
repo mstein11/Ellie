@@ -13,9 +13,9 @@ An RAG approach is generally two stepped. First, the relevant Documents need to 
 
 ![Embedding Step](public/Doc-Embedding-Step.drawio.png)
 
-As the diagram details, preparing input documents for retrieval augemented generation is done by:
+As the diagram details, preparing input documents for retrieval augmented generation is done by:
 1. splitting the Input into relevant chunks of a given size, 
-2. genereting the vectors through an embeddings model, and then 
+2. generating the vectors through an embeddings model, and then 
 3. saving those vectors to a vector store.
 
 ### Retrieval Step
@@ -24,10 +24,10 @@ The retrieval step allows us to embed context into an interaction with a LLM bas
 
 ![](public/Retrieval-Step.drawio.png)
 
-1. Rephrase Question to be standalone:  This step is especially important if the user asks follow up Questions. For details see Learning #1.
+1. Rephrase Question to be standalone:  This step is especially important if the user asks follow-up Questions. For details see Learning #1.
 2. Vectorize Search Query: The rephrased question gets translated into a vector representation by the embeddings model.
-3. Find Similar Documents: The vectorized rephrased Question is used to query the vector store with our input documents. A vector similarity search is done and the closest 5 vectors and their textual representation are returned. These Documents are passed on to the next step as context.
-4. The LLM (ChatGPT 3.5) takes the rephrased Question, the relevant Context and the Chat history and generates an answer based on these information.  
+3. Find Similar Documents: The vectorized rephrased Question is used to query the vector store with our input documents. A vector similarity search is done, and the closest 5 vectors and their textual representation are returned. These Documents are passed on to the next step as context.
+4. The LLM (ChatGPT 3.5) takes the rephrased Question, the relevant Context and the Chat history and generates an answer based on this information.  
 
 ## Learnings
 
@@ -41,7 +41,6 @@ For example:
 * Follow-up Question: "What spells are available?"
 * Refined Query for AI: "What spells can a Wizard cast?"
 
-
 ## References
 
 * The foundation for this project is the [nextjs ai chatbot template](https://vercel.com/templates/next.js/nextjs-ai-chatbot), enabling rapid development and deployment.
@@ -50,3 +49,4 @@ For example:
 ## Learning and Contributing
 
 Are you keen on exploring RAG, Next.js, and Large Language Models (LLMs)? Join our community! Contributing to Elminster-GPT provided me with invaluable insights into these cutting-edge technologies. Whether you're looking to learn or contribute, your involvement is welcome. Dive into the world of AI-driven Dungeons & Dragons and enhance your understanding while contributing to an exciting project.
+
