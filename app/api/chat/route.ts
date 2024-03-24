@@ -23,7 +23,7 @@ const saveChat = async ({ title, chatId, userId, newMessage, oldMessages} : {tit
       }
     ]
   }
-  await kv.hmset(`chat:${chatId}`, payload)
+  await kv.hset(`chat:${chatId}`, payload)
   await kv.zadd(`user:chat:${userId}`, {
     score: createdAt,
     member: `chat:${chatId}`
