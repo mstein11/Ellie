@@ -3,11 +3,14 @@
  */
 
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { render, screen, renderHook } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 
 import { getChats } from './../../app/actions'
 import { SidebarItems } from '../../components/sidebar-items'
+
+import useRepopulateChatHistoryResult from '../../lib/hooks/use-repopulate-chat-history'
+
 
 jest.mock('./../../app/actions.ts', () => {
   return { getChats: jest.fn() }
@@ -38,18 +41,37 @@ describe('should load the sidebar list', () => {
   })
 
   it('should load more chats by click on button', async () => {
-    const exampleChats = new Array(10).fill("someChatObj", 0, 10)
+    let exampleChats = new Array(10).fill("someChatObj", 0, 10)
     getChats.mockResolvedValue([...exampleChats])
     
-    await act(async () => render(<SidebarListClient />))
+    await act(async () => render(<SidebarListClient chats={exampleChats} />))
 
-    expect(getChats).toHaveBeenCalledWith(undefined, 0, 10)
+    expect(getChats).not.toHaveBeenCalled()
+    expect(SidebarItems).toHaveBeenCalled();
     expect(SidebarItems).toHaveBeenCalledWith({ chats: new Array(10).fill("someChatObj", 0, 10) }, expect.anything())
+
+    exampleChats = new Array(20).fill("someChatObj", 0, 20)
+    getChats.mockResolvedValue([...exampleChats])
 
     await act(async () => screen.getByText('Load more').click())
 
-    expect(getChats).toHaveBeenCalledWith(undefined, 10, 20)
+    expect(getChats).toHaveBeenCalledTimes(1)
+    expect(getChats).toHaveBeenCalledWith(undefined, 0, 20)
     expect(SidebarItems).toHaveBeenCalledWith({ chats: new Array(20).fill("someChatObj", 0, 20) }, expect.anything())
 
-  })
+  });
+
+  it('should reload chats when repopulate chats is triggered', async () => {
+    let exampleChats = new Array(10).fill("someChatObj", 0, 10)
+
+    await act(async () => render(<SidebarListClient chats={exampleChats} />))
+
+    const { result } = renderHook(() => useRepopulateChatHistoryResult());
+    await act(async () => {
+      result.current.requestRepopulation()
+    })
+
+    expect(getChats).toHaveBeenCalledTimes(1);
+
+  });
 })
