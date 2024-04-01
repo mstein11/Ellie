@@ -1,13 +1,31 @@
-import { loadSource } from "./dataloader";
-import racesdata from './data/rulebook-01-races-srd';
+import { getTablesFromDocs, loadSource, loadSourceV2 } from './dataloader'
+import legaldata from './data/rulebook-00-legal-srd'
+import racesdata from './data/rulebook-01-races-srd'
+import classesdata from './data/rulebook-02-classes-srd'
+import beyond1stdata from './data/rulebook-03-beyond1st-srd'
+import equipmentdata from './data/rulebook-04-equipments-srd'
+import featsdata from './data/rulebook-05-feats-srd'
+import mechanicsdata from './data/rulebook-06-mechanics-srd'
+import combatdata from './data/rulebook-07-combat-srd'
+import spellcastingdata from './data/rulebook-08-spellcasting-srd'
+import runningdata from './data/rulebook-09-running-srd'
+import magicitemsdata from './data/rulebook-10-magic-items-srd'
+import monstersdata from './data/rulebook-11-monsters-srd'
+import conditionsdata from './data/rulebook-12-conditions-srd'
+import godsdata from './data/rulebook-13-gods-srd'
+import planesdata from './data/rulebook-14-planes-srd'
+import creaturesdata from './data/rulebook-15-creatures-srd'
+import npcsdata from './data/rulebook-16-npcs-srd'
 
-describe("should test dataloader", () => {
-    it("should test dataloader", async () => {
-        const result = await loadSource({idProvider: () => "some-test-id-matching-schema"});
-        expect(result).toMatchSnapshot();
-    });
+describe('should test dataloader', () => {
+  it('should test dataloader', async () => {
+    const result = await loadSource({
+      idProvider: () => 'some-test-id-matching-schema'
+    })
+    expect(result).toMatchSnapshot()
+  })
 
-    it("should load spell lists", async () => {
+  it('should load spell lists', async () => {
     const data = `### The Schools of Magic
 
     Academies of magic group spells into eight categories called schools of magic. Scholars, particularly wizards, apply these categories to all spells, believing that all magic functions in essentially the same way, whether it derives from rigorous study or is bestowed by a deity.
@@ -294,12 +312,18 @@ describe("should test dataloader", () => {
     - Gate
     - Mass Heal
     - True Resurrection`
-    const result = await loadSource({data, idProvider: () => "some-test-id-matching-schema"});
-    expect(result).toMatchSnapshot();
-    });
+    const result = await loadSource({
+      data,
+      idProvider: () => 'some-test-id-matching-schema'
+    })
+    console.log(result)
 
-    it("should load large table", async () => {
-        const data = `| Level | Proficiency Bonus | Features                                          | Spells Known | 1st | 2nd | 3rd | 4th | 5th |
+    expect(result.documents.length).toBe(4)
+  })
+
+  it('should load large table', async () => {
+    // (\|.*\|\r?\n\|[-:|]*\|\r?\n)(\|.*\|\r?\n)*
+    const data = `| Level | Proficiency Bonus | Features                                          | Spells Known | 1st | 2nd | 3rd | 4th | 5th |
         |-------|-------------------|---------------------------------------------------|--------------|-----|-----|-----|-----|-----|
         | 1st   | +2                | Favored Enemy, Natural Explorer                   | -            | -   | -   | -   | -   | -   |
         | 2nd   | +2                | Fighting Style, Spellcasting                      | 2            | 2   | -   | -   | -   | -   |
@@ -320,9 +344,81 @@ describe("should test dataloader", () => {
         | 17th  | +6                | -                                                 | 10           | 4   | 3   | 3   | 3   | 1   |
         | 18th  | +6                | Feral Senses                                      | 10           | 4   | 3   | 3   | 3   | 1   |
         | 19th  | +6                | Ability Score Improvement                         | 11           | 4   | 3   | 3   | 3   | 2   |
-        | 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   |`;
+        | 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   |`
 
-        const result = await loadSource({data, idProvider: () => "some-test-id-matching-schema"});
-        expect(result).toMatchSnapshot();
+    const result = await loadSource({
+      data,
+      idProvider: () => 'some-test-id-matching-schema'
     })
-});
+    expect(result.documents.length).toBe(1)
+  })
+
+  it('test table retriever', () => {
+    //const data = [racesdata, classesdata, beyond1stdata, equipmentdata, featsdata, mechanicsdata, combatdata, spellcastingdata, runningdata, magicitemsdata, monstersdata, conditionsdata, godsdata, planesdata, creaturesdata, npcsdata, legaldata].join("\n");
+
+    const data = [
+      racesdata,
+      classesdata,
+      beyond1stdata,
+      equipmentdata,
+      featsdata,
+      mechanicsdata,
+      combatdata,
+      spellcastingdata,
+      runningdata,
+      magicitemsdata,
+      monstersdata,
+      conditionsdata,
+      godsdata,
+      planesdata,
+      creaturesdata,
+      npcsdata,
+      legaldata
+    ]
+
+    const tables = getTablesFromDocs(racesdata)
+    expect(tables.length).toBe(1)
+
+    let allTablesAsString = []
+    let index = 0
+    for (const currentData of data) {
+      const tables = getTablesFromDocs(currentData)
+      //expect(tables.length).toBeGreaterThan(0);
+
+      for (const table of tables) {
+        const tableString = currentData.substring(table.start, table.end)
+        const currentDataset = index
+        allTablesAsString.push({ currentDataset, tableString })
+      }
+      index++ //ugly af
+    }
+    expect(allTablesAsString).toMatchSnapshot(
+      'dataloader.test.ts: test table retriever'
+    )
+  })
+
+  it('test v2', async () => {
+    const result = await loadSourceV2({
+      idProvider: () => 'some-test-id-matching-schema'
+    })
+    const res = result.map((item: any) => {
+      return { ...item, parentSlice: null }
+    })
+
+    const largeDocs = res
+      .filter((item: any) => item.data.length > 1000)
+      .sort((a: any, b: any) => a.data.length - b.data.length)
+    console.log('large docs: ' + largeDocs.length)
+    console.log('all docs: ' + res.length)
+    // expect(largeDocs).toMatchSnapshot()
+
+    expect(
+      res.sort((a: any, b: any) => a.data.length - b.data.length)
+    ).toMatchSnapshot()
+    expect({
+      length: res.length,
+      lengthGreater1000: largeDocs.length
+    }).toMatchSnapshot()
+})
+  
+})
