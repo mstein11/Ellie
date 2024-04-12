@@ -155,8 +155,8 @@ function handleTable(
               tableSlice.endIndexInParent + 1,
               input.data.length
             ),
-            startIndexInParent: tableSlice.endIndexInParent,
-            startIndexInDoc: input.startIndexInDoc + tableSlice.endIndexInParent,
+            startIndexInParent: tableSlice.endIndexInParent + 1,
+            startIndexInDoc: input.startIndexInDoc + tableSlice.endIndexInParent + 1,
             endIndexInParent: input.data.length - 1,
             endIndexInDoc: input.startIndexInDoc + input.data.length - 1,
             length: input.data.length - 1 - tableSlice.endIndexInParent,
@@ -320,8 +320,8 @@ export async function loadSourceV2WithLangchainFormat({
         id: idProvider(),
         loc: {
           lines: {
-            from: "todo",
-            to: "todo"
+            from: data.substring(0, item.startIndexInDoc + 1).match(/\n/g)?.length ?? 0,
+            to: data.substring(0, item.endIndexInDoc + 1).match(/\n/g)?.length ?? 0
           },
           characters: {
             from: item.startIndexInDoc,

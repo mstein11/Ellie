@@ -136,7 +136,15 @@ SomeTextAfterTable`
     expect(result[0].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |\n'
     )
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(89)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(3)
     expect(result[1].pageContent).toBe('SomeTextAfterTable')
+    expect(result[1].metadata.loc.characters.from).toBe(90)
+    expect(result[1].metadata.loc.characters.to).toBe(107)
+    expect(result[1].metadata.loc.lines.from).toBe(3)
+    expect(result[1].metadata.loc.lines.to).toBe(3)
   })
 
   it('should not loose text before table', async () => {
@@ -153,9 +161,17 @@ SomeTextAfterTable`
 
     expect(result.length).toBe(2)
     expect(result[0].pageContent).toBe('SomeTextBeforeTable\n')
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(19)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(1)
     expect(result[1].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |'
     )
+    expect(result[1].metadata.loc.characters.from).toBe(20)
+    expect(result[1].metadata.loc.characters.to).toBe(108)
+    expect(result[1].metadata.loc.lines.from).toBe(1)
+    expect(result[1].metadata.loc.lines.to).toBe(3)
   })
 
   it('should not loose text between tables', async () => {
@@ -181,13 +197,19 @@ SomeTextBetweenTable
     )
     expect(result[0].metadata.loc.characters.from).toBe(0)
     expect(result[0].metadata.loc.characters.to).toBe(89)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(3)
     expect(result[1].pageContent).toBe('\nSomeTextBetweenTable\n\n')
     expect(result[1].metadata.loc.characters.from).toBe(90)
     expect(result[1].metadata.loc.characters.to).toBe(112)
+    expect(result[1].metadata.loc.lines.from).toBe(4)
+    expect(result[1].metadata.loc.lines.to).toBe(6)
     expect(result[2].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 2nd   | +2                |'
     )
     expect(result[2].metadata.loc.characters.from).toBe(113)
     expect(result[2].metadata.loc.characters.to).toBe(201)
+    expect(result[2].metadata.loc.lines.from).toBe(6)
+    expect(result[2].metadata.loc.lines.to).toBe(8)
   })
 })

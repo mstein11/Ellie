@@ -55773,8 +55773,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 1978,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 23487,
-    "startIndexInParent": 1977,
+    "startIndexInDoc": 23488,
+    "startIndexInParent": 1978,
   },
   {
     "data": "
@@ -55783,8 +55783,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 3755,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 34104,
-    "startIndexInParent": 3754,
+    "startIndexInDoc": 34105,
+    "startIndexInParent": 3755,
   },
   {
     "data": "
@@ -55793,8 +55793,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 3911,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 47620,
-    "startIndexInParent": 3910,
+    "startIndexInDoc": 47621,
+    "startIndexInParent": 3911,
   },
   {
     "data": "
@@ -55803,8 +55803,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 3382,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 60985,
-    "startIndexInParent": 3381,
+    "startIndexInDoc": 60986,
+    "startIndexInParent": 3382,
   },
   {
     "data": "
@@ -55813,8 +55813,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 1822,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 77730,
-    "startIndexInParent": 1821,
+    "startIndexInDoc": 77731,
+    "startIndexInParent": 1822,
   },
   {
     "data": "
@@ -55823,8 +55823,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 2853,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 85941,
-    "startIndexInParent": 2852,
+    "startIndexInDoc": 85942,
+    "startIndexInParent": 2853,
   },
   {
     "data": "
@@ -55833,8 +55833,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 2328,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 99022,
-    "startIndexInParent": 2327,
+    "startIndexInDoc": 99023,
+    "startIndexInParent": 2328,
   },
   {
     "data": "
@@ -55843,8 +55843,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 2811,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 116191,
-    "startIndexInParent": 2810,
+    "startIndexInDoc": 116192,
+    "startIndexInParent": 2811,
   },
   {
     "data": "
@@ -55853,8 +55853,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 3671,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 140565,
-    "startIndexInParent": 3670,
+    "startIndexInDoc": 140566,
+    "startIndexInParent": 3671,
   },
   {
     "data": "
@@ -55863,8 +55863,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 3164,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 154811,
-    "startIndexInParent": 3163,
+    "startIndexInDoc": 154812,
+    "startIndexInParent": 3164,
   },
   {
     "data": "
@@ -55873,8 +55873,8 @@ exports[`should test dataloader test v2 2`] = `
     "endIndexInParent": 2965,
     "length": 1,
     "parentSlice": null,
-    "startIndexInDoc": 176409,
-    "startIndexInParent": 2964,
+    "startIndexInDoc": 176410,
+    "startIndexInParent": 2965,
   },
   {
     "data": "Elf
@@ -62986,8 +62986,8 @@ While you are transformed, the following rules apply:
     "endIndexInParent": 3461,
     "length": 2526,
     "parentSlice": null,
-    "startIndexInDoc": 64423,
-    "startIndexInParent": 935,
+    "startIndexInDoc": 64424,
+    "startIndexInParent": 936,
   },
   {
     "data": "| Level | Proficiency Bonus | Features                                          | Spells Known | 1st | 2nd | 3rd | 4th | 5th |
