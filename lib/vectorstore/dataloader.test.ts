@@ -169,19 +169,25 @@ SomeTextBetweenTable
 |-------|-------------------|
 | 2nd   | +2                |`
 
-    const result = await loadSourceV2({
+    const result = await loadSourceV2WithLangchainFormat({
       maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
 
     expect(result.length).toBe(3)
-    expect(result[0].data).toBe(
+    expect(result[0].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |\n'
     )
-    expect(result[1].data).toBe('\nSomeTextBetweenTable\n\n')
-    expect(result[2].data).toBe(
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(89)
+    expect(result[1].pageContent).toBe('\nSomeTextBetweenTable\n\n')
+    expect(result[1].metadata.loc.characters.from).toBe(90)
+    expect(result[1].metadata.loc.characters.to).toBe(112)
+    expect(result[2].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 2nd   | +2                |'
     )
+    expect(result[2].metadata.loc.characters.from).toBe(113)
+    expect(result[2].metadata.loc.characters.to).toBe(201)
   })
 })

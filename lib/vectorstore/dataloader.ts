@@ -22,13 +22,14 @@ import godsdata from './data/rulebook-13-gods-srd'
 import planesdata from './data/rulebook-14-planes-srd'
 import creaturesdata from './data/rulebook-15-creatures-srd'
 import npcsdata from './data/rulebook-16-npcs-srd'
+import assert from 'assert'
 
 type DocumentSlice = {
   data: string
-  startInParent: number
-  startInDoc: number
-  endInDoc: number
-  endInParent: number
+  startIndexInParent: number
+  startIndexInDoc: number
+  endIndexInDoc: number
+  endIndexInParent: number
   length: number
   parentSlice: DocumentSlice | null
   children?: DocumentSlice[]
@@ -80,8 +81,10 @@ const defaultRegexes = [
 function getPositionsOfNeedle(inputString: string, needel: RegExp) {
   let positions = []
   let match = needel.exec(inputString)
+  
   while (match) {
-    positions.push({ start: match.index, end: match.index + match[0].length })
+    assert(match[0].length !== 0)
+    positions.push({ start: match.index, end: match.index + match[0].length - 1 })
     match = needel.exec(inputString)
   }
   return positions
@@ -98,12 +101,12 @@ function handleTable(
 
   const tableSlices = subSlicePositions.map((subSlicePosition, index) => {
     return {
-      data: input.data.substring(subSlicePosition.start, subSlicePosition.end),
-      startInParent: subSlicePosition.start,
-      startInDoc: input.startInDoc + subSlicePosition.start,
-      endInParent: subSlicePosition.end,
-      endInDoc: input.startInDoc + subSlicePosition.end,
-      length: subSlicePosition.end - subSlicePosition.start,
+      data: input.data.substring(subSlicePosition.start, subSlicePosition.end + 1),
+      startIndexInParent: subSlicePosition.start,
+      startIndexInDoc: input.startIndexInDoc + subSlicePosition.start,
+      endIndexInParent: subSlicePosition.end,
+      endIndexInDoc: input.startIndexInDoc + subSlicePosition.end,
+      length: subSlicePosition.end - subSlicePosition.start + 1,
       parentSlice: input
     }
   })
@@ -113,50 +116,50 @@ function handleTable(
       //beginning until table
       const slices = []
       if (index === 0) {
-        if (tableSlice.startInParent !== 0) {
+        if (tableSlice.startIndexInParent !== 0) {
           //first table but not at the beginning
           slices.push({
-            data: input.data.substring(0, tableSlice.startInParent),
-            startInParent: 0,
-            startInDoc: input.startInDoc,
-            endInParent: tableSlice.startInParent,
-            endInDoc: input.startInDoc + tableSlice.startInParent,
-            length: tableSlice.startInParent,
+            data: input.data.substring(0, tableSlice.startIndexInParent),
+            startIndexInParent: 0,
+            startIndexInDoc: input.startIndexInDoc,
+            endIndexInParent: tableSlice.startIndexInParent - 1,
+            endIndexInDoc: input.startIndexInDoc + tableSlice.startIndexInParent - 1,
+            length: tableSlice.startIndexInParent,
             parentSlice: input
           })
         }
       } else {
-        if (tableSlices[index - 1].endInParent !== tableSlice.startInParent) {
+        if (tableSlices[index - 1].endIndexInParent !== tableSlice.startIndexInParent + 1) {
           //text between tables
           slices.push({
             data: input.data.substring(
-              tableSlices[index - 1].endInParent,
-              tableSlice.startInParent
+              tableSlices[index - 1].endIndexInParent + 1,
+              tableSlice.startIndexInParent
             ),
-            startInParent: tableSlices[index - 1].endInParent,
-            startInDoc: input.startInDoc + tableSlices[index - 1].endInParent,
-            endInParent: tableSlice.startInParent,
-            endInDoc: input.startInDoc + tableSlice.startInParent,
+            startIndexInParent: tableSlices[index - 1].endIndexInParent + 1,
+            startIndexInDoc: input.startIndexInDoc + tableSlices[index - 1].endIndexInParent + 1,
+            endIndexInParent: tableSlice.startIndexInParent - 1,
+            endIndexInDoc: input.startIndexInDoc + tableSlice.startIndexInParent - 1,
             length:
-              tableSlice.startInParent - tableSlices[index - 1].endInParent,
+              tableSlice.startIndexInParent - tableSlices[index - 1].endIndexInParent,
             parentSlice: input
           })
         }
       }
 
       if (index === tableSlices.length - 1) {
-        if (tableSlice.endInParent !== input.data.length) {
+        if (tableSlice.endIndexInParent !== input.data.length - 1) {
           //last table but not at the end
           slices.push({
             data: input.data.substring(
-              tableSlice.endInParent,
+              tableSlice.endIndexInParent + 1,
               input.data.length
             ),
-            startInParent: tableSlice.endInParent,
-            startInDoc: input.startInDoc + tableSlice.endInParent,
-            endInParent: input.data.length - 1,
-            endInDoc: input.startInDoc + input.data.length - 1,
-            length: input.data.length - 1 - tableSlice.endInParent,
+            startIndexInParent: tableSlice.endIndexInParent,
+            startIndexInDoc: input.startIndexInDoc + tableSlice.endIndexInParent,
+            endIndexInParent: input.data.length - 1,
+            endIndexInDoc: input.startIndexInDoc + input.data.length - 1,
+            length: input.data.length - 1 - tableSlice.endIndexInParent,
             parentSlice: input
           })
         }
@@ -167,7 +170,7 @@ function handleTable(
     .flat()
 
   tableSlices.push(...slicesAroundTables)
-  tableSlices.sort((a, b) => a.startInParent - b.startInParent)
+  tableSlices.sort((a, b) => a.startIndexInParent - b.startIndexInParent)
 
   input.children = tableSlices
   return tableSlices
@@ -200,19 +203,19 @@ function prepareLvl2Headings(
 
   return subSlicePositions.map((subSlicePosition, index) => {
     //this does not work for tables, table can be closed and afterwards there can be text
-    let endOfSubSlice = input.data.length
+    let endIndexSubSlice = input.data.length - 1
     if (index < subSlicePositions.length - 1) {
       //the start of the next slice is the end of the current slice
-      endOfSubSlice = subSlicePositions[index + 1].start - 1
+      endIndexSubSlice = subSlicePositions[index + 1].start - 1
     }
 
     const subSlice = {
-      data: input.data.substring(subSlicePosition.start, endOfSubSlice),
-      startInParent: subSlicePosition.start,
-      startInDoc: input.startInDoc + subSlicePosition.start,
-      endInParent: endOfSubSlice,
-      endInDoc: input.startInDoc + endOfSubSlice,
-      length: endOfSubSlice - subSlicePosition.start,
+      data: input.data.substring(subSlicePosition.start, endIndexSubSlice + 1),
+      startIndexInParent: subSlicePosition.start,
+      startIndexInDoc: input.startIndexInDoc + subSlicePosition.start,
+      endIndexInParent: endIndexSubSlice,
+      endIndexInDoc: input.startIndexInDoc + endIndexSubSlice,
+      length: endIndexSubSlice - subSlicePosition.start + 1,
       parentSlice: input
     }
     input.children = [subSlice]
@@ -265,10 +268,10 @@ export async function loadSourceV2({
 } = {}): Promise<DocumentSlice[]> {
   const rootDocSlice: DocumentSlice = {
     data,
-    startInParent: 0,
-    startInDoc: 0,
-    endInDoc: data.length,
-    endInParent: data.length,
+    startIndexInParent: 0,
+    startIndexInDoc: 0,
+    endIndexInDoc: data.length,
+    endIndexInParent: data.length,
     length: data.length,
     parentSlice: null,
     children: []
@@ -317,8 +320,12 @@ export async function loadSourceV2WithLangchainFormat({
         id: idProvider(),
         loc: {
           lines: {
-            from: item.startInDoc,
-            to: item.endInDoc
+            from: "todo",
+            to: "todo"
+          },
+          characters: {
+            from: item.startIndexInDoc,
+            to: item.endIndexInDoc
           }
         }
       }
