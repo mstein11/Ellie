@@ -157,4 +157,31 @@ SomeTextAfterTable`
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |'
     )
   })
+
+  it('should not loose text between tables', async () => {
+    const text = `| Level | Proficiency Bonus |
+|-------|-------------------|
+| 1st   | +2                |
+
+SomeTextBetweenTable
+
+| Level | Proficiency Bonus |
+|-------|-------------------|
+| 2nd   | +2                |`
+
+    const result = await loadSourceV2({
+      maxLength: 50,
+      idProvider: () => 'some-test-id-matching-schema',
+      data: text
+    })
+
+    expect(result.length).toBe(3)
+    expect(result[0].data).toBe(
+      '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |\n'
+    )
+    expect(result[1].data).toBe('\nSomeTextBetweenTable\n\n')
+    expect(result[2].data).toBe(
+      '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 2nd   | +2                |'
+    )
+  })
 })
