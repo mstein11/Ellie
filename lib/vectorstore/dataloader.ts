@@ -273,8 +273,8 @@ export async function loadSourceV2({
     data,
     startIndexInParent: 0,
     startIndexInDoc: 0,
-    endIndexInDoc: data.length,
-    endIndexInParent: data.length,
+    endIndexInDoc: data.length - 1,
+    endIndexInParent: data.length - 1,
     length: data.length,
     parentSlice: null,
     children: []
@@ -315,7 +315,7 @@ export async function loadSourceV2WithLangchainFormat({
 } = {}): Promise<Document[]> {
 
   const res = await loadSourceV2({data, idProvider, maxLength, splitterRegexes})
-  const relevantSlices = res.filter((item) => !item.children); 
+  const relevantSlices = res.filter((item) => !item.children || item.children.length === 0); 
   const langchainDocs = relevantSlices.map((item: DocumentSlice) => {
     return {
       pageContent: item.data,

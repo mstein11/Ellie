@@ -134,9 +134,7 @@ The Heading
     })
 
     expect(result.length).toBe(2)
-    expect(result[0].pageContent).toBe(
-      'SomeTextBeforeHeading \n\n'
-    )
+    expect(result[0].pageContent).toBe('SomeTextBeforeHeading \n\n')
     expect(result[0].metadata.loc.characters.from).toBe(0)
     expect(result[0].metadata.loc.characters.to).toBe(23)
     expect(result[0].metadata.loc.lines.from).toBe(0)
@@ -146,6 +144,31 @@ The Heading
     expect(result[1].metadata.loc.characters.to).toBe(47)
     expect(result[1].metadata.loc.lines.from).toBe(2)
     expect(result[1].metadata.loc.lines.to).toBe(4)
+  })
+
+  it('should not split if maxLength is long enough', async () => {
+    const text = `The Heading #1
+    ===========
+
+    Some Text
+
+    The Heading #2
+    ==============
+
+    Some other Text`
+
+    const result = await loadSourceV2WithLangchainFormat({
+      maxLength: 1000,
+      idProvider: () => 'some-test-id-matching-schema',
+      data: text
+    })
+
+    expect(result.length).toBe(1)
+    expect(result[0].pageContent).toBe(text)
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(104)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(8)
   })
 })
 
