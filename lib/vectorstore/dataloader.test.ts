@@ -119,6 +119,36 @@ You start with the following equipment, in addition to the equipment granted by 
   })
 })
 
+describe('first level heading', () => {
+  it('should not loose text after before heading', async () => {
+    const text = `SomeTextBeforeHeading 
+
+The Heading
+===========
+`
+
+    const result = await loadSourceV2WithLangchainFormat({
+      maxLength: 10,
+      idProvider: () => 'some-test-id-matching-schema',
+      data: text
+    })
+
+    expect(result.length).toBe(2)
+    expect(result[0].pageContent).toBe(
+      'SomeTextBeforeHeading \n\n'
+    )
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(23)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(2)
+    expect(result[1].pageContent).toBe('The Heading\n===========\n')
+    expect(result[1].metadata.loc.characters.from).toBe(24)
+    expect(result[1].metadata.loc.characters.to).toBe(47)
+    expect(result[1].metadata.loc.lines.from).toBe(2)
+    expect(result[1].metadata.loc.lines.to).toBe(4)
+  })
+})
+
 describe('table splitt logic', () => {
   it('should not loose text after table', async () => {
     const text = `| Level | Proficiency Bonus |

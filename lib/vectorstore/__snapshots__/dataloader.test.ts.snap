@@ -55357,6 +55357,17 @@ The amount of the extra damage increases as you gain levels in this class, as sh
 
 
 ---xxx---
+
+***Tinker.*** You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
+
+When you create a device, choose one of the following options:
+
+- *Clockwork Toy.* This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
+- *Fire Starter.* The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
+- *Music Box.* When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed.
+
+
+---xxx---
 #### The Barbarian
 
 
@@ -55385,6 +55396,24 @@ The amount of the extra damage increases as you gain levels in this class, as sh
 | 20th   | +6                | Primal Champion               | Unlimited | +4          |
 
 ---xxx---
+
+
+---xxx---
+### Rage
+
+In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.
+
+While raging, you gain the following benefits if you aren’t wearing heavy armor:
+
+- You have advantage on Strength checks and Strength saving throws.
+- When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.
+- You have resistance to bludgeoning, piercing, and slashing damage.
+
+If you are able to cast spells, you can’t cast them or concentrate on them while raging.
+
+Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
+
+Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.
 
 
 ---xxx---
@@ -55419,6 +55448,28 @@ The amount of the extra damage increases as you gain levels in this class, as sh
 
 
 ---xxx---
+### Bardic Inspiration
+
+You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.
+
+Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.
+
+You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.
+
+Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.
+
+
+---xxx---
+### College of Lore
+
+Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.
+
+The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the bard would rather be honest than politic.
+
+The college’s members gather in libraries and sometimes in actual colleges, complete with classrooms and dormitories, to share their lore with one another. They also meet at festivals or affairs of state, where they can expose corruption, unravel lies, and poke fun at self-important figures of authority.
+
+
+---xxx---
 
 **Proficiency Cantrips** ̶**Spell Slots per Spell Level**̶
 
@@ -55448,6 +55499,19 @@ The amount of the extra damage increases as you gain levels in this class, as sh
 | 20th  | +6                | Divine Intervention improvement                                         | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
 ---xxx---
+
+
+---xxx---
+#### Preparing and Casting Spells
+
+The Cleric table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you are a 3rd-level cleric, you have four
+1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds*, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
 
 
 ---xxx---
@@ -55571,6 +55635,19 @@ While you are transformed, the following rules apply:
 
 
 ---xxx---
+### Martial Arts
+
+At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two- handed or heavy property.
+
+You gain the following benefits while you are unarmed or wielding only monk weapons and you aren’t wearing armor or wielding a shield:
+- You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.
+- You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.
+- When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven’t already taken a bonus action this turn.
+
+Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon.
+
+
+---xxx---
 #### The Paladin
 
 
@@ -55602,6 +55679,18 @@ While you are transformed, the following rules apply:
 
 
 ---xxx---
+#### Preparing and Casting Spells
+
+The Paladin table shows how many spell slots you have to cast your spells. To cast one of your paladin spells of 1st level or higher, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of paladin spells that are available for you to cast, choosing from the paladin spell list. When you do so, choose a number of paladin spells equal to your Charisma modifier + half your paladin level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you are a 5th-level paladin, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds,* you can cast it using a 1st-level or a 2nd- level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of paladin spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
+
+
+---xxx---
 #### The Ranger
 
 
@@ -55630,6 +55719,22 @@ While you are transformed, the following rules apply:
 | 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   |
 
 ---xxx---
+
+
+---xxx---
+### Natural Explorer
+
+You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, or swamp. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you’re proficient in.
+
+While traveling for an hour or more in your favored terrain, you gain the following benefits:
+- Difficult terrain doesn’t slow your group’s travel.
+- Your group can’t become lost except by magical means.
+- Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.
+- If you are traveling alone, you can move stealthily at a normal pace.
+- When you forage, you find twice as much food as you normally would.
+- While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
+
+You choose additional favored terrain types at 6th and 10th level.
 
 
 ---xxx---
@@ -55723,6 +55828,16 @@ While you are transformed, the following rules apply:
 
 
 ---xxx---
+#### Pact of the Blade
+
+You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+
+Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.
+
+You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can’t affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.
+
+
+---xxx---
 #### The Wizard
 
 
@@ -55751,6 +55866,18 @@ While you are transformed, the following rules apply:
 | 20th  | +6                | Signature Spell                | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
 ---xxx---
+
+
+---xxx---
+#### Preparing and Casting Spells
+
+The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you’re a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell *magic missile,* you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.
 
 "
 `;
@@ -62847,6 +62974,203 @@ On your adventures, you can add other ritual spells to your Book of Shadows. Whe
     "startIndexInParent": 1037,
   },
   {
+    "data": "### Bardic Inspiration
+
+You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.
+
+Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.
+
+You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.
+
+Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.
+
+",
+    "endIndexInDoc": 37406,
+    "endIndexInParent": 7913,
+    "length": 1024,
+    "parentSlice": null,
+    "startIndexInDoc": 36383,
+    "startIndexInParent": 6890,
+  },
+  {
+    "data": "### Rage
+
+In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.
+
+While raging, you gain the following benefits if you aren’t wearing heavy armor:
+
+- You have advantage on Strength checks and Strength saving throws.
+- When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.
+- You have resistance to bludgeoning, piercing, and slashing damage.
+
+If you are able to cast spells, you can’t cast them or concentrate on them while raging.
+
+Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
+
+Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.
+
+",
+    "endIndexInDoc": 24525,
+    "endIndexInParent": 3856,
+    "length": 1037,
+    "parentSlice": null,
+    "startIndexInDoc": 23489,
+    "startIndexInParent": 2820,
+  },
+  {
+    "data": "### College of Lore
+
+Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.
+
+The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the bard would rather be honest than politic.
+
+The college’s members gather in libraries and sometimes in actual colleges, complete with classrooms and dormitories, to share their lore with one another. They also meet at festivals or affairs of state, where they can expose corruption, unravel lies, and poke fun at self-important figures of authority.
+
+",
+    "endIndexInDoc": 41283,
+    "endIndexInParent": 1067,
+    "length": 1068,
+    "parentSlice": null,
+    "startIndexInDoc": 40216,
+    "startIndexInParent": 0,
+  },
+  {
+    "data": "### Natural Explorer
+
+You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, or swamp. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you’re proficient in.
+
+While traveling for an hour or more in your favored terrain, you gain the following benefits:
+- Difficult terrain doesn’t slow your group’s travel.
+- Your group can’t become lost except by magical means.
+- Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.
+- If you are traveling alone, you can move stealthily at a normal pace.
+- When you forage, you find twice as much food as you normally would.
+- While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
+
+You choose additional favored terrain types at 6th and 10th level.
+
+",
+    "endIndexInDoc": 118189,
+    "endIndexInParent": 5713,
+    "length": 1092,
+    "parentSlice": null,
+    "startIndexInDoc": 117098,
+    "startIndexInParent": 4622,
+  },
+  {
+    "data": "
+***Tinker.*** You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
+
+When you create a device, choose one of the following options:
+
+- *Clockwork Toy.* This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
+- *Fire Starter.* The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
+- *Music Box.* When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed.
+
+",
+    "endIndexInDoc": 15986,
+    "endIndexInParent": 1146,
+    "length": 1147,
+    "parentSlice": null,
+    "startIndexInDoc": 14840,
+    "startIndexInParent": 0,
+  },
+  {
+    "data": "#### Preparing and Casting Spells
+
+The Cleric table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you are a 3rd-level cleric, you have four
+1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds*, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
+
+",
+    "endIndexInDoc": 49114,
+    "endIndexInParent": 1492,
+    "length": 1189,
+    "parentSlice": null,
+    "startIndexInDoc": 47926,
+    "startIndexInParent": 304,
+  },
+  {
+    "data": "#### Pact of the Blade
+
+You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+
+Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.
+
+You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can’t affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.
+
+",
+    "endIndexInDoc": 159727,
+    "endIndexInParent": 1833,
+    "length": 1207,
+    "parentSlice": null,
+    "startIndexInDoc": 158521,
+    "startIndexInParent": 627,
+  },
+  {
+    "data": "#### Preparing and Casting Spells
+
+The Paladin table shows how many spell slots you have to cast your spells. To cast one of your paladin spells of 1st level or higher, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of paladin spells that are available for you to cast, choosing from the paladin spell list. When you do so, choose a number of paladin spells equal to your Charisma modifier + half your paladin level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you are a 5th-level paladin, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds,* you can cast it using a 1st-level or a 2nd- level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of paladin spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
+
+",
+    "endIndexInDoc": 102856,
+    "endIndexInParent": 1365,
+    "length": 1229,
+    "parentSlice": null,
+    "startIndexInDoc": 101628,
+    "startIndexInParent": 137,
+  },
+  {
+    "data": "#### Preparing and Casting Spells
+
+The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
+
+You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.
+
+For example, if you’re a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell *magic missile,* you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
+
+You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.
+
+",
+    "endIndexInDoc": 178286,
+    "endIndexInParent": 1875,
+    "length": 1286,
+    "parentSlice": null,
+    "startIndexInDoc": 177001,
+    "startIndexInParent": 590,
+  },
+  {
+    "data": "### Martial Arts
+
+At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two- handed or heavy property.
+
+You gain the following benefits while you are unarmed or wielding only monk weapons and you aren’t wearing armor or wielding a shield:
+- You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.
+- You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.
+- When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven’t already taken a bonus action this turn.
+
+Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon.
+
+",
+    "endIndexInDoc": 87461,
+    "endIndexInParent": 5179,
+    "length": 1345,
+    "parentSlice": null,
+    "startIndexInDoc": 86117,
+    "startIndexInParent": 3835,
+  },
+  {
     "data": "| Level | Proficiency Bonus | Features                                          |
 |-------|-------------------|---------------------------------------------------|
 | 1st   | +2                | Fighting Style, Second Wind                       |
@@ -63242,7 +63566,7 @@ While you are transformed, the following rules apply:
 
 exports[`should test dataloader test v2 3`] = `
 {
-  "length": 520,
-  "lengthGreater1000": 13,
+  "length": 530,
+  "lengthGreater1000": 23,
 }
 `;

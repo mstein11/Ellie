@@ -99,6 +99,10 @@ function handleTable(
     patternConfig.pattern
   )
 
+  if (subSlicePositions.length === 0) {
+    return [input]
+  }
+
   const tableSlices = subSlicePositions.map((subSlicePosition, index) => {
     return {
       data: input.data.substring(subSlicePosition.start, subSlicePosition.end + 1),
@@ -198,11 +202,10 @@ function prepareLvl2Headings(
     const startOfFirstSubslice = subSlicePositions.toSorted(
       (a, b) => a.start - b.start
     )[0]
-    subSlicePositions.unshift({ start: 0, end: startOfFirstSubslice.start })
+    subSlicePositions.unshift({ start: 0, end: startOfFirstSubslice.start - 1 })
   }
 
   return subSlicePositions.map((subSlicePosition, index) => {
-    //this does not work for tables, table can be closed and afterwards there can be text
     let endIndexSubSlice = input.data.length - 1
     if (index < subSlicePositions.length - 1) {
       //the start of the next slice is the end of the current slice
@@ -282,11 +285,6 @@ export async function loadSourceV2({
   const finalSlices = []
 
   do {
-    if (counter > splitterRegexes.length - 1 || currentLevel.length === 0) {
-      finalSlices.push(...currentLevel)
-      break
-    }
-
     finalSlices.push(
       ...currentLevel.filter(curLvl => curLvl.data.length <= maxLength)
     )
@@ -299,6 +297,11 @@ export async function loadSourceV2({
       .flat()
 
     counter++
+
+    if (counter > splitterRegexes.length - 1 || currentLevel.length === 0) {
+      finalSlices.push(...currentLevel)
+      break
+    }
   } while (currentLevel.some(curlvl => curlvl.data.length > maxLength))
 
   return finalSlices
