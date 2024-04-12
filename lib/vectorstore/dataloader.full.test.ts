@@ -9,9 +9,7 @@ describe('should test dataloader', () => {
   })
 
   it('test v2', async () => {
-    const result = await loadSourceV2({
-      idProvider: () => 'some-test-id-matching-schema'
-    })
+    const result = await loadSourceV2()
     const res = result.map((item: any) => {
       return { ...item, parentSlice: null }
     })

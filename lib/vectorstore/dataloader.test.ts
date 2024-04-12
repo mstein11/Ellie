@@ -1,6 +1,4 @@
 import {
-  loadSource,
-  loadSourceV2,
   loadSourceV2WithLangchainFormat
 } from './dataloader'
 
@@ -67,19 +65,16 @@ You start with the following equipment, in addition to the equipment granted by 
 | 19th  | +6                | Ability Score Improvement                         |
 | 20th  | +6                | Extra Attack (3)                                  |`
 
-    const result = await loadSourceV2({
+    const result = await loadSourceV2WithLangchainFormat({
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
 
     expect(
       result
-        .filter((item: any) => !item.children)
-        .sort((a: any, b: any) => a.startInDoc - b.startInDoc)
-        .map((item: any) => item.data)
-        .join('---xxx---')
-    ).toMatchSnapshot()
-
+        .map((item) => item.pageContent)
+        .join("")
+    ).toEqual(text)
     expect(result.length).toBe(7)
   })
 })

@@ -267,7 +267,6 @@ export async function loadSource({
 
 export async function loadSourceV2({
   data = defaultData.join('\n'),
-  idProvider = () => randomUUID(),
   maxLength = 1000,
   splitterRegexes = defaultRegexes
 } = {}): Promise<DocumentSlice[]> {
@@ -316,7 +315,7 @@ export async function loadSourceV2WithLangchainFormat({
   splitterRegexes = defaultRegexes
 } = {}): Promise<Document[]> {
 
-  const res = await loadSourceV2({data, idProvider, maxLength, splitterRegexes})
+  const res = await loadSourceV2({data, maxLength, splitterRegexes})
   const relevantSlices = res.filter((item) => !item.children || item.children.length === 0); 
   const langchainDocs = relevantSlices.map((item: DocumentSlice) => {
     return {
