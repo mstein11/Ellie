@@ -51914,9 +51914,7 @@ You start with the following equipment, in addition to the equipment granted by 
 `;
 
 exports[`should test dataloader test v2 1`] = `
-"
----xxx---
-Human
+"Human
 -----
 
 ### Human Traits
@@ -55884,15 +55882,6 @@ You can change your list of prepared spells when you finish a long rest. Prepari
 
 exports[`should test dataloader test v2 2`] = `
 [
-  {
-    "data": "",
-    "endIndexInDoc": -1,
-    "endIndexInParent": -1,
-    "length": 0,
-    "parentSlice": null,
-    "startIndexInDoc": 0,
-    "startIndexInParent": 0,
-  },
   {
     "data": "
 ",
@@ -63566,7 +63555,7 @@ While you are transformed, the following rules apply:
 
 exports[`should test dataloader test v2 3`] = `
 {
-  "length": 530,
+  "length": 529,
   "lengthGreater1000": 23,
 }
 `;

@@ -197,7 +197,7 @@ function prepareLvl2Headings(
   }
 
   if (
-    subSlicePositions.some(subSlicePosition => subSlicePosition.start !== 0)
+    subSlicePositions.every(subSlicePosition => subSlicePosition.start !== 0)
   ) {
     const startOfFirstSubslice = subSlicePositions.toSorted(
       (a, b) => a.start - b.start

@@ -1,4 +1,8 @@
-import { loadSource, loadSourceV2, loadSourceV2WithLangchainFormat } from './dataloader'
+import {
+  loadSource,
+  loadSourceV2,
+  loadSourceV2WithLangchainFormat
+} from './dataloader'
 
 describe('should test dataloader', () => {
   it('should test dataloader', async () => {
@@ -120,7 +124,66 @@ You start with the following equipment, in addition to the equipment granted by 
 })
 
 describe('first level heading', () => {
-  it('should not loose text after before heading', async () => {
+  it('should split if text is too long', async () => {
+    const text = `The Heading #1
+===========
+
+Some Text
+
+The Heading #2
+==============
+
+Some other Text`
+
+    const result = await loadSourceV2WithLangchainFormat({
+      maxLength: 10,
+      idProvider: () => 'some-test-id-matching-schema',
+      data: text
+    })
+
+    expect(result.length).toBe(2)
+    expect(result[0].pageContent).toBe(
+      'The Heading #1\n===========\n\nSome Text\n\n'
+    )
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(38)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(5)
+    expect(result[1].pageContent).toBe(
+      'The Heading #2\n==============\n\nSome other Text'
+    )
+    expect(result[1].metadata.loc.characters.from).toBe(39)
+    expect(result[1].metadata.loc.characters.to).toBe(84)
+    expect(result[1].metadata.loc.lines.from).toBe(5)
+    expect(result[1].metadata.loc.lines.to).toBe(8)
+  })
+
+  it('should not split if maxLength is long enough', async () => {
+    const text = `The Heading #1
+===========
+
+Some Text
+
+The Heading #2
+==============
+
+Some other Text`
+
+    const result = await loadSourceV2WithLangchainFormat({
+      maxLength: 1000,
+      idProvider: () => 'some-test-id-matching-schema',
+      data: text
+    })
+
+    expect(result.length).toBe(1)
+    expect(result[0].pageContent).toBe(text)
+    expect(result[0].metadata.loc.characters.from).toBe(0)
+    expect(result[0].metadata.loc.characters.to).toBe(84)
+    expect(result[0].metadata.loc.lines.from).toBe(0)
+    expect(result[0].metadata.loc.lines.to).toBe(8)
+  })
+
+  it('should not loose text before heading', async () => {
     const text = `SomeTextBeforeHeading 
 
 The Heading
@@ -144,31 +207,6 @@ The Heading
     expect(result[1].metadata.loc.characters.to).toBe(47)
     expect(result[1].metadata.loc.lines.from).toBe(2)
     expect(result[1].metadata.loc.lines.to).toBe(4)
-  })
-
-  it('should not split if maxLength is long enough', async () => {
-    const text = `The Heading #1
-    ===========
-
-    Some Text
-
-    The Heading #2
-    ==============
-
-    Some other Text`
-
-    const result = await loadSourceV2WithLangchainFormat({
-      maxLength: 1000,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
-    })
-
-    expect(result.length).toBe(1)
-    expect(result[0].pageContent).toBe(text)
-    expect(result[0].metadata.loc.characters.from).toBe(0)
-    expect(result[0].metadata.loc.characters.to).toBe(104)
-    expect(result[0].metadata.loc.lines.from).toBe(0)
-    expect(result[0].metadata.loc.lines.to).toBe(8)
   })
 })
 
