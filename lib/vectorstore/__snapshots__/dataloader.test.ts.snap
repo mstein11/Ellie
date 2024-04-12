@@ -1,495 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should test dataloader should load large table 1`] = `
-{
-  "documents": [
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 1,
-            "to": 7,
-          },
-        },
-      },
-      "pageContent": "| Level | Proficiency Bonus | Features                                          | Spells Known | 1st | 2nd | 3rd | 4th | 5th |
-        |-------|-------------------|---------------------------------------------------|--------------|-----|-----|-----|-----|-----|
-        | 1st   | +2                | Favored Enemy, Natural Explorer                   | -            | -   | -   | -   | -   | -   |
-        | 2nd   | +2                | Fighting Style, Spellcasting                      | 2            | 2   | -   | -   | -   | -   |
-        | 3rd   | +2                | Ranger Archetype, Primeval Awareness              | 3            | 3   | -   | -   | -   | -   |
-        | 4th   | +2                | Ability Score Improvement                         | 3            | 3   | -   | -   | -   | -   |
-        | 5th   | +3                | Extra Attack                                      | 4            | 4   | 2   | -   | -   | -   |",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 8,
-            "to": 14,
-          },
-        },
-      },
-      "pageContent": "| 6th   | +3                | Favored Enemy and Natural Explorer improvements   | 4            | 4   | 2   | -   | -   | -   |
-        | 7th   | +3                | Ranger Archetype feature                          | 5            | 4   | 3   | -   | -   | -   |
-        | 8th   | +3                | Ability Score Improvement, Land’s Stride          | 5            | 4   | 3   | -   | -   | -   |
-        | 9th   | +4                | -                                                 | 6            | 4   | 3   | 2   | -   | -   |
-        | 10th  | +4                | Natural Explorer improvement, Hide in Plain Sight | 6            | 4   | 3   | 2   | -   | -   |
-        | 11th  | +4                | Ranger Archetype feature                          | 7            | 4   | 3   | 3   | -   | -   |
-        | 12th  | +4                | Ability Score Improvement                         | 7            | 4   | 3   | 3   | -   | -   |",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 15,
-            "to": 21,
-          },
-        },
-      },
-      "pageContent": "| 13th  | +5                | -                                                 | 8            | 4   | 3   | 3   | 1   | -   |
-        | 14th  | +5                | Favored Enemy improvement, Vanish                 | 8            | 4   | 3   | 3   | 1   | -   |
-        | 15th  | +5                | Ranger Archetype feature                          | 9            | 4   | 3   | 3   | 2   | -   |
-        | 16th  | +5                | Ability Score Improvement                         | 9            | 4   | 3   | 3   | 2   | -   |
-        | 17th  | +6                | -                                                 | 10           | 4   | 3   | 3   | 3   | 1   |
-        | 18th  | +6                | Feral Senses                                      | 10           | 4   | 3   | 3   | 3   | 1   |
-        | 19th  | +6                | Ability Score Improvement                         | 11           | 4   | 3   | 3   | 3   | 2   |",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 22,
-            "to": 22,
-          },
-        },
-      },
-      "pageContent": "| 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   |",
-    },
-  ],
-  "ids": [
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-  ],
-}
-`;
-
-exports[`should test dataloader should load spell lists 1`] = `
-{
-  "documents": [
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 1,
-            "to": 1,
-          },
-        },
-      },
-      "pageContent": "### The Schools of Magic",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 3,
-            "to": 9,
-          },
-        },
-      },
-      "pageContent": "Academies of magic group spells into eight categories called schools of magic. Scholars, particularly wizards, apply these categories to all spells, believing that all magic functions in essentially the same way, whether it derives from rigorous study or is bestowed by a deity.
-    
-    The schools of magic help describe spells; they have no rules of their own, although some rules refer to the schools.
-    
-    **Abjuration** spells are protective in nature, though some of them have aggressive uses. They create magical barriers, negate harmful effects, harm trespassers, or banish creatures to other planes of existence.
-    
-    **Conjuration** spells involve the transportation of objects and creatures from one location to another. Some spells summon creatures or objects to the caster’s side, whereas others allow the caster to teleport to another location. Some conjurations create objects or effects out of nothing.",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 11,
-            "to": 15,
-          },
-        },
-      },
-      "pageContent": "**Divination** spells reveal information, whether in the form of secrets long forgotten, glimpses of the future, the locations of hidden things, the truth behind illusions, or visions of distant people or places.
-    
-    **Enchantment** spells affect the minds of others, influencing or controlling their behavior. Such spells can make enemies see the caster as a friend, force creatures to take a course of action, or even control another creature like a puppet.
-    
-    **Evocation** spells manipulate magical energy to produce a desired effect. Some call up blasts of fire or lightning. Others channel positive energy to heal wounds.",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 17,
-            "to": 21,
-          },
-        },
-      },
-      "pageContent": "**Illusion** spells deceive the senses or minds of others. They cause people to see things that are not there, to miss things that are there, to hear phantom noises, or to remember things that never happened. Some illusions create phantom images that any creature can see, but the most insidious illusions plant an image directly in the mind of a creature.
-    
-    **Necromancy** spells manipulate the energies of life and death. Such spells can grant an extra reserve of life force, drain the life energy from another creature, create the undead, or even bring the dead back to life.
-    
-    Creating the undead through the use of necromancy spells such as *animate dead* is not a good act, and only evil casters use such spells frequently.",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 23,
-            "to": 63,
-          },
-        },
-      },
-      "pageContent": "**Transmutation** spells change the properties of a creature, object, or environment. They might turn an enemy into a harmless creature, bolster the strength of an ally, make an object move at the caster’s command, or enhance a creature’s innate healing abilities to rapidly recover from injury.
-    
-    Spell Lists
-    -----------
-    
-    ### Bard Spells
-    
-    #### Cantrips (0 Level)
-    - Dancing Lights
-    - Light
-    - Mage Hand
-    - Mending
-    - Message
-    - Minor Illusion
-    - Prestidigitation
-    - True Strike
-    
-    #### 1st Level
-    - Bane
-    - Charm Person
-    - Comprehend Languages
-    - Cure Wounds
-    - Detect Magic
-    - Disguise Self
-    - Faerie Fire
-    - Feather Fall
-    - Healing Word
-    - Heroism
-    - Hideous Laughter
-    - Identify
-    - Illusory Script
-    - Longstrider
-    - Silent Image
-    - Sleep
-    - Speak with Animals
-    - Thunderwave
-    - Unseen Servant
-    
-    #### 2nd Level
-    - Animal Messenger
-    - Blindness/Deafness",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 64,
-            "to": 116,
-          },
-        },
-      },
-      "pageContent": "- Calm Emotions
-    - Detect Thoughts
-    - Enhance Ability
-    - Enthrall
-    - Heat Metal
-    - Hold Person
-    - Invisibility
-    - Knock
-    - Lesser Restoration
-    - Locate Animals or Plants
-    - Locate Object
-    - Magic Mouth
-    - See Invisibility
-    - Shatter
-    - Silence
-    - Suggestion
-    - Zone of Truth
-    
-    #### 3rd Level
-    - Bestow Curse
-    - Clairvoyance
-    - Dispel Magic
-    - Fear
-    - Glyph of Warding
-    - Hypnotic Pattern
-    - Major Image
-    - Nondetection
-    - Plant Growth
-    - Sending
-    - Speak with Dead
-    - Speak with Plants
-    - Stinking Cloud
-    - Tiny Hut
-    - Tongues
-    
-    #### 4th Level
-    - Confusion
-    - Dimension Door
-    - Freedom of Movement
-    - Greater Invisibility
-    - Hallucinatory Terrain
-    - Locate Creature
-    - Polymorph
-    
-    #### 5th Level
-    - Animate Objects
-    - Awaken
-    - Dominate Person
-    - Dream
-    - Geas
-    - Greater Restoration
-    - Hold Monster
-    - Legend Lore",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 117,
-            "to": 175,
-          },
-        },
-      },
-      "pageContent": "- Mass Cure Wounds
-    - Mislead
-    - Modify Memory
-    - Planar Binding
-    - Raise Dead
-    - Scrying
-    - Seeming
-    - Teleportation Circle
-    
-    #### 6th Level
-    - Eyebite
-    - Find the Path
-    - Guards and Wards
-    - Irresistible Dance
-    - Mass Suggestion
-    - Programmed Illusion
-    - True Seeing
-    
-    #### 7th Level
-    - Arcane Sword
-    - Etherealness
-    - Forcecage
-    - Magnificent Mansion
-    - Mirage Arcane
-    - Project Image
-    - Regenerate
-    - Resurrection
-    - Symbol
-    - Teleport
-    
-    #### 8th Level
-    - Dominate Monster
-    - Feeblemind
-    - Glibness
-    - Mind Blank
-    - Power Word
-    - Stun
-    
-    #### 9th Level
-    - Foresight
-    - Power Word Kill
-    - True Polymorph
-    
-    ### Cleric Spells
-    
-    #### Cantrips (0 Level)
-    - Guidance
-    - Light
-    - Mending
-    - Resistance
-    - Sacred Flame
-    - Thaumaturgy
-    
-    #### 1st Level
-    
-    - Bane
-    - Bless
-    - Command
-    - Create or Destroy Water",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 176,
-            "to": 224,
-          },
-        },
-      },
-      "pageContent": "- Cure Wounds
-    - Detect Evil and Good
-    - Detect Magic
-    - Detect Poison and Disease
-    - Guiding Bolt
-    - Healing Word
-    - Inflict Wounds
-    - Protection from Evil and Good
-    - Purify Food and Drink
-    - Sanctuary
-    - Shield of Faith
-    
-    #### 2nd Level
-    
-    - Aid
-    - Augury
-    - Blindness/Deafness
-    - Calm Emotions
-    - Continual Flame
-    - Enhance Ability
-    - Find Traps
-    - Gentle Repose
-    - Hold Person
-    - Lesser Restoration
-    - Locate Object
-    - Prayer of Healing
-    - Protection from Poison
-    - Silence
-    - Spiritual Weapon
-    - Warding Bond
-    - Zone of Truth
-    
-    #### 3rd Level
-    - Animate Dead
-    - Beacon of Hope
-    - Bestow Curse
-    - Clairvoyance
-    - Create Food and Water
-    - Daylight
-    - Dispel Magic
-    - Glyph of Warding
-    - Magic Circle
-    - Mass Healing Word
-    - Meld into Stone
-    - Protection from Energy
-    - Remove Curse
-    - Revivify
-    - Sending
-    - Speak with Dead",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 225,
-            "to": 282,
-          },
-        },
-      },
-      "pageContent": "- Spirit Guardians
-    - Tongues
-    - Water Walk
-    
-    #### 4th Level
-    - Banishment
-    - Control Water
-    - Death Ward
-    - Divination
-    - Freedom of Movement
-    - Locate Creature
-    - Stone Shape
-    
-    #### 5th Level
-    - Commune
-    - Contagion
-    - Dispel Evil and Good
-    - Flame Strike
-    - Geas
-    - Greater Restoration
-    - Hallow
-    - Insect Plague
-    - Legend
-    - Lore
-    - Mass Cure Wounds
-    - Planar Binding
-    - Raise Dead
-    - Scrying
-    
-    #### 6th Level
-    - Blade Barrier
-    - Create Undead
-    - Find the Path
-    - Forbiddance
-    - Harm
-    - Heal
-    - Heroes’ Feast
-    - Planar Ally
-    - True Seeing
-    - Word of Recall
-    
-    #### 7th Level
-    - Conjure Celestial
-    - Divine Word
-    - Etherealness
-    - Fire Storm
-    - Plane Shift
-    - Regenerate
-    - Resurrection
-    - Symbol
-    
-    #### 8th Level
-    - Antimagic Field
-    - Control Weather
-    - Earthquake
-    - Holy Aura
-    
-    #### 9th Level",
-    },
-    Document {
-      "metadata": {
-        "id": "some-test-id-matching-schema",
-        "loc": {
-          "lines": {
-            "from": 283,
-            "to": 286,
-          },
-        },
-      },
-      "pageContent": "- Astral Projection
-    - Gate
-    - Mass Heal
-    - True Resurrection",
-    },
-  ],
-  "ids": [
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-    "some-test-id-matching-schema",
-  ],
-}
-`;
-
 exports[`should test dataloader should test dataloader 1`] = `
 {
   "documents": [
@@ -52329,10 +51839,7 @@ If you note any errors in this document, please let us know by emailing [askdnd@
 `;
 
 exports[`should test dataloader test splitting for large table 1`] = `
-"
-
----xxx---
-Fighter
+"Fighter
 =======
 
 ---xxx---
@@ -52402,7 +51909,9 @@ You start with the following equipment, in addition to the equipment granted by 
 `;
 
 exports[`should test dataloader test v2 1`] = `
-"Races
+"
+---xxx---
+Races
 =====
 
 ---xxx---
@@ -52443,7 +51952,8 @@ By virtue of your race, your character can speak, read, and write certain langua
 ---xxx---
 #### Subraces
 
-Some races have subraces. Members of a subrace have the traits of the parent race in addition to the traits specified for their subrace. Relationships among subraces vary significantly from race to race and world to world
+Some races have subraces. Members of a subrace have the traits of the parent race in addition to the traits specified for their subrace. Relationships among subraces vary significantly from race to race and world to world.
+
 ---xxx---
 Dwarf
 -----
@@ -52485,6 +51995,7 @@ Your dwarf character has an assortment of inborn abilities, part and parcel of d
 ---xxx---
 
 ***Languages.*** You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
+
 ---xxx---
 #### Hill Dwarf
 
@@ -52492,7 +52003,8 @@ As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience
 
 ***Ability Score Increase.*** Your Wisdom score increases by 1.
 
-***Dwarven Toughness.*** Your hit point maximum increases by 1, and it increases by 1 every time you gain a level
+***Dwarven Toughness.*** Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.
+
 ---xxx---
 Elf
 ---
@@ -52533,6 +52045,7 @@ After resting in this way, you gain the same benefit that a human does from 8 ho
 ---xxx---
 
 ***Languages.*** You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
+
 ---xxx---
 #### High Elf
 
@@ -52544,7 +52057,8 @@ As a high elf, you have a keen mind and a mastery of at least the basics of magi
 
 ***Cantrip.*** You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
 
-***Extra Language.*** You can speak, read, and write one extra language of your choice
+***Extra Language.*** You can speak, read, and write one extra language of your choice.
+
 ---xxx---
 Halfling
 --------
@@ -52580,6 +52094,7 @@ Your halfling character has a number of traits in common with all other halfling
 ---xxx---
 
 ***Languages.*** You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
+
 ---xxx---
 #### Lightfoot
 
@@ -52589,7 +52104,8 @@ Lightfoots are more prone to wanderlust than other halflings, and often dwell al
 
 ***Ability Score Increase.*** Your Charisma score increases by 1.
 
-***Naturally Stealthy.*** You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you
+***Naturally Stealthy.*** You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+
 ---xxx---
 Human
 -----
@@ -52664,7 +52180,8 @@ After you use your breath weapon, you can’t use it again until you complete a 
 ***Damage Resistance.*** You have resistance to the damage type associated with your draconic ancestry.
 ---xxx---
 
-***Languages.*** You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants
+***Languages.*** You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.
+
 ---xxx---
 Gnome
 -----
@@ -52697,6 +52214,7 @@ Your gnome character has certain characteristics in common with all other gnomes
 ---xxx---
 
 ***Languages.*** You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.
+
 ---xxx---
 #### Rock Gnome
 
@@ -52707,15 +52225,6 @@ As a rock gnome, you have a natural inventiveness and hardiness beyond that of o
 ---xxx---
 
 ***Artificer’s Lore.*** Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.
----xxx---
-
-***Tinker.*** You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
-
-When you create a device, choose one of the following options:
-
-- *Clockwork Toy.* This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
-- *Fire Starter.* The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
-- *Music Box.* When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is clos
 ---xxx---
 Half-Elf
 --------
@@ -52751,7 +52260,8 @@ followers. They chafe at rules, resent others’ demands, and sometimes prove un
 ***Skill Versatility.*** You gain proficiency in two skills of your choice.
 ---xxx---
 
-***Languages.*** You can speak, read, and write Common, Elvish, and one extra language of your choice
+***Languages.*** You can speak, read, and write Common, Elvish, and one extra language of your choice.
+
 ---xxx---
 Half-Orc
 --------
@@ -52789,7 +52299,8 @@ Your half-orc character has certain traits deriving from your orc ancestry.
 ***Savage Attacks.*** When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.
 ---xxx---
 
-***Languages.*** You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script
+***Languages.*** You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.
+
 ---xxx---
 Tiefling
 --------
@@ -52824,7 +52335,7 @@ Tieflings share certain racial traits as a result of their infernal descent.
 ***Infernal Legacy.*** You know the *thaumaturgy* cantrip. When you reach 3rd level, you can cast the *hellish rebuke* spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the *darkness* spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.
 ---xxx---
 
-***Languages.*** You can speak, read, and write Common and Infern
+***Languages.*** You can speak, read, and write Common and Infernal.
 ---xxx---
 Barbarian
 =========
@@ -52892,25 +52403,7 @@ granted by your background:
 | 17th   | +6                | Brutal Critical (3 dice)      | 6         | +4          |
 | 18th   | +6                | Indomitable Might             | 6         | +4          |
 | 19th   | +6                | Ability Score Improvement     | 6         | +4          |
-
----xxx---
-| 20th   | +6                | Primal Champion               | Unlimited | +4          
----xxx---
-### Rage
-
-In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.
-
-While raging, you gain the following benefits if you aren’t wearing heavy armor:
-
-- You have advantage on Strength checks and Strength saving throws.
-- When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.
-- You have resistance to bludgeoning, piercing, and slashing damage.
-
-If you are able to cast spells, you can’t cast them or concentrate on them while raging.
-
-Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
-
-Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.
+| 20th   | +6                | Primal Champion               | Unlimited | +4          |
 
 ---xxx---
 ### Unarmored Defense
@@ -53010,7 +52503,8 @@ If the creature succeeds on its saving throw, you can’t use this feature on th
 ---xxx---
 #### Retaliation
 
-Starting at 14th level, when you take damage from a creature that is within 5 feet of you, you can use your reaction to make a melee weapon attack against that creatur
+Starting at 14th level, when you take damage from a creature that is within 5 feet of you, you can use your reaction to make a melee weapon attack against that creature.
+
 ---xxx---
 Bard
 ====
@@ -53079,9 +52573,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6               | Song of Rest (d12)                                   | 4            | 20             | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6               | Magical Secrets                                      | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6               | Ability Score Improvement                            | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6               | Superior Inspiration                                 | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
----xxx---
-| 20th  | +6               | Superior Inspiration                                 | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   
 ---xxx---
 ### Spellcasting
 
@@ -53128,16 +52621,6 @@ You can cast any bard spell you know as a ritual if that spell has the ritual ta
 #### Spellcasting Focus
 
 You can use a musical instrument (see chapter 5, “Equip-ment”) as a spellcasting focus for your bard spells.
----xxx---
-### Bardic Inspiration
-
-You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.
-
-Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.
-
-You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.
-
-Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.
 
 ---xxx---
 ### Jack of All Trades
@@ -53195,15 +52678,6 @@ You learn two additional spells from any class at 14th level and again at 18th l
 At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
 
 ---xxx---
-### College of Lore
-
-Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.
-
-The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the bard would rather be honest than politic.
-
-The college’s members gather in libraries and sometimes in actual colleges, complete with classrooms and dormitories, to share their lore with one another. They also meet at festivals or affairs of state, where they can expose corruption, unravel lies, and poke fun at self-important figures of authority.
-
----xxx---
 #### Bonus Proficiencies
 
 When you join the College of Lore at 3rd level, you gain proficiency with three skills of your choice.
@@ -53221,7 +52695,8 @@ At 6th level, you learn two spells of your choice from any class. A spell you ch
 ---xxx---
 #### Peerless Skill
 
-Starting at 14th level, when you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fai
+Starting at 14th level, when you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fail.
+
 ---xxx---
 Cleric
 ======
@@ -53294,9 +52769,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | Destroy Undead (CR 4), Divine Domain Feature                            | 5              | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | Channel Divinity (3/rest)                                               | 5              | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | Ability Score Improvement                                               | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | Divine Intervention improvement                                         | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
----xxx---
-| 20th  | +6                | Divine Intervention improvement                                         | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1  
 ---xxx---
 ### Spellcasting
 
@@ -53306,18 +52780,6 @@ As a conduit for divine power, you can cast cleric spells.
 #### Cantrips
 
 At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.
-
----xxx---
-#### Preparing and Casting Spells
-
-The Cleric table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
-
-You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.
-
-For example, if you are a 3rd-level cleric, you have four
-1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds*, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
-
-You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
 
 ---xxx---
 #### Spellcasting Ability
@@ -53337,6 +52799,7 @@ You can cast a cleric spell as a ritual if that spell has the ritual tag and you
 #### Spellcasting Focus
 
 You can use a holy symbol (see chapter 5, “Equipment”) as a spellcasting focus for your cleric spells.
+
 ---xxx---
 ### Divine Domain
 
@@ -53367,6 +52830,7 @@ Divinity twice between rests, and beginning at 18th level, you can use it three 
 As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.
 
 A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
+
 ---xxx---
 ### Ability Score Improvement
 
@@ -53444,7 +52908,8 @@ At 8th level, you gain the ability to infuse your weapon strikes with divine ene
 ---xxx---
 #### Supreme Healing
 
-Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 1
+Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.
+
 ---xxx---
 Druid
 =====
@@ -53513,9 +52978,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | -                                                 | 4              | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | Timeless Body, Beast Spells                       | 4              | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | Ability Score Improvement                         | 4              | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | Archdruid                                         | 4              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
----xxx---
-| 20th  | +6                | Archdruid                                         | 4              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   
 ---xxx---
 ### Druidic
 
@@ -53556,6 +53020,7 @@ You can cast a druid spell as a ritual if that spell has the ritual tag and you 
 #### Spellcasting Focus
 
 You can use a druidic focus (see chapter 5, “Equip- ment”) as a spellcasting focus for your druid spells.
+
 ---xxx---
 ### Wild Shape
 
@@ -53587,7 +53052,8 @@ While you are transformed, the following rules apply:
 - When you transform, you assume the beast’s hit points and Hit Dice. When you revert to your normal form, you return to the number of hit points you had before you transformed. However, if you revert as a result of dropping to 0 hit points, any excess damage carries over to your normal form. For example, if you take 10 damage in animal form and have only 1 hit point left, you revert and take 9 damage. As long as the excess damage doesn’t reduce your normal form to 0 hit points, you aren’t knocked unconscious.
 - You can’t cast spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your beast form. Transforming doesn’t break your concentration on a spell you’ve already cast, however, or prevent you from taking actions that are part of a spell, such as *call lightning*, that you’ve already cast.
 - You retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can’t use any of your special senses, such as darkvision, unless your new form also has that sense.
-- You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature’s shape and size. Your equipment doesn’t change size or shape to match the new form, and any equipment that the new form can’t wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form
+- You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature’s shape and size. Your equipment doesn’t change size or shape to match the new form, and any equipment that the new form can’t wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form.
+
 ---xxx---
 ### Druid Circle
 
@@ -53709,6 +53175,7 @@ Once you gain access to a circle spell, you always have it prepared, and it does
 | 5th         | water walk, stinking cloud           |
 | 7th         | freedom of movement, locate creature |
 | 9th         | insect plague, scrying               |
+
 ---xxx---
 #### Land’s Stride
 
@@ -53727,6 +53194,7 @@ When you reach 10th level, you can’t be charmed or frightened by elementals or
 When you reach 14th level, creatures of the natural world sense your connection to nature and become hesitant to attack you. When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours.
 
 The creature is aware of this effect before it makes its attack against you.
+
 ---xxx---
 ### Sacred Plants and Wood
 
@@ -53739,7 +53207,8 @@ Druids from regions that lack the plants described here have chosen other plants
 ---xxx---
 ### Druids and the Gods
 
-Some druids venerate the forces of nature themselves, but most druids are devoted to one of the many nature deities worshiped in the multiverse (the lists of gods in appendix B include many such deities). The worship of these deities is often considered a more ancient tradition than the faiths of clerics and urbanized peoples
+Some druids venerate the forces of nature themselves, but most druids are devoted to one of the many nature deities worshiped in the multiverse (the lists of gods in appendix B include many such deities). The worship of these deities is often considered a more ancient tradition than the faiths of clerics and urbanized peoples.
+
 ---xxx---
 Fighter
 =======
@@ -53809,9 +53278,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | Action Surge (two uses), Indomitable (three uses) |
 | 18th  | +6                | Martial Archetype Feature                         |
 | 19th  | +6                | Ability Score Improvement                         |
+| 20th  | +6                | Extra Attack (3)                                  |
 
----xxx---
-| 20th  | +6                | Extra Attack (3)                                  
 ---xxx---
 ### Fighting Style
 
@@ -53846,6 +53314,7 @@ When a creature you can see attacks a target other than you that is within 5 fee
 #### Two-Weapon Fighting
 
 When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+
 ---xxx---
 ### Second Wind
 
@@ -53881,6 +53350,7 @@ The number of attacks increases to three when you reach 11th level in this class
 Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can’t use this feature again until you finish a long rest.
 
 You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.
+
 ---xxx---
 Martial Archetypes
 ------------------
@@ -53917,7 +53387,8 @@ Starting at 15th level, your weapon attacks score a critical hit on a roll of 18
 ---xxx---
 #### Survivor
 
-At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don’t gain this benefit if you have 0 hit point
+At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don’t gain this benefit if you have 0 hit points.
+
 ---xxx---
 Monk
 ====
@@ -53986,25 +53457,12 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | 1d10         | 17        | +25 ft.            | Monastic Tradition Feature                       |
 | 18th  | +6                | 1d10         | 18        | +30 ft.            | Empty Body                                       |
 | 19th  | +6                | 1d10         | 19        | +30 ft.            | Ability Score Improvement                        |
+| 20th  | +6                | 1d10         | 20        | +30 ft.            | Perfect Self                                     |
 
----xxx---
-| 20th  | +6                | 1d10         | 20        | +30 ft.            | Perfect Self                                     
 ---xxx---
 ### Unarmored Defense
 
 Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
-
----xxx---
-### Martial Arts
-
-At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two- handed or heavy property.
-
-You gain the following benefits while you are unarmed or wielding only monk weapons and you aren’t wearing armor or wielding a shield:
-- You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.
-- You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.
-- When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven’t already taken a bonus action this turn.
-
-Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon.
 
 ---xxx---
 ### Ki
@@ -54033,6 +53491,7 @@ You can spend 1 ki point to take the Dodge action as a bonus action on your turn
 #### Step of the Wind
 
 You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.
+
 ---xxx---
 ### Unarmored Movement
 
@@ -54120,6 +53579,7 @@ Additionally, you can spend 8 ki points to cast the *astral projection* spell, w
 ### Perfect Self
 
 At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.
+
 ---xxx---
 Monastic Traditions
 -------------------
@@ -54154,7 +53614,8 @@ Beginning at 11th level, you can enter a special meditation that surrounds you w
 
 At 17th level, you gain the ability to set up lethal vibrations in someone’s body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. To do so, you and the target must be on the same plane of existence. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
 
-You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an actio
+You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an action.
+
 ---xxx---
 Paladin
 =======
@@ -54222,9 +53683,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | -                                          | 4   | 3   | 3   | 3   | 1   |
 | 18th  | +6                | Aura improvements                          | 4   | 3   | 3   | 3   | 1   |
 | 19th  | +6                | Ability Score Improvement                  | 4   | 3   | 3   | 3   | 2   |
+| 20th  | +6                | Sacred Oath feature                        | 4   | 3   | 3   | 3   | 2   |
 
----xxx---
-| 20th  | +6                | Sacred Oath feature                        | 4   | 3   | 3   | 3   | 2   
 ---xxx---
 ### Divine Sense
 
@@ -54272,17 +53732,6 @@ When a creature you can see attacks a target other than you that is within 5 fee
 By 2nd level, you have learned to draw on divine magic through meditation and prayer to cast spells as a cleric does.
 
 ---xxx---
-#### Preparing and Casting Spells
-
-The Paladin table shows how many spell slots you have to cast your spells. To cast one of your paladin spells of 1st level or higher, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
-
-You prepare the list of paladin spells that are available for you to cast, choosing from the paladin spell list. When you do so, choose a number of paladin spells equal to your Charisma modifier + half your paladin level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.
-
-For example, if you are a 5th-level paladin, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds,* you can cast it using a 1st-level or a 2nd- level slot. Casting the spell doesn’t remove it from your list of prepared spells.
-
-You can change your list of prepared spells when you finish a long rest. Preparing a new list of paladin spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
-
----xxx---
 #### Spellcasting Ability
 
 Charisma is your spellcasting ability for your paladin spells, since their power derives from the strength of your convictions. You use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a paladin spell you cast and when making an attack roll with one.
@@ -54295,6 +53744,7 @@ Charisma is your spellcasting ability for your paladin spells, since their power
 #### Spellcasting Focus
 
 You can use a holy symbol as a spellcasting focus for your paladin spells.
+
 ---xxx---
 ### Divine Smite
 
@@ -54327,6 +53777,7 @@ Your oath allows you to channel divine energy to fuel magical effects. Each Chan
 When you use your Channel Divinity, you choose which option to use. You must then finish a short or long rest to use your Channel Divinity again.
 
 Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your paladin spell save DC.
+
 ---xxx---
 ### Ability Score Improvement
 
@@ -54362,6 +53813,7 @@ By 11th level, you are so suffused with righteous might that all your melee weap
 Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.
 
 You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+
 ---xxx---
 Sacred Oaths
 ------------
@@ -54417,6 +53869,7 @@ You can end this effect on your turn as part of any other action. If you are no 
 ***Turn the Unholy.*** As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.
 
 A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
+
 ---xxx---
 #### Aura of Devotion
 
@@ -54439,6 +53892,7 @@ Whenever an enemy creature starts its turn in the bright light, the creature tak
 In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.
 
 Once you use this feature, you can’t use it again until you finish a long rest.
+
 ---xxx---
 ### Breaking Your Oath
 
@@ -54446,7 +53900,8 @@ A paladin tries to hold to the highest standards of conduct, but even the most v
 
 A paladin who has broken a vow typically seeks absolution from a cleric who shares his or her faith or from another paladin of the same order. The paladin might spend an all- night vigil in prayer as a sign of penitence, or undertake a fast or similar act of self-denial. After a rite of confession and forgiveness, the paladin starts fresh.
 
-If a paladin willfully violates his or her oath and shows no sign of repentance, the consequences can be more serious. At the GM’s discretion, an impenitent paladin might be forced to abandon this class and adopt another
+If a paladin willfully violates his or her oath and shows no sign of repentance, the consequences can be more serious. At the GM’s discretion, an impenitent paladin might be forced to abandon this class and adopt another.
+
 ---xxx---
 Ranger
 ======
@@ -54514,9 +53969,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | -                                                 | 10           | 4   | 3   | 3   | 3   | 1   |
 | 18th  | +6                | Feral Senses                                      | 10           | 4   | 3   | 3   | 3   | 1   |
 | 19th  | +6                | Ability Score Improvement                         | 11           | 4   | 3   | 3   | 3   | 2   |
+| 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   |
 
----xxx---
-| 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   
 ---xxx---
 ### Favored Enemy
 
@@ -54529,21 +53983,6 @@ You have advantage on Wisdom (Survival) checks to track your favored enemies, as
 When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.
 
 You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.
-
----xxx---
-### Natural Explorer
-
-You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, or swamp. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you’re proficient in.
-
-While traveling for an hour or more in your favored terrain, you gain the following benefits:
-- Difficult terrain doesn’t slow your group’s travel.
-- Your group can’t become lost except by magical means.
-- Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.
-- If you are traveling alone, you can move stealthily at a normal pace.
-- When you forage, you find twice as much food as you normally would.
-- While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
-
-You choose additional favored terrain types at 6th and 10th level.
 
 ---xxx---
 ### Fighting Style
@@ -54595,6 +54034,7 @@ Wisdom is your spellcasting ability for your ranger spells, since your magic dra
 **Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier
 
 **Spell attack modifier** = your proficiency bonus + your Wisdom modifier
+
 ---xxx---
 ### Ranger Archetype
 
@@ -54645,6 +54085,7 @@ You are also aware of the location of any invisible creature within 30 feet of y
 ### Foe Slayer
 
 At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+
 ---xxx---
 Ranger Archetypes
 -----------------
@@ -54696,7 +54137,8 @@ At 15th level, you gain one of the following features of your choice.
 
 ***Stand Against the Tide.*** When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.
 
-***Uncanny Dodge.*** When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against yo
+***Uncanny Dodge.*** When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you.
+
 ---xxx---
 Rogue
 =====
@@ -54764,9 +54206,7 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | 9d6          | Roguish Archetype Feature              |
 | 18th  | +6                | 9d6          | Elusive                                |
 | 19th  | +6                | 10d6         | Ability Score Improvement              |
-
----xxx---
-| 20th  | +6                | 10d6         | Stroke of Luck                         
+| 20th  | +6                | 10d6         | Stroke of Luck                         |
 ---xxx---
 
 **Expertise**
@@ -54782,7 +54222,8 @@ Beginning at 1st level, you know how to strike subtly and exploit a foe’s dist
 
 You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.
 
-The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table
+The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.
+
 ---xxx---
 ### Thieves’ Cant
 
@@ -54841,6 +54282,7 @@ Beginning at 18th level, you are so evasive that attackers rarely gain the upper
 At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
 
 Once you use this feature, you can’t use it again until you finish a short or long rest.
+
 ---xxx---
 Roguish Archetypes
 ------------------
@@ -54877,7 +54319,8 @@ By 13th level, you have learned enough about the workings of magic that you can 
 ---xxx---
 #### Thief’s Reflexes
 
-When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can’t use this feature when you are surprise
+When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can’t use this feature when you are surprised.
+
 ---xxx---
 Sorcerer
 ========
@@ -54947,9 +54390,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | 17             | Metamagic                      | 6              | 15           | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | 18             | Sorcerous Origin Feature       | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | 19             | Ability Score Improvement      | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | 20             | Sorcerous Restoration          | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
----xxx---
-| 20th  | +6                | 20             | Sorcerous Restoration          | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   
 ---xxx---
 ### Spellcasting
 
@@ -54989,6 +54431,7 @@ Charisma is your spellcasting ability for your sorcerer spells, since the power 
 #### Spellcasting Focus
 
 You can use an arcane focus as a spellcasting focus for your sorcerer spells.
+
 ---xxx---
 ### Sorcerous Origin
 
@@ -55026,7 +54469,8 @@ Any spell slot you create with this feature vanishes when you finish a long rest
 | 4th              | 6                  |
 | 5th              | 7                  |
 
-***Converting a Spell Slot to Sorcery Points.*** As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot’s level
+***Converting a Spell Slot to Sorcery Points.*** As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot’s level.
+
 ---xxx---
 ### Metamagic
 
@@ -55079,6 +54523,7 @@ When you cast a spell, you can spend 1 sorcery point to cast it without any soma
 When you cast a spell that targets only one creature and doesn’t have a range of self, you can spend a number of sorcery points equal to the spell’s level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip).
 
 To be eligible, a spell must be incapable of targeting more than one creature at the spell’s current level. For example, *magic missile* and *scorching ray* aren’t eligible, but *ray of frost* and *chromatic orb* are.
+
 ---xxx---
 ### Ability Score Improvement
 
@@ -55088,6 +54533,7 @@ When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can 
 ### Sorcerous Restoration
 
 At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.
+
 ---xxx---
 Sorcerous Origins
 -----------------
@@ -55143,7 +54589,8 @@ You can’t manifest your wings while wearing armor unless the armor is made to 
 ---xxx---
 #### Draconic Presence
 
-Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hour
+Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+
 ---xxx---
 Warlock
 =======
@@ -55211,9 +54658,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | Mystic Arcanum (9th level)      | 4              | 14           | 4           | 5th        | 7                 |
 | 18th  | +6                | -                               | 4              | 14           | 4           | 5th        | 8                 |
 | 19th  | +6                | Ability Score Improvement       | 4              | 15           | 4           | 5th        | 8                 |
+| 20th  | +6                | Eldritch Master                 | 4              | 15           | 4           | 5th        | 8                 |
 
----xxx---
-| 20th  | +6                | Eldritch Master                 | 4              | 15           | 4           | 5th        | 8                 
 ---xxx---
 ### Otherworldly Patron
 
@@ -55258,6 +54704,7 @@ Charisma is your spellcasting ability for your warlock spells, so you use your C
 #### Spellcasting Focus
 
 You can use an arcane focus as a spellcasting focus for your warlock spells.
+
 ---xxx---
 ### Eldritch Invocations
 
@@ -55282,20 +54729,12 @@ When you cast the spell, you can choose one of the normal forms for your familia
 Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own with its reaction.
 
 ---xxx---
-#### Pact of the Blade
-
-You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
-
-Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.
-
-You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can’t affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.
-
----xxx---
 #### Pact of the Tome
 
 Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class’s spell list (the three needn’t be from the same list). While the book is on your person, you can cast those cantrips at will. They don’t count against your number of cantrips known. If they don’t appear on the warlock spell list, they are nonetheless warlock spells for you.
 
 If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.
+
 ---xxx---
 ### Ability Score Improvement
 
@@ -55314,6 +54753,7 @@ At higher levels, you gain more warlock spells of your choice that can be cast i
 ### Eldritch Master
 
 At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+
 ---xxx---
 Eldritch Invocations
 --------------------
@@ -55523,6 +54963,7 @@ You can cast *speak with dead* at will, without expending a spell slot.
 *Prerequisite: 15th level*
 
 You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight.
+
 ---xxx---
 Otherworldly Patrons
 --------------------
@@ -55576,6 +55017,7 @@ Starting at 14th level, when you hit a creature with an attack, you can use this
 At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target is not a fiend, it takes 10d10 psychic damage as it reels from its horrific experience.
 
 Once you use this feature, you can’t use it again until you finish a long rest.
+
 ---xxx---
 ### Your Pact Boon
 
@@ -55588,7 +55030,8 @@ Each Pact Boon option produces a special creature or an object that reflects you
 ***Pact of the Blade.*** If your patron is the Archfey, your weapon might be a slender blade wrapped in leafy vines. If you serve the Fiend, your weapon could be an axe made of black metal and adorned with decorative flames. If your patron is the Great Old One, your weapon might be an ancient-looking spear, with a gemstone embedded in its head, carved to look like a terrible unblinking eye.
 ---xxx---
 
-***Pact of the Tome.*** Your Book of Shadows might be a fine, gilt-edged tome with spells of enchantment and illusion, gifted to you by the lordly Archfey. It could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend. Or it could be the tattered diary of a lunatic driven mad by contact with the Great Old One, holding scraps of spells that only your own burgeoning insanity allows you to understand and cas
+***Pact of the Tome.*** Your Book of Shadows might be a fine, gilt-edged tome with spells of enchantment and illusion, gifted to you by the lordly Archfey. It could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend. Or it could be the tattered diary of a lunatic driven mad by contact with the Great Old One, holding scraps of spells that only your own burgeoning insanity allows you to understand and cast.
+
 ---xxx---
 Wizard
 ======
@@ -55656,9 +55099,8 @@ You start with the following equipment, in addition to the equipment granted by 
 | 17th  | +6                | -                              | 5              | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | Spell Mastery                  | 5              | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | Ability Score Improvement      | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | Signature Spell                | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 
----xxx---
-| 20th  | +6                | Signature Spell                | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   
 ---xxx---
 ### Spellcasting
 
@@ -55673,17 +55115,6 @@ At 1st level, you know three cantrips of your choice from the wizard spell list.
 #### Spellbook
 
 At 1st level, you have a spellbook containing six 1st- level wizard spells of your choice. Your spellbook is the repository of the wizard spells you know, except your cantrips, which are fixed in your mind.
-
----xxx---
-#### Preparing and Casting Spells
-
-The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
-
-You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.
-
-For example, if you’re a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell *magic missile,* you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
-
-You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.
 
 ---xxx---
 #### Spellcasting Ability
@@ -55708,6 +55139,7 @@ You can use an arcane focus as a spellcasting focus for your wizard spells.
 #### Learning Spells of 1st Level and Higher
 
 Each time you gain a wizard level, you can add two wizard spells of your choice to your spellbook for free. Each of these spells must be of a level for which you have spell slots, as shown on the Wizard table. On your adventures, you might find other spells that you can add to your spellbook (see the “Your Spellbook” sidebar).
+
 ---xxx---
 ### Arcane Recovery
 
@@ -55740,6 +55172,7 @@ By spending 8 hours in study, you can exchange one or both of the spells you cho
 When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don’t count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can’t do so again until you finish a short or long rest.
 
 If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+
 ---xxx---
 Arcane Traditions
 -----------------
@@ -55779,6 +55212,7 @@ Beginning at 10th level, you can add your Intelligence modifier to one damage ro
 Starting at 14th level, you can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell.
 
 The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
+
 ---xxx---
 ### Your Spellbook
 
@@ -55797,11 +55231,21 @@ For each level of the spell, the process takes 2 hours and costs 50 gp. The cost
 If you lose your spellbook, you can use the same procedure to transcribe the spells that you have prepared into a new spellbook. Filling out the remainder of your spellbook requires you to find new spells to do so, as normal. For this reason, many wizards keep backup spellbooks in a safe place.
 ---xxx---
 
-***The Book’s Appearance.*** Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mish"
+***The Book’s Appearance.*** Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mishap.
+"
 `;
 
 exports[`should test dataloader test v2 2`] = `
 [
+  {
+    "data": "",
+    "endInDoc": -1,
+    "endInParent": -1,
+    "length": -1,
+    "parentSlice": null,
+    "startInDoc": 0,
+    "startInParent": 0,
+  },
   {
     "data": "Elf
 ---
@@ -56289,16 +55733,6 @@ You can read all writing.
   },
   {
     "data": "
-***Languages.*** You can speak, read, and write Common and Infern",
-    "endInDoc": 20644,
-    "endInParent": 1462,
-    "length": 66,
-    "parentSlice": null,
-    "startInDoc": 20578,
-    "startInParent": 1396,
-  },
-  {
-    "data": "
 ***Ability Score Increase.*** Your Dexterity score increases by 2.",
     "endInDoc": 4319,
     "endInParent": 192,
@@ -56316,6 +55750,16 @@ You can read all writing.
     "parentSlice": null,
     "startInDoc": 7185,
     "startInParent": 104,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common and Infernal.",
+    "endInDoc": 20647,
+    "endInParent": 1465,
+    "length": 69,
+    "parentSlice": null,
+    "startInDoc": 20578,
+    "startInParent": 1396,
   },
   {
     "data": "#### Defense
@@ -56402,15 +55846,6 @@ You gain a +2 bonus to attack rolls you make with ranged weapons.
     "parentSlice": null,
     "startInDoc": 77944,
     "startInParent": 212,
-  },
-  {
-    "data": "| 20th  | +6                | Extra Attack (3)                                  ",
-    "endInDoc": 77729,
-    "endInParent": 1820,
-    "length": 80,
-    "parentSlice": null,
-    "startInDoc": 77649,
-    "startInParent": 1740,
   },
   {
     "data": "Class Features
@@ -56553,15 +55988,6 @@ As a warlock, you gain the following class features.
     "startInParent": 209,
   },
   {
-    "data": "| 20th  | +6                | 10d6         | Stroke of Luck                         ",
-    "endInDoc": 129744,
-    "endInParent": 1906,
-    "length": 84,
-    "parentSlice": null,
-    "startInDoc": 129660,
-    "startInParent": 1822,
-  },
-  {
     "data": "Class Features
 --------------
 
@@ -56598,15 +56024,6 @@ You gain proficiency in the Deception and Persuasion skills.
     "parentSlice": null,
     "startInDoc": 162428,
     "startInParent": 784,
-  },
-  {
-    "data": "| 20th   | +6                | Primal Champion               | Unlimited | +4          ",
-    "endInDoc": 23486,
-    "endInParent": 1976,
-    "length": 87,
-    "parentSlice": null,
-    "startInDoc": 23399,
-    "startInParent": 1889,
   },
   {
     "data": "
@@ -56721,17 +56138,6 @@ By 3rd level, the divine magic flowing through you makes you immune to disease.
     "startInParent": 8050,
   },
   {
-    "data": "#### Spellcasting Focus
-
-You can use a holy symbol as a spellcasting focus for your paladin spells.",
-    "endInDoc": 103485,
-    "endInParent": 1994,
-    "length": 99,
-    "parentSlice": null,
-    "startInDoc": 103386,
-    "startInParent": 1895,
-  },
-  {
     "data": "
 ***Speed.*** Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor.",
     "endInDoc": 2715,
@@ -56753,6 +56159,18 @@ Your gnome character has certain characteristics in common with all other gnomes
     "startInParent": 0,
   },
   {
+    "data": "#### Spellcasting Focus
+
+You can use a holy symbol as a spellcasting focus for your paladin spells.
+",
+    "endInDoc": 103486,
+    "endInParent": 1995,
+    "length": 100,
+    "parentSlice": null,
+    "startInDoc": 103386,
+    "startInParent": 1895,
+  },
+  {
     "data": "#### Languages
 
 By virtue of your race, your character can speak, read, and write certain languages.
@@ -56763,17 +56181,6 @@ By virtue of your race, your character can speak, read, and write certain langua
     "parentSlice": null,
     "startInDoc": 1574,
     "startInParent": 1561,
-  },
-  {
-    "data": "#### Spellcasting Focus
-
-You can use an arcane focus as a spellcasting focus for your warlock spells.",
-    "endInDoc": 157251,
-    "endInParent": 2135,
-    "length": 101,
-    "parentSlice": null,
-    "startInDoc": 157150,
-    "startInParent": 2034,
   },
   {
     "data": "#### Spellcasting Focus
@@ -56790,23 +56197,26 @@ You can use an arcane focus as a spellcasting focus for your wizard spells.
   {
     "data": "#### Spellcasting Focus
 
-You can use an arcane focus as a spellcasting focus for your sorcerer spells.",
-    "endInDoc": 142735,
-    "endInParent": 2168,
+You can use an arcane focus as a spellcasting focus for your warlock spells.
+",
+    "endInDoc": 157252,
+    "endInParent": 2136,
     "length": 102,
+    "parentSlice": null,
+    "startInDoc": 157150,
+    "startInParent": 2034,
+  },
+  {
+    "data": "#### Spellcasting Focus
+
+You can use an arcane focus as a spellcasting focus for your sorcerer spells.
+",
+    "endInDoc": 142736,
+    "endInParent": 2169,
+    "length": 103,
     "parentSlice": null,
     "startInDoc": 142633,
     "startInParent": 2066,
-  },
-  {
-    "data": "
-***Languages.*** You can speak, read, and write Common, Elvish, and one extra language of your choice",
-    "endInDoc": 17456,
-    "endInParent": 1450,
-    "length": 102,
-    "parentSlice": null,
-    "startInDoc": 17354,
-    "startInParent": 1348,
   },
   {
     "data": "
@@ -56838,15 +56248,6 @@ Your halfling character has a number of traits in common with all other halfling
     "parentSlice": null,
     "startInDoc": 7081,
     "startInParent": 0,
-  },
-  {
-    "data": "| 20th  | +6                | Sacred Oath feature                        | 4   | 3   | 3   | 3   | 2   ",
-    "endInDoc": 99021,
-    "endInParent": 2326,
-    "length": 103,
-    "parentSlice": null,
-    "startInDoc": 98918,
-    "startInParent": 2223,
   },
   {
     "data": "#### Ritual Casting
@@ -56881,6 +56282,17 @@ You can spend 1 ki point to take the Dodge action as a bonus action on your turn
     "parentSlice": null,
     "startInDoc": 12611,
     "startInParent": 2590,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common, Elvish, and one extra language of your choice.
+",
+    "endInDoc": 17458,
+    "endInParent": 1452,
+    "length": 104,
+    "parentSlice": null,
+    "startInDoc": 17354,
+    "startInParent": 1348,
   },
   {
     "data": "#### Bonus Proficiency
@@ -57035,17 +56447,6 @@ Starting at 5th level, your speed increases by 10 feet while you aren’t wearin
     "startInParent": 5472,
   },
   {
-    "data": "### Sorcerous Restoration
-
-At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.",
-    "endInDoc": 147485,
-    "endInParent": 11458,
-    "length": 112,
-    "parentSlice": null,
-    "startInDoc": 147373,
-    "startInParent": 11346,
-  },
-  {
     "data": "#### Misty Visions
 
 You can cast *silent image* at will, without expending a spell slot or material components.
@@ -57067,6 +56468,18 @@ Your dwarf character has an assortment of inborn abilities, part and parcel of d
     "parentSlice": null,
     "startInDoc": 1928,
     "startInParent": 0,
+  },
+  {
+    "data": "### Sorcerous Restoration
+
+At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.
+",
+    "endInDoc": 147486,
+    "endInParent": 11459,
+    "length": 113,
+    "parentSlice": null,
+    "startInDoc": 147373,
+    "startInParent": 11346,
   },
   {
     "data": "
@@ -57136,17 +56549,6 @@ At 10th level, your mastery of the ki flowing through you makes you immune to di
     "startInParent": 9615,
   },
   {
-    "data": "### Perfect Self
-
-At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.",
-    "endInDoc": 93192,
-    "endInParent": 10910,
-    "length": 118,
-    "parentSlice": null,
-    "startInDoc": 93074,
-    "startInParent": 10792,
-  },
-  {
     "data": "#### Eldritch Spear
 
 *Prerequisite:* eldritch blast *cantrip*
@@ -57170,6 +56572,18 @@ Each Pact Boon option produces a special creature or an object that reflects you
     "parentSlice": null,
     "startInDoc": 171233,
     "startInParent": 0,
+  },
+  {
+    "data": "### Perfect Self
+
+At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.
+",
+    "endInDoc": 93193,
+    "endInParent": 10911,
+    "length": 119,
+    "parentSlice": null,
+    "startInDoc": 93074,
+    "startInParent": 10792,
   },
   {
     "data": "### Pact Magic
@@ -57323,15 +56737,6 @@ You can cast *mage armor* on yourself at will, without expending a spell slot or
     "startInParent": 125,
   },
   {
-    "data": "| 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   ",
-    "endInDoc": 116190,
-    "endInParent": 2809,
-    "length": 125,
-    "parentSlice": null,
-    "startInDoc": 116065,
-    "startInParent": 2684,
-  },
-  {
     "data": "#### Ritual Casting
 
 You can cast a druid spell as a ritual if that spell has the ritual tag and you have the spell prepared.
@@ -57354,17 +56759,6 @@ You can cast a cleric spell as a ritual if that spell has the ritual tag and you
     "parentSlice": null,
     "startInDoc": 49639,
     "startInParent": 2017,
-  },
-  {
-    "data": "#### Spellcasting Focus
-
-You can use a holy symbol (see chapter 5, “Equipment”) as a spellcasting focus for your cleric spells.",
-    "endInDoc": 49894,
-    "endInParent": 2272,
-    "length": 127,
-    "parentSlice": null,
-    "startInDoc": 49767,
-    "startInParent": 2145,
   },
   {
     "data": "#### Visions of Distant Realms
@@ -57395,13 +56789,16 @@ You can cast *speak with dead* at will, without expending a spell slot.
     "startInParent": 6095,
   },
   {
-    "data": "| 20th  | +6                | 1d10         | 20        | +30 ft.            | Perfect Self                                     ",
-    "endInDoc": 85940,
-    "endInParent": 2851,
-    "length": 127,
+    "data": "#### Spellcasting Focus
+
+You can use a holy symbol (see chapter 5, “Equipment”) as a spellcasting focus for your cleric spells.
+",
+    "endInDoc": 49895,
+    "endInParent": 2273,
+    "length": 128,
     "parentSlice": null,
-    "startInDoc": 85813,
-    "startInParent": 2724,
+    "startInDoc": 49767,
+    "startInParent": 2145,
   },
   {
     "data": "#### Bonus Proficiencies
@@ -57414,17 +56811,6 @@ When you join the College of Lore at 3rd level, you gain proficiency with three 
     "parentSlice": null,
     "startInDoc": 41284,
     "startInParent": 1068,
-  },
-  {
-    "data": "#### Spellcasting Focus
-
-You can use a druidic focus (see chapter 5, “Equip- ment”) as a spellcasting focus for your druid spells.",
-    "endInDoc": 63009,
-    "endInParent": 1700,
-    "length": 130,
-    "parentSlice": null,
-    "startInDoc": 62879,
-    "startInParent": 1570,
   },
   {
     "data": "### Extra Attack
@@ -57487,6 +56873,18 @@ Beginning at 5th level, you can attack twice, instead of once, whenever you take
     "startInParent": 9212,
   },
   {
+    "data": "#### Spellcasting Focus
+
+You can use a druidic focus (see chapter 5, “Equip- ment”) as a spellcasting focus for your druid spells.
+",
+    "endInDoc": 63010,
+    "endInParent": 1701,
+    "length": 131,
+    "parentSlice": null,
+    "startInDoc": 62879,
+    "startInParent": 1570,
+  },
+  {
     "data": "#### Thief of Five Fates
 
 You can cast *bane* once using a warlock spell slot. You can’t do so again until you finish a long rest.
@@ -57499,21 +56897,13 @@ You can cast *bane* once using a warlock spell slot. You can’t do so again unt
     "startInParent": 5244,
   },
   {
-    "data": "| 20th  | +6                | Signature Spell                | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   ",
-    "endInDoc": 176408,
-    "endInParent": 2963,
-    "length": 132,
-    "parentSlice": null,
-    "startInDoc": 176276,
-    "startInParent": 2831,
-  },
-  {
     "data": "#### Spellcasting Focus
 
-You can use a musical instrument (see chapter 5, “Equip-ment”) as a spellcasting focus for your bard spells.",
-    "endInDoc": 36381,
-    "endInParent": 2275,
-    "length": 133,
+You can use a musical instrument (see chapter 5, “Equip-ment”) as a spellcasting focus for your bard spells.
+",
+    "endInDoc": 36382,
+    "endInParent": 2276,
+    "length": 134,
     "parentSlice": null,
     "startInDoc": 36248,
     "startInParent": 2142,
@@ -57521,10 +56911,11 @@ You can use a musical instrument (see chapter 5, “Equip-ment”) as a spellcas
   {
     "data": "#### Two-Weapon Fighting
 
-When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.",
-    "endInDoc": 78902,
-    "endInParent": 1170,
-    "length": 135,
+When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+",
+    "endInDoc": 78903,
+    "endInParent": 1171,
+    "length": 136,
     "parentSlice": null,
     "startInDoc": 78767,
     "startInParent": 1035,
@@ -57584,15 +56975,6 @@ As a student of arcane magic, you have a spellbook containing spells that show t
     "parentSlice": null,
     "startInDoc": 176411,
     "startInParent": 0,
-  },
-  {
-    "data": "| 20th  | +6                | Eldritch Master                 | 4              | 15           | 4           | 5th        | 8                 ",
-    "endInDoc": 154810,
-    "endInParent": 3162,
-    "length": 141,
-    "parentSlice": null,
-    "startInDoc": 154669,
-    "startInParent": 3021,
   },
   {
     "data": "#### Improved Critical
@@ -57713,15 +57095,6 @@ Beginning at 10th level, you can add your Intelligence modifier to one damage ro
     "parentSlice": null,
     "startInDoc": 184074,
     "startInParent": 1334,
-  },
-  {
-    "data": "| 20th  | +6                | Archdruid                                         | 4              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   ",
-    "endInDoc": 60984,
-    "endInParent": 3380,
-    "length": 151,
-    "parentSlice": null,
-    "startInDoc": 60833,
-    "startInParent": 3229,
   },
   {
     "data": "#### Supreme Sneak
@@ -57898,17 +57271,6 @@ Starting at 18th level, the primal magic that you wield causes you to age more s
     "startInParent": 10892,
   },
   {
-    "data": "#### Step of the Wind
-
-You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.",
-    "endInDoc": 88827,
-    "endInParent": 1365,
-    "length": 164,
-    "parentSlice": null,
-    "startInDoc": 88663,
-    "startInParent": 1201,
-  },
-  {
     "data": "#### Bewitching Whispers
 
 *Prerequisite: 7th level*
@@ -57923,15 +57285,6 @@ You can cast *compulsion* once using a warlock spell slot. You can’t do so aga
     "startInParent": 872,
   },
   {
-    "data": "| 20th  | +6                | 20             | Sorcerous Restoration          | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   ",
-    "endInDoc": 140564,
-    "endInParent": 3669,
-    "length": 164,
-    "parentSlice": null,
-    "startInDoc": 140400,
-    "startInParent": 3505,
-  },
-  {
     "data": "### Primal Champion
 
 At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.
@@ -57942,6 +57295,18 @@ At 20th level, you embody the power of the wilds. Your Strength and Constitution
     "parentSlice": null,
     "startInDoc": 27538,
     "startInParent": 6869,
+  },
+  {
+    "data": "#### Step of the Wind
+
+You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.
+",
+    "endInDoc": 88828,
+    "endInParent": 1366,
+    "length": 165,
+    "parentSlice": null,
+    "startInDoc": 88663,
+    "startInParent": 1201,
   },
   {
     "data": "#### Evocation Savant
@@ -57992,15 +57357,6 @@ You can cast *conjure elemental* once using a warlock spell slot. You can’t do
     "startInParent": 3956,
   },
   {
-    "data": "| 20th  | +6               | Superior Inspiration                                 | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   ",
-    "endInDoc": 34103,
-    "endInParent": 3753,
-    "length": 168,
-    "parentSlice": null,
-    "startInDoc": 33935,
-    "startInParent": 3585,
-  },
-  {
     "data": "### Uncanny Dodge
 
 Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you.
@@ -58021,15 +57377,6 @@ Starting at 5th level, when an attacker that you can see hits you with an attack
     "parentSlice": null,
     "startInDoc": 16257,
     "startInParent": 251,
-  },
-  {
-    "data": "| 20th  | +6                | Divine Intervention improvement                                         | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1  ",
-    "endInDoc": 47618,
-    "endInParent": 3908,
-    "length": 172,
-    "parentSlice": null,
-    "startInDoc": 47446,
-    "startInParent": 3736,
   },
   {
     "data": "### Unarmored Defense
@@ -58140,17 +57487,6 @@ Beginning at 18th level, you are so evasive that attackers rarely gain the upper
     "startInParent": 6457,
   },
   {
-    "data": "#### Retaliation
-
-Starting at 14th level, when you take damage from a creature that is within 5 feet of you, you can use your reaction to make a melee weapon attack against that creatur",
-    "endInDoc": 29478,
-    "endInParent": 1774,
-    "length": 185,
-    "parentSlice": null,
-    "startInDoc": 29293,
-    "startInParent": 1589,
-  },
-  {
     "data": "#### Repelling Blast
 
 *Prerequisite:* eldritch blas*t cantrip*
@@ -58165,16 +57501,6 @@ When you hit a creature with *eldritch blast*, you can push the creature up to 1
     "startInParent": 4732,
   },
   {
-    "data": "
-***Languages.*** You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script",
-    "endInDoc": 19160,
-    "endInParent": 1682,
-    "length": 185,
-    "parentSlice": null,
-    "startInDoc": 18975,
-    "startInParent": 1497,
-  },
-  {
     "data": "#### Thirsting Blade
 
 *Prerequisite: 5th level, Pact of the Blade feature*
@@ -58187,6 +57513,29 @@ You can attack with your pact weapon twice, instead of once, whenever you take t
     "parentSlice": null,
     "startInDoc": 167020,
     "startInParent": 5376,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.
+",
+    "endInDoc": 19162,
+    "endInParent": 1684,
+    "length": 187,
+    "parentSlice": null,
+    "startInDoc": 18975,
+    "startInParent": 1497,
+  },
+  {
+    "data": "#### Retaliation
+
+Starting at 14th level, when you take damage from a creature that is within 5 feet of you, you can use your reaction to make a melee weapon attack against that creature.
+",
+    "endInDoc": 29481,
+    "endInParent": 1777,
+    "length": 188,
+    "parentSlice": null,
+    "startInDoc": 29293,
+    "startInParent": 1589,
   },
   {
     "data": "
@@ -58480,16 +57829,6 @@ You know two cantrips of your choice from the warlock spell list. You learn addi
     "startInParent": 1685,
   },
   {
-    "data": "
-***Languages.*** You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.",
-    "endInDoc": 3835,
-    "endInParent": 1907,
-    "length": 213,
-    "parentSlice": null,
-    "startInDoc": 3622,
-    "startInParent": 1694,
-  },
-  {
     "data": "#### Hit Points
 
 **Hit Dice:** 1d8 per cleric level
@@ -58520,6 +57859,17 @@ You know two cantrips of your choice from the warlock spell list. You learn addi
     "parentSlice": null,
     "startInDoc": 172700,
     "startInParent": 84,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
+",
+    "endInDoc": 3836,
+    "endInParent": 1908,
+    "length": 214,
+    "parentSlice": null,
+    "startInDoc": 3622,
+    "startInParent": 1694,
   },
   {
     "data": "### Spellcasting
@@ -58568,16 +57918,6 @@ Your spells are part of your vast repertoire, magic that you can tune to differe
     "startInParent": 84,
   },
   {
-    "data": "
-***Languages.*** You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.",
-    "endInDoc": 14417,
-    "endInParent": 1419,
-    "length": 217,
-    "parentSlice": null,
-    "startInDoc": 14200,
-    "startInParent": 1202,
-  },
-  {
     "data": "#### Hit Points
 
 **Hit Dice:** 1d6 per sorcerer level
@@ -58594,17 +57934,15 @@ Your spells are part of your vast repertoire, magic that you can tune to differe
     "startInParent": 86,
   },
   {
-    "data": "#### Witch Sight
-
-*Prerequisite: 15th level*
-
-You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight.",
-    "endInDoc": 168085,
-    "endInParent": 6441,
+    "data": "
+***Languages.*** You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.
+",
+    "endInDoc": 14418,
+    "endInParent": 1420,
     "length": 218,
     "parentSlice": null,
-    "startInDoc": 167867,
-    "startInParent": 6223,
+    "startInDoc": 14200,
+    "startInParent": 1202,
   },
   {
     "data": "
@@ -58647,6 +57985,20 @@ You can see the true form of any shapechanger or creature concealed by illusion 
     "parentSlice": null,
     "startInDoc": 95907,
     "startInParent": 85,
+  },
+  {
+    "data": "#### Witch Sight
+
+*Prerequisite: 15th level*
+
+You can see the true form of any shapechanger or creature concealed by illusion or transmutation magic while the creature is within 30 feet of you and within line of sight.
+",
+    "endInDoc": 168086,
+    "endInParent": 6442,
+    "length": 219,
+    "parentSlice": null,
+    "startInDoc": 167867,
+    "startInParent": 6223,
   },
   {
     "data": "#### Cantrips
@@ -58846,17 +58198,6 @@ Additionally, whenever you make a saving throw and fail, you can spend 1 ki poin
     "startInParent": 299,
   },
   {
-    "data": "#### Subraces
-
-Some races have subraces. Members of a subrace have the traits of the parent race in addition to the traits specified for their subrace. Relationships among subraces vary significantly from race to race and world to world",
-    "endInDoc": 1912,
-    "endInParent": 1899,
-    "length": 236,
-    "parentSlice": null,
-    "startInDoc": 1676,
-    "startInParent": 1663,
-  },
-  {
     "data": "#### Fast Hands
 
 Starting at 3rd level, you can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to disarm a trap or open a lock, or take the Use an Object action.
@@ -58867,6 +58208,18 @@ Starting at 3rd level, you can use the bonus action granted by your Cunning Acti
     "parentSlice": null,
     "startInDoc": 134738,
     "startInParent": 452,
+  },
+  {
+    "data": "#### Subraces
+
+Some races have subraces. Members of a subrace have the traits of the parent race in addition to the traits specified for their subrace. Relationships among subraces vary significantly from race to race and world to world.
+",
+    "endInDoc": 1914,
+    "endInParent": 1901,
+    "length": 238,
+    "parentSlice": null,
+    "startInDoc": 1676,
+    "startInParent": 1663,
   },
   {
     "data": "### Champion
@@ -59140,17 +58493,6 @@ Intimidation, Persuasion, and Religion
     "startInParent": 305,
   },
   {
-    "data": "#### Supreme Healing
-
-Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 1",
-    "endInDoc": 56604,
-    "endInParent": 2752,
-    "length": 263,
-    "parentSlice": null,
-    "startInDoc": 56341,
-    "startInParent": 2489,
-  },
-  {
     "data": "### Expertise
 
 At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.
@@ -59205,14 +58547,16 @@ The number of attacks increases to three when you reach 11th level in this class
     "startInParent": 5288,
   },
   {
-    "data": "
-***Languages.*** You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants",
-    "endInDoc": 12982,
-    "endInParent": 2961,
+    "data": "#### Supreme Healing
+
+Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.
+",
+    "endInDoc": 56607,
+    "endInParent": 2755,
     "length": 266,
     "parentSlice": null,
-    "startInDoc": 12716,
-    "startInParent": 2695,
+    "startInDoc": 56341,
+    "startInParent": 2489,
   },
   {
     "data": "### Beast Spells
@@ -59225,6 +58569,17 @@ Beginning at 18th level, you can cast many of your druid spells in any shape you
     "parentSlice": null,
     "startInDoc": 67678,
     "startInParent": 11057,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.
+",
+    "endInDoc": 12984,
+    "endInParent": 2963,
+    "length": 268,
+    "parentSlice": null,
+    "startInDoc": 12716,
+    "startInParent": 2695,
   },
   {
     "data": "
@@ -59329,21 +58684,6 @@ Intimidation, Nature, Perception, and Survival
     "startInParent": 812,
   },
   {
-    "data": "#### Hill Dwarf
-
-As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
-
-***Ability Score Increase.*** Your Wisdom score increases by 1.
-
-***Dwarven Toughness.*** Your hit point maximum increases by 1, and it increases by 1 every time you gain a level",
-    "endInDoc": 4115,
-    "endInParent": 2187,
-    "length": 278,
-    "parentSlice": null,
-    "startInDoc": 3837,
-    "startInParent": 1909,
-  },
-  {
     "data": "
 ***Darkvision.*** Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.",
     "endInDoc": 20087,
@@ -59368,6 +58708,22 @@ the class description. Your choice grants you features at 3rd level and again at
     "startInParent": 8589,
   },
   {
+    "data": "#### Hill Dwarf
+
+As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
+
+***Ability Score Increase.*** Your Wisdom score increases by 1.
+
+***Dwarven Toughness.*** Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.
+",
+    "endInDoc": 4117,
+    "endInParent": 2189,
+    "length": 280,
+    "parentSlice": null,
+    "startInDoc": 3837,
+    "startInParent": 1909,
+  },
+  {
     "data": "#### Fiendish Resilience
 
 Starting at 10th level, you can choose one damage type when you finish a short or long rest. You gain resistance to that damage type until you choose a different one with this feature. Damage from magical weapons or silver weapons ignores this resistance.
@@ -59378,17 +58734,6 @@ Starting at 10th level, you can choose one damage type when you finish a short o
     "parentSlice": null,
     "startInDoc": 170406,
     "startInParent": 1689,
-  },
-  {
-    "data": "#### Survivor
-
-At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don’t gain this benefit if you have 0 hit point",
-    "endInDoc": 82267,
-    "endInParent": 1241,
-    "length": 283,
-    "parentSlice": null,
-    "startInDoc": 81984,
-    "startInParent": 958,
   },
   {
     "data": "#### Proficiencies
@@ -59411,6 +58756,18 @@ History, Insight, Religion, and Stealth
     "parentSlice": null,
     "startInDoc": 82575,
     "startInParent": 293,
+  },
+  {
+    "data": "#### Survivor
+
+At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don’t gain this benefit if you have 0 hit points.
+",
+    "endInDoc": 82270,
+    "endInParent": 1244,
+    "length": 286,
+    "parentSlice": null,
+    "startInDoc": 81984,
+    "startInParent": 958,
   },
   {
     "data": "
@@ -59479,19 +58836,6 @@ Handling, Athletics, History, Insight, Intimidation, Perception, and Survival
     "startInParent": 305,
   },
   {
-    "data": "### Cleansing Touch
-
-Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.
-
-You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.",
-    "endInDoc": 106963,
-    "endInParent": 11141,
-    "length": 292,
-    "parentSlice": null,
-    "startInDoc": 106671,
-    "startInParent": 10849,
-  },
-  {
     "data": "### Metamagic
 
 At 3rd level, you gain the ability to twist your spells to suit your needs. You gain two of the following Metamagic options of your choice. You gain another one at 10th and 17th level.
@@ -59504,6 +58848,20 @@ You can use only one Metamagic option on a spell when you cast it, unless otherw
     "parentSlice": null,
     "startInDoc": 144606,
     "startInParent": 0,
+  },
+  {
+    "data": "### Cleansing Touch
+
+Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.
+
+You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.
+",
+    "endInDoc": 106964,
+    "endInParent": 11142,
+    "length": 293,
+    "parentSlice": null,
+    "startInDoc": 106671,
+    "startInParent": 10849,
   },
   {
     "data": "
@@ -59875,16 +59233,6 @@ Starting at 6th level, when you cast a spell that deals damage of the type assoc
     "startInParent": 1591,
   },
   {
-    "data": "
-***Languages.*** You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.",
-    "endInDoc": 6294,
-    "endInParent": 2167,
-    "length": 309,
-    "parentSlice": null,
-    "startInDoc": 5985,
-    "startInParent": 1858,
-  },
-  {
     "data": "### Feral Instinct
 
 By 7th level, your instincts are so honed that you have advantage on initiative rolls.
@@ -59897,6 +59245,17 @@ Additionally, if you are surprised at the beginning of combat and aren’t incap
     "parentSlice": null,
     "startInDoc": 26254,
     "startInParent": 5585,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
+",
+    "endInDoc": 6295,
+    "endInParent": 2168,
+    "length": 310,
+    "parentSlice": null,
+    "startInDoc": 5985,
+    "startInParent": 1858,
   },
   {
     "data": "### Monastic Tradition
@@ -60089,30 +59448,6 @@ When you roll a 1 or 2 on a damage die for an attack you make with a melee weapo
     "startInParent": 338,
   },
   {
-    "data": "### Indomitable
-
-Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can’t use this feature again until you finish a long rest.
-
-You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.",
-    "endInDoc": 80831,
-    "endInParent": 5881,
-    "length": 326,
-    "parentSlice": null,
-    "startInDoc": 80505,
-    "startInParent": 5555,
-  },
-  {
-    "data": "#### Peerless Skill
-
-Starting at 14th level, when you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fai",
-    "endInDoc": 42754,
-    "endInParent": 2538,
-    "length": 326,
-    "parentSlice": null,
-    "startInDoc": 42428,
-    "startInParent": 2212,
-  },
-  {
     "data": "##### Arctic
 
 | Druid Level | Circle Spells                     |
@@ -60130,6 +59465,32 @@ Starting at 14th level, when you make an ability check, you can expend one use o
     "startInParent": 614,
   },
   {
+    "data": "### Indomitable
+
+Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can’t use this feature again until you finish a long rest.
+
+You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.
+",
+    "endInDoc": 80832,
+    "endInParent": 5882,
+    "length": 327,
+    "parentSlice": null,
+    "startInDoc": 80505,
+    "startInParent": 5555,
+  },
+  {
+    "data": "#### Peerless Skill
+
+Starting at 14th level, when you make an ability check, you can expend one use of Bardic Inspiration. Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so after you roll the die for the ability check, but before the GM tells you whether you succeed or fail.
+",
+    "endInDoc": 42757,
+    "endInParent": 2541,
+    "length": 329,
+    "parentSlice": null,
+    "startInDoc": 42428,
+    "startInParent": 2212,
+  },
+  {
     "data": "#### Frenzy
 
 Starting when you choose this path at 3rd level, you can go into a frenzy when you rage. If you do so, for the duration of your rage you can make a single melee weapon attack as a bonus action on each of your turns after this one. When your rage ends, you suffer one level of exhaustion (as described in appendix A).
@@ -60140,17 +59501,6 @@ Starting when you choose this path at 3rd level, you can go into a frenzy when y
     "parentSlice": null,
     "startInDoc": 27993,
     "startInParent": 289,
-  },
-  {
-    "data": "#### Thief’s Reflexes
-
-When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can’t use this feature when you are surprise",
-    "endInDoc": 136004,
-    "endInParent": 1718,
-    "length": 330,
-    "parentSlice": null,
-    "startInDoc": 135674,
-    "startInParent": 1388,
   },
   {
     "data": "##### Coast
@@ -60180,6 +59530,18 @@ At 3rd level, you choose an archetype that you strive to emulate in your combat 
     "parentSlice": null,
     "startInDoc": 79598,
     "startInParent": 4648,
+  },
+  {
+    "data": "#### Thief’s Reflexes
+
+When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can’t use this feature when you are surprised.
+",
+    "endInDoc": 136007,
+    "endInParent": 1721,
+    "length": 333,
+    "parentSlice": null,
+    "startInDoc": 135674,
+    "startInParent": 1388,
   },
   {
     "data": "#### Equipment
@@ -60229,26 +59591,14 @@ You have advantage on Dexterity saving throws against effects that you can see, 
 | 3rd         | acid arrow, darkness                 |
 | 5th         | water walk, stinking cloud           |
 | 7th         | freedom of movement, locate creature |
-| 9th         | insect plague, scrying               |",
-    "endInDoc": 72513,
-    "endInParent": 2976,
-    "length": 342,
+| 9th         | insect plague, scrying               |
+",
+    "endInDoc": 72514,
+    "endInParent": 2977,
+    "length": 343,
     "parentSlice": null,
     "startInDoc": 72171,
     "startInParent": 2634,
-  },
-  {
-    "data": "### Stroke of Luck
-
-At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
-
-Once you use this feature, you can’t use it again until you finish a short or long rest.",
-    "endInDoc": 133812,
-    "endInParent": 6986,
-    "length": 343,
-    "parentSlice": null,
-    "startInDoc": 133469,
-    "startInParent": 6643,
   },
   {
     "data": "### Archdruid
@@ -60279,6 +59629,20 @@ At 18th level, the range of this aura increases to 30 feet.
     "startInParent": 9945,
   },
   {
+    "data": "### Stroke of Luck
+
+At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
+
+Once you use this feature, you can’t use it again until you finish a short or long rest.
+",
+    "endInDoc": 133813,
+    "endInParent": 6987,
+    "length": 344,
+    "parentSlice": null,
+    "startInDoc": 133469,
+    "startInParent": 6643,
+  },
+  {
     "data": "#### Remarkable Athlete
 
 Starting at 7th level, you can add half your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn’t already use your proficiency bonus.
@@ -60295,10 +59659,11 @@ In addition, when you make a running long jump, the distance you can cover incre
   {
     "data": "### Foe Slayer
 
-At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.",
-    "endInDoc": 123837,
-    "endInParent": 11361,
-    "length": 348,
+At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+",
+    "endInDoc": 123838,
+    "endInParent": 11362,
+    "length": 349,
     "parentSlice": null,
     "startInDoc": 123489,
     "startInParent": 11013,
@@ -60318,17 +59683,6 @@ At 9th level, you gain the ability to move along vertical surfaces and across li
     "startInParent": 6547,
   },
   {
-    "data": "### Druids and the Gods
-
-Some druids venerate the forces of nature themselves, but most druids are devoted to one of the many nature deities worshiped in the multiverse (the lists of gods in appendix B include many such deities). The worship of these deities is often considered a more ancient tradition than the faiths of clerics and urbanized peoples",
-    "endInDoc": 74930,
-    "endInParent": 18309,
-    "length": 352,
-    "parentSlice": null,
-    "startInDoc": 74578,
-    "startInParent": 17957,
-  },
-  {
     "data": "#### Equipment
 
 You start with the following equipment, in addition to the equipment granted by your background:
@@ -60343,6 +59697,18 @@ You start with the following equipment, in addition to the equipment granted by 
     "parentSlice": null,
     "startInDoc": 127484,
     "startInParent": 658,
+  },
+  {
+    "data": "### Druids and the Gods
+
+Some druids venerate the forces of nature themselves, but most druids are devoted to one of the many nature deities worshiped in the multiverse (the lists of gods in appendix B include many such deities). The worship of these deities is often considered a more ancient tradition than the faiths of clerics and urbanized peoples.
+",
+    "endInDoc": 74932,
+    "endInParent": 18311,
+    "length": 354,
+    "parentSlice": null,
+    "startInDoc": 74578,
+    "startInParent": 17957,
   },
   {
     "data": "### Improved Divine Smite
@@ -60469,10 +59835,11 @@ When you cast a spell that forces other creatures to make a saving throw, you ca
   {
     "data": "#### Learning Spells of 1st Level and Higher
 
-Each time you gain a wizard level, you can add two wizard spells of your choice to your spellbook for free. Each of these spells must be of a level for which you have spell slots, as shown on the Wizard table. On your adventures, you might find other spells that you can add to your spellbook (see the “Your Spellbook” sidebar).",
-    "endInDoc": 179495,
-    "endInParent": 3084,
-    "length": 374,
+Each time you gain a wizard level, you can add two wizard spells of your choice to your spellbook for free. Each of these spells must be of a level for which you have spell slots, as shown on the Wizard table. On your adventures, you might find other spells that you can add to your spellbook (see the “Your Spellbook” sidebar).
+",
+    "endInDoc": 179496,
+    "endInParent": 3085,
+    "length": 375,
     "parentSlice": null,
     "startInDoc": 179121,
     "startInParent": 2710,
@@ -60494,10 +59861,11 @@ At 6th level, you can choose two more of your proficiencies (in skills or with t
   {
     "data": "### Eldritch Master
 
-At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.",
-    "endInDoc": 161642,
-    "endInParent": 10873,
-    "length": 376,
+At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
+",
+    "endInDoc": 161643,
+    "endInParent": 10874,
+    "length": 377,
     "parentSlice": null,
     "startInDoc": 161266,
     "startInParent": 10497,
@@ -60574,16 +59942,6 @@ You start with the following equipment, in addition to the equipment granted by 
   },
   {
     "data": "
-***The Book’s Appearance.*** Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mish",
-    "endInDoc": 187146,
-    "endInParent": 2335,
-    "length": 393,
-    "parentSlice": null,
-    "startInDoc": 186753,
-    "startInParent": 1942,
-  },
-  {
-    "data": "
 ***Pact of the Blade.*** If your patron is the Archfey, your weapon might be a slender blade wrapped in leafy vines. If you serve the Fiend, your weapon could be an axe made of black metal and adorned with decorative flames. If your patron is the Great Old One, your weapon might be an ancient-looking spear, with a gemstone embedded in its head, carved to look like a terrible unblinking eye.",
     "endInDoc": 172060,
     "endInParent": 827,
@@ -60591,16 +59949,6 @@ You start with the following equipment, in addition to the equipment granted by 
     "parentSlice": null,
     "startInDoc": 171666,
     "startInParent": 433,
-  },
-  {
-    "data": "
-***Languages.*** You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.",
-    "endInDoc": 8540,
-    "endInParent": 1459,
-    "length": 396,
-    "parentSlice": null,
-    "startInDoc": 8144,
-    "startInParent": 1063,
   },
   {
     "data": "### Action Surge
@@ -60615,6 +59963,28 @@ Once you use this feature, you must finish a short or long rest before you can u
     "parentSlice": null,
     "startInDoc": 79200,
     "startInParent": 4250,
+  },
+  {
+    "data": "
+***Languages.*** You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
+",
+    "endInDoc": 8541,
+    "endInParent": 1460,
+    "length": 397,
+    "parentSlice": null,
+    "startInDoc": 8144,
+    "startInParent": 1063,
+  },
+  {
+    "data": "
+***The Book’s Appearance.*** Your spellbook is a unique compilation of spells, with its own decorative flourishes and margin notes. It might be a plain, functional leather volume that you received as a gift from your master, a finely bound gilt-edged tome you found in an ancient library, or even a loose collection of notes scrounged together after you lost your previous spellbook in a mishap.
+",
+    "endInDoc": 187150,
+    "endInParent": 2339,
+    "length": 397,
+    "parentSlice": null,
+    "startInDoc": 186753,
+    "startInParent": 1942,
   },
   {
     "data": "##### Desert
@@ -60907,10 +60277,11 @@ Your oath allows you to channel divine energy to fuel magical effects. Each Chan
 
 When you use your Channel Divinity, you choose which option to use. You must then finish a short or long rest to use your Channel Divinity again.
 
-Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your paladin spell save DC.",
-    "endInDoc": 105337,
-    "endInParent": 1365,
-    "length": 456,
+Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your paladin spell save DC.
+",
+    "endInDoc": 105338,
+    "endInParent": 1366,
+    "length": 457,
     "parentSlice": null,
     "startInDoc": 104881,
     "startInParent": 909,
@@ -61048,10 +60419,11 @@ Whenever an enemy creature starts its turn in the bright light, the creature tak
 
 In addition, for the duration, you have advantage on saving throws against spells cast by fiends or undead.
 
-Once you use this feature, you can’t use it again until you finish a long rest.",
-    "endInDoc": 111573,
-    "endInParent": 4083,
-    "length": 482,
+Once you use this feature, you can’t use it again until you finish a long rest.
+",
+    "endInDoc": 111574,
+    "endInParent": 4084,
+    "length": 483,
     "parentSlice": null,
     "startInDoc": 111091,
     "startInParent": 3601,
@@ -61115,10 +60487,11 @@ Your choice grants you features at 3rd level and again at 7th, 15th, and 20th le
 
 When you cast a spell that targets only one creature and doesn’t have a range of self, you can spend a number of sorcery points equal to the spell’s level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip).
 
-To be eligible, a spell must be incapable of targeting more than one creature at the spell’s current level. For example, *magic missile* and *scorching ray* aren’t eligible, but *ray of frost* and *chromatic orb* are.",
-    "endInDoc": 147075,
-    "endInParent": 2469,
-    "length": 495,
+To be eligible, a spell must be incapable of targeting more than one creature at the spell’s current level. For example, *magic missile* and *scorching ray* aren’t eligible, but *ray of frost* and *chromatic orb* are.
+",
+    "endInDoc": 147076,
+    "endInParent": 2470,
+    "length": 496,
     "parentSlice": null,
     "startInDoc": 146580,
     "startInParent": 1974,
@@ -61134,13 +60507,30 @@ To be eligible, a spell must be incapable of targeting more than one creature at
 | 4th              | 6                  |
 | 5th              | 7                  |
 
-***Converting a Spell Slot to Sorcery Points.*** As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot’s level",
-    "endInDoc": 144603,
-    "endInParent": 1072,
-    "length": 495,
+***Converting a Spell Slot to Sorcery Points.*** As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot’s level.
+",
+    "endInDoc": 144605,
+    "endInParent": 1074,
+    "length": 497,
     "parentSlice": null,
     "startInDoc": 144108,
     "startInParent": 577,
+  },
+  {
+    "data": "#### Spellcasting Ability
+
+Wisdom is your spellcasting ability for your ranger spells, since your magic draws on your attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one.
+
+**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier
+
+**Spell attack modifier** = your proficiency bonus + your Wisdom modifier
+",
+    "endInDoc": 120649,
+    "endInParent": 1804,
+    "length": 504,
+    "parentSlice": null,
+    "startInDoc": 120145,
+    "startInParent": 1300,
   },
   {
     "data": "#### Lightfoot
@@ -61151,28 +60541,14 @@ Lightfoots are more prone to wanderlust than other halflings, and often dwell al
 
 ***Ability Score Increase.*** Your Charisma score increases by 1.
 
-***Naturally Stealthy.*** You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you",
-    "endInDoc": 9045,
-    "endInParent": 1964,
-    "length": 503,
+***Naturally Stealthy.*** You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+",
+    "endInDoc": 9047,
+    "endInParent": 1966,
+    "length": 505,
     "parentSlice": null,
     "startInDoc": 8542,
     "startInParent": 1461,
-  },
-  {
-    "data": "#### Spellcasting Ability
-
-Wisdom is your spellcasting ability for your ranger spells, since your magic draws on your attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one.
-
-**Spell save DC** = 8 + your proficiency bonus + your Wisdom modifier
-
-**Spell attack modifier** = your proficiency bonus + your Wisdom modifier",
-    "endInDoc": 120648,
-    "endInParent": 1803,
-    "length": 503,
-    "parentSlice": null,
-    "startInDoc": 120145,
-    "startInParent": 1300,
   },
   {
     "data": "#### Open Hand Technique
@@ -61275,10 +60651,11 @@ Becoming a paladin involves taking vows that commit the paladin to the cause of 
 
 When you reach 14th level, creatures of the natural world sense your connection to nature and become hesitant to attack you. When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours.
 
-The creature is aware of this effect before it makes its attack against you.",
-    "endInDoc": 73633,
-    "endInParent": 5342,
-    "length": 524,
+The creature is aware of this effect before it makes its attack against you.
+",
+    "endInDoc": 73634,
+    "endInParent": 5343,
+    "length": 525,
     "parentSlice": null,
     "startInDoc": 73109,
     "startInParent": 4818,
@@ -61395,10 +60772,11 @@ The Circle of the Land is made up of mystics and sages who safeguard ancient kno
   },
   {
     "data": "
-***Pact of the Tome.*** Your Book of Shadows might be a fine, gilt-edged tome with spells of enchantment and illusion, gifted to you by the lordly Archfey. It could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend. Or it could be the tattered diary of a lunatic driven mad by contact with the Great Old One, holding scraps of spells that only your own burgeoning insanity allows you to understand and cas",
-    "endInDoc": 172597,
-    "endInParent": 1364,
-    "length": 536,
+***Pact of the Tome.*** Your Book of Shadows might be a fine, gilt-edged tome with spells of enchantment and illusion, gifted to you by the lordly Archfey. It could be a weighty tome bound in demon hide studded with iron, holding spells of conjuration and a wealth of forbidden lore about the sinister regions of the cosmos, a gift of the Fiend. Or it could be the tattered diary of a lunatic driven mad by contact with the Great Old One, holding scraps of spells that only your own burgeoning insanity allows you to understand and cast.
+",
+    "endInDoc": 172600,
+    "endInParent": 1367,
+    "length": 539,
     "parentSlice": null,
     "startInDoc": 172061,
     "startInParent": 828,
@@ -61410,10 +60788,11 @@ Starting at 14th level, when you hit a creature with an attack, you can use this
 
 At the end of your next turn, the target returns to the space it previously occupied, or the nearest unoccupied space. If the target is not a fiend, it takes 10d10 psychic damage as it reels from its horrific experience.
 
-Once you use this feature, you can’t use it again until you finish a long rest.",
-    "endInDoc": 171231,
-    "endInParent": 2514,
-    "length": 542,
+Once you use this feature, you can’t use it again until you finish a long rest.
+",
+    "endInDoc": 171232,
+    "endInParent": 2515,
+    "length": 543,
     "parentSlice": null,
     "startInDoc": 170689,
     "startInParent": 1972,
@@ -61471,10 +60850,11 @@ Charisma is your spellcasting ability for your sorcerer spells, since the power 
 
 When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don’t count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can’t do so again until you finish a short or long rest.
 
-If you want to cast either spell at a higher level, you must expend a spell slot as normal.",
-    "endInDoc": 181795,
-    "endInParent": 9179,
-    "length": 561,
+If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+",
+    "endInDoc": 181796,
+    "endInParent": 9180,
+    "length": 562,
     "parentSlice": null,
     "startInDoc": 181234,
     "startInParent": 8618,
@@ -61586,10 +60966,11 @@ You prepare the list of druid spells that are available for you to cast, choosin
 
 Starting at 14th level, you can increase the power of your simpler spells. When you cast a wizard spell of 1st through 5th level that deals damage, you can deal maximum damage with that spell.
 
-The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.",
-    "endInDoc": 184809,
-    "endInParent": 2069,
-    "length": 585,
+The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
+",
+    "endInDoc": 184810,
+    "endInParent": 2070,
+    "length": 586,
     "parentSlice": null,
     "startInDoc": 184224,
     "startInParent": 1484,
@@ -61617,10 +60998,11 @@ Beginning at 1st level, you know how to strike subtly and exploit a foe’s dist
 
 You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll.
 
-The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table",
-    "endInDoc": 130721,
-    "endInParent": 2883,
-    "length": 599,
+The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.
+",
+    "endInDoc": 130723,
+    "endInParent": 2885,
+    "length": 601,
     "parentSlice": null,
     "startInDoc": 130122,
     "startInParent": 2284,
@@ -61806,10 +61188,11 @@ In addition, you understand a set of secret signs and symbols used to convey sho
 
 As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage.
 
-A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.",
-    "endInDoc": 52294,
-    "endInParent": 1516,
-    "length": 663,
+A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
+",
+    "endInDoc": 52295,
+    "endInParent": 1517,
+    "length": 664,
     "parentSlice": null,
     "startInDoc": 51631,
     "startInParent": 853,
@@ -61819,10 +61202,11 @@ A turned creature must spend its turns trying to move as far away from you as it
 
 Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class’s spell list (the three needn’t be from the same list). While the book is on your person, you can cast those cantrips at will. They don’t count against your number of cantrips known. If they don’t appear on the warlock spell list, they are nonetheless warlock spells for you.
 
-If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.",
-    "endInDoc": 160393,
-    "endInParent": 2499,
-    "length": 665,
+If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.
+",
+    "endInDoc": 160394,
+    "endInParent": 2500,
+    "length": 666,
     "parentSlice": null,
     "startInDoc": 159728,
     "startInParent": 1834,
@@ -61830,10 +61214,11 @@ If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a
   {
     "data": "#### Draconic Presence
 
-Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hour",
-    "endInDoc": 150748,
-    "endInParent": 3038,
-    "length": 669,
+Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.
+",
+    "endInDoc": 150751,
+    "endInParent": 3041,
+    "length": 672,
     "parentSlice": null,
     "startInDoc": 150079,
     "startInParent": 2369,
@@ -61915,10 +61300,11 @@ After you use your breath weapon, you can’t use it again until you complete a 
     "data": "
 ***Turn the Unholy.*** As an action, you present your holy symbol and speak a prayer censuring fiends and undead, using your Channel Divinity. Each fiend or undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes damage.
 
-A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.",
-    "endInDoc": 110764,
-    "endInParent": 1384,
-    "length": 692,
+A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
+",
+    "endInDoc": 110765,
+    "endInParent": 1385,
+    "length": 693,
     "parentSlice": null,
     "startInDoc": 110072,
     "startInParent": 692,
@@ -61990,10 +61376,11 @@ Though the exact words and strictures of the Oath of Devotion vary, paladins of 
 
 At 17th level, you gain the ability to set up lethal vibrations in someone’s body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to your monk level. The vibrations are harmless unless you use your action to end them. To do so, you and the target must be on the same plane of existence. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
 
-You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an actio",
-    "endInDoc": 95801,
-    "endInParent": 2139,
-    "length": 730,
+You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an action.
+",
+    "endInDoc": 95804,
+    "endInParent": 2142,
+    "length": 733,
     "parentSlice": null,
     "startInDoc": 95071,
     "startInParent": 1409,
@@ -62039,10 +61426,11 @@ At 15th level, you gain one of the following features of your choice.
 
 ***Stand Against the Tide.*** When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice.
 
-***Uncanny Dodge.*** When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against yo",
-    "endInDoc": 126809,
-    "endInParent": 2846,
-    "length": 761,
+***Uncanny Dodge.*** When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you.
+",
+    "endInDoc": 126812,
+    "endInParent": 2849,
+    "length": 764,
     "parentSlice": null,
     "startInDoc": 126048,
     "startInParent": 2085,
@@ -62058,10 +61446,11 @@ As a high elf, you have a keen mind and a mastery of at least the basics of magi
 
 ***Cantrip.*** You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
 
-***Extra Language.*** You can speak, read, and write one extra language of your choice",
-    "endInDoc": 7059,
-    "endInParent": 2932,
-    "length": 763,
+***Extra Language.*** You can speak, read, and write one extra language of your choice.
+",
+    "endInDoc": 7061,
+    "endInParent": 2934,
+    "length": 765,
     "parentSlice": null,
     "startInDoc": 6296,
     "startInParent": 2169,
@@ -62196,10 +61585,11 @@ A paladin tries to hold to the highest standards of conduct, but even the most v
 
 A paladin who has broken a vow typically seeks absolution from a cleric who shares his or her faith or from another paladin of the same order. The paladin might spend an all- night vigil in prayer as a sign of penitence, or undertake a fast or similar act of self-denial. After a rite of confession and forgiveness, the paladin starts fresh.
 
-If a paladin willfully violates his or her oath and shows no sign of repentance, the consequences can be more serious. At the GM’s discretion, an impenitent paladin might be forced to abandon this class and adopt another",
-    "endInDoc": 112458,
-    "endInParent": 5493,
-    "length": 883,
+If a paladin willfully violates his or her oath and shows no sign of repentance, the consequences can be more serious. At the GM’s discretion, an impenitent paladin might be forced to abandon this class and adopt another.
+",
+    "endInDoc": 112460,
+    "endInParent": 5495,
+    "length": 885,
     "parentSlice": null,
     "startInDoc": 111575,
     "startInParent": 4610,
@@ -62347,192 +61737,6 @@ On your adventures, you can add other ritual spells to your Book of Shadows. Whe
     "startInParent": 1037,
   },
   {
-    "data": "### Bardic Inspiration
-
-You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.
-
-Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the GM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.
-
-You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest.
-
-Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level.
-",
-    "endInDoc": 37406,
-    "endInParent": 7913,
-    "length": 1023,
-    "parentSlice": null,
-    "startInDoc": 36383,
-    "startInParent": 6890,
-  },
-  {
-    "data": "### Rage
-
-In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.
-
-While raging, you gain the following benefits if you aren’t wearing heavy armor:
-
-- You have advantage on Strength checks and Strength saving throws.
-- When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.
-- You have resistance to bludgeoning, piercing, and slashing damage.
-
-If you are able to cast spells, you can’t cast them or concentrate on them while raging.
-
-Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.
-
-Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.
-",
-    "endInDoc": 24525,
-    "endInParent": 3856,
-    "length": 1036,
-    "parentSlice": null,
-    "startInDoc": 23489,
-    "startInParent": 2820,
-  },
-  {
-    "data": "### College of Lore
-
-Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.
-
-The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the bard would rather be honest than politic.
-
-The college’s members gather in libraries and sometimes in actual colleges, complete with classrooms and dormitories, to share their lore with one another. They also meet at festivals or affairs of state, where they can expose corruption, unravel lies, and poke fun at self-important figures of authority.
-",
-    "endInDoc": 41283,
-    "endInParent": 1067,
-    "length": 1067,
-    "parentSlice": null,
-    "startInDoc": 40216,
-    "startInParent": 0,
-  },
-  {
-    "data": "### Natural Explorer
-
-You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, or swamp. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you’re proficient in.
-
-While traveling for an hour or more in your favored terrain, you gain the following benefits:
-- Difficult terrain doesn’t slow your group’s travel.
-- Your group can’t become lost except by magical means.
-- Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.
-- If you are traveling alone, you can move stealthily at a normal pace.
-- When you forage, you find twice as much food as you normally would.
-- While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
-
-You choose additional favored terrain types at 6th and 10th level.
-",
-    "endInDoc": 118189,
-    "endInParent": 5713,
-    "length": 1091,
-    "parentSlice": null,
-    "startInDoc": 117098,
-    "startInParent": 4622,
-  },
-  {
-    "data": "
-***Tinker.*** You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
-
-When you create a device, choose one of the following options:
-
-- *Clockwork Toy.* This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
-- *Fire Starter.* The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
-- *Music Box.* When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is clos",
-    "endInDoc": 15982,
-    "endInParent": 1142,
-    "length": 1142,
-    "parentSlice": null,
-    "startInDoc": 14840,
-    "startInParent": 0,
-  },
-  {
-    "data": "#### Preparing and Casting Spells
-
-The Cleric table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
-
-You prepare the list of cleric spells that are available for you to cast, choosing from the cleric spell list. When you do so, choose a number of cleric spells equal to your Wisdom modifier + your cleric level (minimum of one spell). The spells must be of a level for which you have spell slots.
-
-For example, if you are a 3rd-level cleric, you have four
-1st-level and two 2nd-level spell slots. With a Wisdom of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds*, you can cast it using a 1st-level or 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
-
-You can change your list of prepared spells when you finish a long rest. Preparing a new list of cleric spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
-",
-    "endInDoc": 49114,
-    "endInParent": 1492,
-    "length": 1188,
-    "parentSlice": null,
-    "startInDoc": 47926,
-    "startInParent": 304,
-  },
-  {
-    "data": "#### Pact of the Blade
-
-You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
-
-Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.
-
-You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest. You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can’t affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.
-",
-    "endInDoc": 159727,
-    "endInParent": 1833,
-    "length": 1206,
-    "parentSlice": null,
-    "startInDoc": 158521,
-    "startInParent": 627,
-  },
-  {
-    "data": "#### Preparing and Casting Spells
-
-The Paladin table shows how many spell slots you have to cast your spells. To cast one of your paladin spells of 1st level or higher, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
-
-You prepare the list of paladin spells that are available for you to cast, choosing from the paladin spell list. When you do so, choose a number of paladin spells equal to your Charisma modifier + half your paladin level, rounded down (minimum of one spell). The spells must be of a level for which you have spell slots.
-
-For example, if you are a 5th-level paladin, you have four 1st-level and two 2nd-level spell slots. With a Charisma of 14, your list of prepared spells can include four spells of 1st or 2nd level, in any combination. If you prepare the 1st-level spell *cure wounds,* you can cast it using a 1st-level or a 2nd- level slot. Casting the spell doesn’t remove it from your list of prepared spells.
-
-You can change your list of prepared spells when you finish a long rest. Preparing a new list of paladin spells requires time spent in prayer and meditation: at least 1 minute per spell level for each spell on your list.
-",
-    "endInDoc": 102856,
-    "endInParent": 1365,
-    "length": 1228,
-    "parentSlice": null,
-    "startInDoc": 101628,
-    "startInParent": 137,
-  },
-  {
-    "data": "#### Preparing and Casting Spells
-
-The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.
-
-You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots.
-
-For example, if you’re a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell *magic missile,* you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn’t remove it from your list of prepared spells.
-
-You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.
-",
-    "endInDoc": 178286,
-    "endInParent": 1875,
-    "length": 1285,
-    "parentSlice": null,
-    "startInDoc": 177001,
-    "startInParent": 590,
-  },
-  {
-    "data": "### Martial Arts
-
-At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don’t have the two- handed or heavy property.
-
-You gain the following benefits while you are unarmed or wielding only monk weapons and you aren’t wearing armor or wielding a shield:
-- You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.
-- You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.
-- When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven’t already taken a bonus action this turn.
-
-Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon.
-",
-    "endInDoc": 87461,
-    "endInParent": 5179,
-    "length": 1344,
-    "parentSlice": null,
-    "startInDoc": 86117,
-    "startInParent": 3835,
-  },
-  {
     "data": "| Level | Proficiency Bonus | Features                                          |
 |-------|-------------------|---------------------------------------------------|
 | 1st   | +2                | Fighting Style, Second Wind                       |
@@ -62554,10 +61758,11 @@ Certain monasteries use specialized forms of the monk weapons. For example, you 
 | 17th  | +6                | Action Surge (two uses), Indomitable (three uses) |
 | 18th  | +6                | Martial Archetype Feature                         |
 | 19th  | +6                | Ability Score Improvement                         |
+| 20th  | +6                | Extra Attack (3)                                  |
 ",
-    "endInDoc": 77649,
-    "endInParent": 1740,
-    "length": 1722,
+    "endInDoc": 77731,
+    "endInParent": 1822,
+    "length": 1804,
     "parentSlice": null,
     "startInDoc": 75927,
     "startInParent": 18,
@@ -62584,10 +61789,10 @@ Certain monasteries use specialized forms of the monk weapons. For example, you 
 | 17th  | +6                | 9d6          | Roguish Archetype Feature              |
 | 18th  | +6                | 9d6          | Elusive                                |
 | 19th  | +6                | 10d6         | Ability Score Improvement              |
-",
-    "endInDoc": 129660,
-    "endInParent": 1822,
-    "length": 1806,
+| 20th  | +6                | 10d6         | Stroke of Luck                         |",
+    "endInDoc": 129745,
+    "endInParent": 1907,
+    "length": 1891,
     "parentSlice": null,
     "startInDoc": 127854,
     "startInParent": 16,
@@ -62614,10 +61819,11 @@ Certain monasteries use specialized forms of the monk weapons. For example, you 
 | 17th   | +6                | Brutal Critical (3 dice)      | 6         | +4          |
 | 18th   | +6                | Indomitable Might             | 6         | +4          |
 | 19th   | +6                | Ability Score Improvement     | 6         | +4          |
+| 20th   | +6                | Primal Champion               | Unlimited | +4          |
 ",
-    "endInDoc": 23399,
-    "endInParent": 1889,
-    "length": 1869,
+    "endInDoc": 23488,
+    "endInParent": 1978,
+    "length": 1958,
     "parentSlice": null,
     "startInDoc": 21530,
     "startInParent": 20,
@@ -62644,10 +61850,11 @@ Certain monasteries use specialized forms of the monk weapons. For example, you 
 | 17th  | +6                | -                                          | 4   | 3   | 3   | 3   | 1   |
 | 18th  | +6                | Aura improvements                          | 4   | 3   | 3   | 3   | 1   |
 | 19th  | +6                | Ability Score Improvement                  | 4   | 3   | 3   | 3   | 2   |
+| 20th  | +6                | Sacred Oath feature                        | 4   | 3   | 3   | 3   | 2   |
 ",
-    "endInDoc": 98918,
-    "endInParent": 2223,
-    "length": 2205,
+    "endInDoc": 99023,
+    "endInParent": 2328,
+    "length": 2310,
     "parentSlice": null,
     "startInDoc": 96713,
     "startInParent": 18,
@@ -62661,10 +61868,11 @@ While you are transformed, the following rules apply:
 - When you transform, you assume the beast’s hit points and Hit Dice. When you revert to your normal form, you return to the number of hit points you had before you transformed. However, if you revert as a result of dropping to 0 hit points, any excess damage carries over to your normal form. For example, if you take 10 damage in animal form and have only 1 hit point left, you revert and take 9 damage. As long as the excess damage doesn’t reduce your normal form to 0 hit points, you aren’t knocked unconscious.
 - You can’t cast spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your beast form. Transforming doesn’t break your concentration on a spell you’ve already cast, however, or prevent you from taking actions that are part of a spell, such as *call lightning*, that you’ve already cast.
 - You retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can’t use any of your special senses, such as darkvision, unless your new form also has that sense.
-- You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature’s shape and size. Your equipment doesn’t change size or shape to match the new form, and any equipment that the new form can’t wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form",
-    "endInDoc": 66947,
-    "endInParent": 3459,
-    "length": 2523,
+- You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the GM decides whether it is practical for the new form to wear a piece of equipment, based on the creature’s shape and size. Your equipment doesn’t change size or shape to match the new form, and any equipment that the new form can’t wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form.
+",
+    "endInDoc": 66948,
+    "endInParent": 3460,
+    "length": 2524,
     "parentSlice": null,
     "startInDoc": 64424,
     "startInParent": 936,
@@ -62691,10 +61899,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | -                                                 | 10           | 4   | 3   | 3   | 3   | 1   |
 | 18th  | +6                | Feral Senses                                      | 10           | 4   | 3   | 3   | 3   | 1   |
 | 19th  | +6                | Ability Score Improvement                         | 11           | 4   | 3   | 3   | 3   | 2   |
+| 20th  | +6                | Foe Slayer                                        | 11           | 4   | 3   | 3   | 3   | 2   |
 ",
-    "endInDoc": 116065,
-    "endInParent": 2684,
-    "length": 2667,
+    "endInDoc": 116192,
+    "endInParent": 2811,
+    "length": 2794,
     "parentSlice": null,
     "startInDoc": 113398,
     "startInParent": 17,
@@ -62721,10 +61930,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | 1d10         | 17        | +25 ft.            | Monastic Tradition Feature                       |
 | 18th  | +6                | 1d10         | 18        | +30 ft.            | Empty Body                                       |
 | 19th  | +6                | 1d10         | 19        | +30 ft.            | Ability Score Improvement                        |
+| 20th  | +6                | 1d10         | 20        | +30 ft.            | Perfect Self                                     |
 ",
-    "endInDoc": 85813,
-    "endInParent": 2724,
-    "length": 2709,
+    "endInDoc": 85942,
+    "endInParent": 2853,
+    "length": 2838,
     "parentSlice": null,
     "startInDoc": 83104,
     "startInParent": 15,
@@ -62751,10 +61961,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | -                              | 5              | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | Spell Mastery                  | 5              | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | Ability Score Improvement      | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | Signature Spell                | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 ",
-    "endInDoc": 176276,
-    "endInParent": 2831,
-    "length": 2814,
+    "endInDoc": 176410,
+    "endInParent": 2965,
+    "length": 2948,
     "parentSlice": null,
     "startInDoc": 173462,
     "startInParent": 17,
@@ -62781,10 +61992,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | Mystic Arcanum (9th level)      | 4              | 14           | 4           | 5th        | 7                 |
 | 18th  | +6                | -                               | 4              | 14           | 4           | 5th        | 8                 |
 | 19th  | +6                | Ability Score Improvement       | 4              | 15           | 4           | 5th        | 8                 |
+| 20th  | +6                | Eldritch Master                 | 4              | 15           | 4           | 5th        | 8                 |
 ",
-    "endInDoc": 154669,
-    "endInParent": 3021,
-    "length": 3003,
+    "endInDoc": 154812,
+    "endInParent": 3164,
+    "length": 3146,
     "parentSlice": null,
     "startInDoc": 151666,
     "startInParent": 18,
@@ -62811,10 +62023,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | -                                                 | 4              | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | Timeless Body, Beast Spells                       | 4              | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | Ability Score Improvement                         | 4              | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | Archdruid                                         | 4              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 ",
-    "endInDoc": 60833,
-    "endInParent": 3229,
-    "length": 3213,
+    "endInDoc": 60986,
+    "endInParent": 3382,
+    "length": 3366,
     "parentSlice": null,
     "startInDoc": 57620,
     "startInParent": 16,
@@ -62841,10 +62054,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | 17             | Metamagic                      | 6              | 15           | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | 18             | Sorcerous Origin Feature       | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | 19             | Ability Score Improvement      | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | 20             | Sorcerous Restoration          | 6              | 15           | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 ",
-    "endInDoc": 140400,
-    "endInParent": 3505,
-    "length": 3486,
+    "endInDoc": 140566,
+    "endInParent": 3671,
+    "length": 3652,
     "parentSlice": null,
     "startInDoc": 136914,
     "startInParent": 19,
@@ -62871,10 +62085,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6               | Song of Rest (d12)                                   | 4            | 20             | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6               | Magical Secrets                                      | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6               | Ability Score Improvement                            | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6               | Superior Inspiration                                 | 4            | 22             | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 ",
-    "endInDoc": 33935,
-    "endInParent": 3585,
-    "length": 3570,
+    "endInDoc": 34105,
+    "endInParent": 3755,
+    "length": 3740,
     "parentSlice": null,
     "startInDoc": 30365,
     "startInParent": 15,
@@ -62901,10 +62116,11 @@ While you are transformed, the following rules apply:
 | 17th  | +6                | Destroy Undead (CR 4), Divine Domain Feature                            | 5              | 4   | 3   | 3   | 3   | 2   | 1   | 1   | 1   | 1   |
 | 18th  | +6                | Channel Divinity (3/rest)                                               | 5              | 4   | 3   | 3   | 3   | 3   | 1   | 1   | 1   | 1   |
 | 19th  | +6                | Ability Score Improvement                                               | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 1   | 1   | 1   |
+| 20th  | +6                | Divine Intervention improvement                                         | 5              | 4   | 3   | 3   | 3   | 3   | 2   | 2   | 1   | 1   |
 ",
-    "endInDoc": 47446,
-    "endInParent": 3736,
-    "length": 3675,
+    "endInDoc": 47621,
+    "endInParent": 3911,
+    "length": 3850,
     "parentSlice": null,
     "startInDoc": 43771,
     "startInParent": 61,
@@ -62914,7 +62130,7 @@ While you are transformed, the following rules apply:
 
 exports[`should test dataloader test v2 3`] = `
 {
-  "length": 530,
-  "lengthGreater1000": 23,
+  "length": 509,
+  "lengthGreater1000": 13,
 }
 `;
