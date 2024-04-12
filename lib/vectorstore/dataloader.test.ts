@@ -1,4 +1,4 @@
-import { loadSource, loadSourceV2 } from './dataloader'
+import { loadSource, loadSourceV2, loadSourceV2WithLangchainFormat } from './dataloader'
 
 describe('should test dataloader', () => {
   it('should test dataloader', async () => {
@@ -126,17 +126,17 @@ describe('table splitt logic', () => {
 | 1st   | +2                |
 SomeTextAfterTable`
 
-    const result = await loadSourceV2({
+    const result = await loadSourceV2WithLangchainFormat({
       maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
 
     expect(result.length).toBe(2)
-    expect(result[0].data).toBe(
+    expect(result[0].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |\n'
     )
-    expect(result[1].data).toBe('SomeTextAfterTable')
+    expect(result[1].pageContent).toBe('SomeTextAfterTable')
   })
 
   it('should not loose text before table', async () => {
@@ -145,15 +145,15 @@ SomeTextAfterTable`
 |-------|-------------------|
 | 1st   | +2                |`
 
-    const result = await loadSourceV2({
+    const result = await loadSourceV2WithLangchainFormat({
       maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
 
     expect(result.length).toBe(2)
-    expect(result[0].data).toBe('SomeTextBeforeTable\n')
-    expect(result[1].data).toBe(
+    expect(result[0].pageContent).toBe('SomeTextBeforeTable\n')
+    expect(result[1].pageContent).toBe(
       '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |'
     )
   })

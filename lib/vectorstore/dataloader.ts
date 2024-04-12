@@ -262,7 +262,7 @@ export async function loadSourceV2({
   idProvider = () => randomUUID(),
   maxLength = 1000,
   splitterRegexes = defaultRegexes
-} = {}): Promise<any> {
+} = {}): Promise<DocumentSlice[]> {
   const rootDocSlice: DocumentSlice = {
     data,
     startInParent: 0,
@@ -299,4 +299,32 @@ export async function loadSourceV2({
   } while (currentLevel.some(curlvl => curlvl.data.length > maxLength))
 
   return finalSlices
+}
+
+export async function loadSourceV2WithLangchainFormat({
+  data = [racesdata, classesdata].join('\n'),
+  idProvider = () => randomUUID(),
+  maxLength = 1000,
+  splitterRegexes = defaultRegexes
+} = {}): Promise<Document[]> {
+
+  const res = await loadSourceV2({data, idProvider, maxLength, splitterRegexes})
+  const relevantSlices = res.filter((item) => !item.children); 
+  const langchainDocs = relevantSlices.map((item: DocumentSlice) => {
+    return {
+      pageContent: item.data,
+      metadata: {
+        id: idProvider(),
+        loc: {
+          lines: {
+            from: item.startInDoc,
+            to: item.endInDoc
+          }
+        }
+      }
+    } as Document
+  })
+
+  return langchainDocs;
+
 }
