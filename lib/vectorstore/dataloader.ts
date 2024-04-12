@@ -35,6 +35,26 @@ type DocumentSlice = {
   children?: DocumentSlice[]
 }
 
+const defaultData = [
+  racesdata,
+  classesdata,
+  beyond1stdata,
+  equipmentdata,
+  featsdata,
+  mechanicsdata,
+  combatdata,
+  spellcastingdata,
+  runningdata,
+  magicitemsdata,
+  monstersdata,
+  conditionsdata,
+  godsdata,
+  planesdata,
+  creaturesdata,
+  npcsdata,
+  legaldata
+]
+
 const defaultRegexes = [
   {
     pattern: /.+\n=+\n/g,
@@ -227,25 +247,7 @@ function prepareLvl2Headings(
 }
 
 export async function loadSource({
-  data = [
-    racesdata,
-    classesdata,
-    beyond1stdata,
-    equipmentdata,
-    featsdata,
-    mechanicsdata,
-    combatdata,
-    spellcastingdata,
-    runningdata,
-    magicitemsdata,
-    monstersdata,
-    conditionsdata,
-    godsdata,
-    planesdata,
-    creaturesdata,
-    npcsdata,
-    legaldata
-  ].join('\n'),
+  data = defaultData.join('\n'),
   idProvider = () => randomUUID()
 } = {}): Promise<{ documents: Document[]; ids: string[] }> {
   const splitter = MarkdownTextSplitter.fromLanguage('markdown', {
@@ -264,7 +266,7 @@ export async function loadSource({
 }
 
 export async function loadSourceV2({
-  data = [racesdata, classesdata].join('\n'),
+  data = defaultData.join('\n'),
   idProvider = () => randomUUID(),
   maxLength = 1000,
   splitterRegexes = defaultRegexes
