@@ -246,6 +246,67 @@ function prepareLvl2Headings(
   })
 }
 
+function mergeSlices(slices: DocumentSlice[]): DocumentSlice {
+  const mergedData = slices.map(slice => slice.data).join('')
+  const firstSlice = slices[0]
+  const lastSlice = slices[slices.length - 1]
+  return {
+    data: mergedData,
+    startIndexInParent: firstSlice.startIndexInParent,
+    startIndexInDoc: firstSlice.startIndexInDoc,
+    endIndexInDoc: lastSlice.endIndexInDoc,
+    endIndexInParent: lastSlice.endIndexInParent,
+    length: mergedData.length,
+    parentSlice: firstSlice.parentSlice
+  }
+}
+
+function lengthOfDocSlices(slices: DocumentSlice[]): number {
+  let sum = 0;
+
+  for (const slice of slices) {
+    sum += slice.length;
+  }
+
+  return sum;
+}
+
+function mergeCandidateSlices(slices: DocumentSlice[], maxLength: number): DocumentSlice[] {
+  
+  const slicesCopy = [...slices];
+  if (!slicesCopy.length) {
+    return [];
+  }
+
+  const foundMergePossibilites = [] as DocumentSlice[];
+
+  while (slicesCopy.length) {
+    const mergeCandidateSlices = [] as DocumentSlice[];
+    const firstSlice = slicesCopy.shift();
+    if (firstSlice) {
+      mergeCandidateSlices.push(firstSlice);
+    }
+
+    while (lengthOfDocSlices(mergeCandidateSlices) < maxLength) {
+      const nextSlice = slicesCopy.shift();
+      if (!nextSlice) {
+        break;
+      }
+  
+      if (lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <= maxLength) {
+        mergeCandidateSlices.push(nextSlice);
+      } else {
+        slicesCopy.unshift(nextSlice);
+        break;
+      }
+    }
+
+    foundMergePossibilites.push(mergeSlices(mergeCandidateSlices));
+  }
+
+  return foundMergePossibilites;
+}
+
 export async function loadSource({
   data = defaultData.join('\n'),
   idProvider = () => randomUUID()
@@ -326,8 +387,9 @@ export async function loadSourceV2WithLangchainFormat({
 } = {}): Promise<Document[]> {
 
   const res = await loadSourceV2({data, maxLength, splitterRegexes})
-  const relevantSlices = res.filter((item) => !item.children || item.children.length === 0); 
-  const langchainDocs = relevantSlices.map((item: DocumentSlice) => {
+  const relevantSlices = res.filter((item) => !item.children || item.children.length === 0);
+  const mergedSlices = mergeCandidateSlices(relevantSlices, maxLength);
+  const langchainDocs = mergedSlices.map((item: DocumentSlice) => {
     return {
       pageContent: item.data,
       metadata: {

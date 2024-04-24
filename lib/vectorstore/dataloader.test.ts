@@ -69,7 +69,7 @@ You start with the following equipment, in addition to the equipment granted by 
     })
 
     expect(result.map(item => item.pageContent).join('')).toEqual(text)
-    expect(result.length).toBe(7)
+    expect(result.length).toBe(2)
   })
 })
 
@@ -374,7 +374,7 @@ describe("merges", () => {
     })
 
     expect(result.length).toBe(2);
-    expect(result[0].pageContent).toBe("# The Heading #1\n\n");
-    expect(result[1].pageContent).toBe("## second level 1\nsome Text under second level\n\n ## second level 2\nSome text under second level");
+    expect(result[0].pageContent).toBe("# The Heading #1\n\n## second level 1\nsome Text under second level\n\n");
+    expect(result[1].pageContent).toBe("## second level 2\nSome text under second level");
   })
 })
