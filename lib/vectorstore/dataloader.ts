@@ -379,7 +379,7 @@ export async function loadSourceV2({
   return finalSlices
 }
 
-export async function loadSourceV2WithLangchainFormat({
+export async function hieracicalMarkdownSplitter({
   data = [racesdata, classesdata].join('\n'),
   idProvider = () => randomUUID(),
   maxLength = 1000,

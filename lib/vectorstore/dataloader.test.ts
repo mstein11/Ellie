@@ -1,4 +1,4 @@
-import { loadSourceV2WithLangchainFormat } from './dataloader'
+import { hieracicalMarkdownSplitter } from './dataloader'
 
 describe('should test complex usecases', () => {
   it('test splitting for large table', async () => {
@@ -63,7 +63,7 @@ You start with the following equipment, in addition to the equipment granted by 
 | 19th  | +6                | Ability Score Improvement                         |
 | 20th  | +6                | Extra Attack (3)                                  |`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
@@ -85,7 +85,7 @@ The Heading #2
 
 Some other Text`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 10,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -119,7 +119,7 @@ The Heading #2
 
 Some other Text`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 1000,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -140,7 +140,7 @@ The Heading
 ===========
 `
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 10,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -201,7 +201,7 @@ Some cool Text
 
 Some cool Text`
 
-      const result = await loadSourceV2WithLangchainFormat({
+      const result = await hieracicalMarkdownSplitter({
         maxLength: 10,
         idProvider: () => 'some-test-id-matching-schema',
         data: text
@@ -227,7 +227,7 @@ The Heading #2
 
 Some other Text`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 1000,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -248,7 +248,7 @@ The Heading
 ===========
 `
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 10,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -275,7 +275,7 @@ describe('table splitt logic', () => {
 | 1st   | +2                |
 SomeTextAfterTable`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -302,7 +302,7 @@ SomeTextAfterTable`
 |-------|-------------------|
 | 1st   | +2                |`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -334,7 +334,7 @@ SomeTextBetweenTable
 |-------|-------------------|
 | 2nd   | +2                |`
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
@@ -367,7 +367,7 @@ describe("merges", () => {
   it("should merge docs", async () => {
     const text = `# The Heading #1\n\n## second level 1\nsome Text under second level\n\n## second level 2\nSome text under second level`;
 
-    const result = await loadSourceV2WithLangchainFormat({
+    const result = await hieracicalMarkdownSplitter({
       maxLength: 100,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
