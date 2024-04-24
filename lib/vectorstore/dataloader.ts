@@ -214,7 +214,7 @@ function handleTable(
   return tableSlices
 }
 
-function prepareLvl2Headings(
+function splitSliceByPattern(
   input: DocumentSlice,
   patternConfig: { pattern: RegExp; isTable: boolean }
 ): DocumentSlice[] {
@@ -345,7 +345,7 @@ export async function loadSource({
   return { documents: output, ids }
 }
 
-export async function loadSourceV2({
+export async function splitDocs({
   data = defaultData.join('\n'),
   maxLength = 1000,
   splitterRegexes = defaultRegexes
@@ -378,7 +378,7 @@ export async function loadSourceV2({
     currentLevel = currentLevel
       .filter(curlvl => curlvl.data.length > maxLength)
       .map(curLvl => {
-        return prepareLvl2Headings(curLvl, splitterRegexes[counter])
+        return splitSliceByPattern(curLvl, splitterRegexes[counter])
       })
       .flat()
 
@@ -403,7 +403,7 @@ export async function hieracicalMarkdownSplitter({
   maxLength = 1000,
   splitterRegexes = defaultRegexes
 } = {}): Promise<Document[]> {
-  const res = await loadSourceV2({ data, maxLength, splitterRegexes })
+  const res = await splitDocs({ data, maxLength, splitterRegexes })
   const relevantSlices = res.filter(
     item => !item.children || item.children.length === 0
   )

@@ -1,4 +1,4 @@
-import { loadSource, loadSourceV2 } from './dataloader'
+import { loadSource, splitDocs } from './dataloader'
 
 describe('should test dataloader', () => {
   it('should test dataloader', async () => {
@@ -9,7 +9,7 @@ describe('should test dataloader', () => {
   })
 
   it('test v2', async () => {
-    const result = await loadSourceV2()
+    const result = await splitDocs()
     const res = result.map((item: any) => {
       return { ...item, parentSlice: null }
     })
