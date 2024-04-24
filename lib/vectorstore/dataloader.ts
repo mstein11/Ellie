@@ -1,6 +1,4 @@
-import {
-  MarkdownTextSplitter,
-} from 'langchain/text_splitter'
+import { MarkdownTextSplitter } from 'langchain/text_splitter'
 import { Document } from 'langchain/document'
 
 import { randomUUID } from 'crypto'
@@ -101,10 +99,13 @@ const defaultRegexes = [
 function getPositionsOfNeedle(inputString: string, needel: RegExp) {
   let positions = []
   let match = needel.exec(inputString)
-  
+
   while (match) {
     assert(match[0].length !== 0)
-    positions.push({ start: match.index, end: match.index + match[0].length - 1 })
+    positions.push({
+      start: match.index,
+      end: match.index + match[0].length - 1
+    })
     match = needel.exec(inputString)
   }
   return positions
@@ -125,7 +126,10 @@ function handleTable(
 
   const tableSlices = subSlicePositions.map((subSlicePosition, index) => {
     return {
-      data: input.data.substring(subSlicePosition.start, subSlicePosition.end + 1),
+      data: input.data.substring(
+        subSlicePosition.start,
+        subSlicePosition.end + 1
+      ),
       startIndexInParent: subSlicePosition.start,
       startIndexInDoc: input.startIndexInDoc + subSlicePosition.start,
       endIndexInParent: subSlicePosition.end,
@@ -147,13 +151,17 @@ function handleTable(
             startIndexInParent: 0,
             startIndexInDoc: input.startIndexInDoc,
             endIndexInParent: tableSlice.startIndexInParent - 1,
-            endIndexInDoc: input.startIndexInDoc + tableSlice.startIndexInParent - 1,
+            endIndexInDoc:
+              input.startIndexInDoc + tableSlice.startIndexInParent - 1,
             length: tableSlice.startIndexInParent,
             parentSlice: input
           })
         }
       } else {
-        if (tableSlices[index - 1].endIndexInParent !== tableSlice.startIndexInParent + 1) {
+        if (
+          tableSlices[index - 1].endIndexInParent !==
+          tableSlice.startIndexInParent + 1
+        ) {
           //text between tables
           slices.push({
             data: input.data.substring(
@@ -161,11 +169,16 @@ function handleTable(
               tableSlice.startIndexInParent
             ),
             startIndexInParent: tableSlices[index - 1].endIndexInParent + 1,
-            startIndexInDoc: input.startIndexInDoc + tableSlices[index - 1].endIndexInParent + 1,
+            startIndexInDoc:
+              input.startIndexInDoc +
+              tableSlices[index - 1].endIndexInParent +
+              1,
             endIndexInParent: tableSlice.startIndexInParent - 1,
-            endIndexInDoc: input.startIndexInDoc + tableSlice.startIndexInParent - 1,
+            endIndexInDoc:
+              input.startIndexInDoc + tableSlice.startIndexInParent - 1,
             length:
-              tableSlice.startIndexInParent - tableSlices[index - 1].endIndexInParent,
+              tableSlice.startIndexInParent -
+              tableSlices[index - 1].endIndexInParent,
             parentSlice: input
           })
         }
@@ -180,7 +193,8 @@ function handleTable(
               input.data.length
             ),
             startIndexInParent: tableSlice.endIndexInParent + 1,
-            startIndexInDoc: input.startIndexInDoc + tableSlice.endIndexInParent + 1,
+            startIndexInDoc:
+              input.startIndexInDoc + tableSlice.endIndexInParent + 1,
             endIndexInParent: input.data.length - 1,
             endIndexInDoc: input.startIndexInDoc + input.data.length - 1,
             length: input.data.length - 1 - tableSlice.endIndexInParent,
@@ -262,49 +276,54 @@ function mergeSlices(slices: DocumentSlice[]): DocumentSlice {
 }
 
 function lengthOfDocSlices(slices: DocumentSlice[]): number {
-  let sum = 0;
+  let sum = 0
 
   for (const slice of slices) {
-    sum += slice.length;
+    sum += slice.length
   }
 
-  return sum;
+  return sum
 }
 
-function mergeCandidateSlices(slices: DocumentSlice[], maxLength: number): DocumentSlice[] {
-  
-  const slicesCopy = [...slices];
+function mergeCandidateSlices(
+  slices: DocumentSlice[],
+  maxLength: number
+): DocumentSlice[] {
+  const slicesCopy = [...slices]
   if (!slicesCopy.length) {
-    return [];
+    return []
   }
 
-  const foundMergePossibilites = [] as DocumentSlice[];
+  const foundMergePossibilites = [] as DocumentSlice[]
 
   while (slicesCopy.length) {
-    const mergeCandidateSlices = [] as DocumentSlice[];
-    const firstSlice = slicesCopy.shift();
+    const mergeCandidateSlices = [] as DocumentSlice[]
+    const firstSlice = slicesCopy.shift()
     if (firstSlice) {
-      mergeCandidateSlices.push(firstSlice);
+      mergeCandidateSlices.push(firstSlice)
     }
 
     while (lengthOfDocSlices(mergeCandidateSlices) < maxLength) {
-      const nextSlice = slicesCopy.shift();
+      const nextSlice = slicesCopy.shift()
       if (!nextSlice) {
-        break;
+        break
       }
-  
-      if (lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <= maxLength) {
-        mergeCandidateSlices.push(nextSlice);
+
+      if (
+        lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <=
+        maxLength
+      ) {
+        mergeCandidateSlices.push(nextSlice)
       } else {
-        slicesCopy.unshift(nextSlice);
-        break;
+        slicesCopy.unshift(nextSlice)
+        break
       }
     }
 
-    foundMergePossibilites.push(mergeSlices(mergeCandidateSlices));
+    foundMergePossibilites.push(mergeSlices(mergeCandidateSlices))
   }
 
-  return foundMergePossibilites;
+  return foundMergePossibilites
 }
 
 export async function loadSource({
@@ -365,7 +384,6 @@ export async function loadSourceV2({
 
     counter++
 
-
     if (counter > splitterRegexes.length - 1 || currentLevel.length === 0) {
       finalSlices.push(...currentLevel)
       break
@@ -385,10 +403,11 @@ export async function hieracicalMarkdownSplitter({
   maxLength = 1000,
   splitterRegexes = defaultRegexes
 } = {}): Promise<Document[]> {
-
-  const res = await loadSourceV2({data, maxLength, splitterRegexes})
-  const relevantSlices = res.filter((item) => !item.children || item.children.length === 0);
-  const mergedSlices = mergeCandidateSlices(relevantSlices, maxLength);
+  const res = await loadSourceV2({ data, maxLength, splitterRegexes })
+  const relevantSlices = res.filter(
+    item => !item.children || item.children.length === 0
+  )
+  const mergedSlices = mergeCandidateSlices(relevantSlices, maxLength)
   const langchainDocs = mergedSlices.map((item: DocumentSlice) => {
     return {
       pageContent: item.data,
@@ -396,8 +415,12 @@ export async function hieracicalMarkdownSplitter({
         id: idProvider(),
         loc: {
           lines: {
-            from: data.substring(0, item.startIndexInDoc + 1).match(/\n/g)?.length ?? 0,
-            to: data.substring(0, item.endIndexInDoc + 1).match(/\n/g)?.length ?? 0
+            from:
+              data.substring(0, item.startIndexInDoc + 1).match(/\n/g)
+                ?.length ?? 0,
+            to:
+              data.substring(0, item.endIndexInDoc + 1).match(/\n/g)?.length ??
+              0
           },
           characters: {
             from: item.startIndexInDoc,
@@ -408,6 +431,5 @@ export async function hieracicalMarkdownSplitter({
     } as Document
   })
 
-  return langchainDocs;
-
+  return langchainDocs
 }
