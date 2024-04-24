@@ -280,15 +280,20 @@ export async function loadSourceV2({
     parentSlice: null,
     children: []
   }
+  if (rootDocSlice.data.length <= maxLength) {
+    //no splitting necessary
+    return [rootDocSlice]
+  }
 
   let currentLevel = [rootDocSlice]
   let counter = 0
   const finalSlices = []
 
   do {
-    finalSlices.push(
-      ...currentLevel.filter(curLvl => curLvl.data.length <= maxLength)
-    )
+    if (!currentLevel.some(curlvl => curlvl.data.length > maxLength)) {
+      finalSlices.push(...currentLevel)
+      break
+    }
 
     currentLevel = currentLevel
       .filter(curlvl => curlvl.data.length > maxLength)
@@ -299,10 +304,15 @@ export async function loadSourceV2({
 
     counter++
 
+
     if (counter > splitterRegexes.length - 1 || currentLevel.length === 0) {
       finalSlices.push(...currentLevel)
       break
     }
+
+    finalSlices.push(
+      ...currentLevel.filter(curLvl => curLvl.data.length <= maxLength)
+    )
   } while (currentLevel.some(curlvl => curlvl.data.length > maxLength))
 
   return finalSlices

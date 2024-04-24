@@ -362,3 +362,19 @@ SomeTextBetweenTable
     expect(result[2].metadata.loc.lines.to).toBe(8)
   })
 })
+
+describe("merges", () => {
+  it("should merge docs", async () => {
+    const text = `# The Heading #1\n\n## second level 1\nsome Text under second level\n\n## second level 2\nSome text under second level`;
+
+    const result = await loadSourceV2WithLangchainFormat({
+      maxLength: 100,
+      idProvider: () => 'some-test-id-matching-schema',
+      data: text
+    })
+
+    expect(result.length).toBe(2);
+    expect(result[0].pageContent).toBe("# The Heading #1\n\n");
+    expect(result[1].pageContent).toBe("## second level 1\nsome Text under second level\n\n ## second level 2\nSome text under second level");
+  })
+})
