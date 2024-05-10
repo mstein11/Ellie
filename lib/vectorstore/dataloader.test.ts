@@ -371,7 +371,7 @@ describe("merges", () => {
     const text = `# The Heading #1\n\n## second level 1\nsome Text under second level\n\n## second level 2\nSome text under second level`;
 
     const result = await hieracicalMarkdownSplitter({
-      maxLength: 100,
+      maxLength: 70,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })

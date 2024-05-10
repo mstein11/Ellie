@@ -31,7 +31,8 @@ type DocumentSlice = {
   length: number
   parentSlice: DocumentSlice | null
   children?: DocumentSlice[],
-  isTable?: boolean | undefined
+  isTable?: boolean | undefined,
+  isPattern?: boolean | undefined,
 }
 
 const defaultData = [
@@ -84,11 +85,11 @@ const defaultRegexes = [
     isTable: false
   },
   {
-    pattern: /\n\*\*\*.+\*\*\*/g,
+    pattern: /\n\*\*\*.+\*\*\*\n/g,
     isTable: false
   },
   {
-    pattern: /\n\*\*.+\*\*/g,
+    pattern: /\n\*\*.+\*\*\n/g,
     isTable: false
   },
   {
@@ -97,6 +98,10 @@ const defaultRegexes = [
   },
   {
     pattern: /\r?\n\r?\n/g,
+    isTable: false
+  },
+  {
+    pattern: /\r?\n/g,
     isTable: false
   }
 ]
@@ -141,7 +146,8 @@ function handleTable(
       endIndexInDoc: input.startIndexInDoc + subSlicePosition.end,
       length: subSlicePosition.end - subSlicePosition.start + 1,
       parentSlice: input,
-      isTable: true
+      isTable: patternConfig.isTable,
+      isPattern: true
     } as DocumentSlice
   })
 
@@ -224,14 +230,12 @@ function splitSliceByPattern(
   input: DocumentSlice,
   patternConfig: { pattern: RegExp; isTable: boolean | undefined }
 ): DocumentSlice[] {
-  if (patternConfig.isTable) {
-    return handleTable(input, patternConfig)
-  }
-
-  if (input.isTable) {
+  if (input.isPattern) {
     return [input]
   }
 
+  return handleTable(input, patternConfig);
+  
   const subSlicePositions = getPositionsOfNeedle(
     input.data,
     patternConfig.pattern
