@@ -89,7 +89,7 @@ The Heading #2
 Some other Text`
 
     const result = await hieracicalMarkdownSplitter({
-      maxLength: 10,
+      maxLength: 50,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
@@ -144,7 +144,7 @@ The Heading
 `
 
     const result = await hieracicalMarkdownSplitter({
-      maxLength: 10,
+      maxLength: 30,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })
@@ -205,7 +205,7 @@ Some cool Text
 Some cool Text`
 
       const result = await hieracicalMarkdownSplitter({
-        maxLength: 10,
+        maxLength: 50,
         idProvider: () => 'some-test-id-matching-schema',
         data: text
       })
@@ -252,7 +252,7 @@ The Heading
 `
 
     const result = await hieracicalMarkdownSplitter({
-      maxLength: 10,
+      maxLength: 30,
       idProvider: () => 'some-test-id-matching-schema',
       data: text
     })

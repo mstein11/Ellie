@@ -58,6 +58,8 @@ describe('should test dataloader', () => {
     console.log('all docs: ' + res.length)
     // expect(largeDocs).toMatchSnapshot()
 
+    expect(largeDocs).toMatchSnapshot()
+
     expect(
       res
         .map((item) => item.pageContent)
