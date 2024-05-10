@@ -406,9 +406,10 @@ export async function hieracicalMarkdownSplitter({
   const res = await splitDocs({ data, maxLength, splitterRegexes })
   const relevantSlices = res.filter(
     item => !item.children || item.children.length === 0
-  )
+  ).sort((a, b) => a.startIndexInDoc - b.startIndexInDoc);
+
   const mergedSlices = mergeCandidateSlices(relevantSlices, maxLength)
-  const langchainDocs = mergedSlices.map((item: DocumentSlice) => {
+  const langchainDocs = mergedSlices.map((item) => {
     return {
       pageContent: item.data,
       metadata: {
@@ -431,7 +432,7 @@ export async function hieracicalMarkdownSplitter({
     }
   })
 
-  langchainDocs.sort((a, b) => a.metadata.loc.lines.from - b.metadata.loc.lines.from)
+  langchainDocs.sort((a, b) => a.metadata.loc.characters.from - b.metadata.loc.characters.from)
 
   return langchainDocs
 }

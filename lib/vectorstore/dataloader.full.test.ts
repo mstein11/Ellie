@@ -1,4 +1,7 @@
 import { hieracicalMarkdownSplitter, loadSource, splitDocs } from './dataloader'
+import racesdata from './data/rulebook-01-races-srd'
+import classesdata from './data/rulebook-02-classes-srd'
+
 
 describe('should test dataloader', () => {
   it('should test dataloader', async () => {
@@ -60,5 +63,14 @@ describe('should test dataloader', () => {
         .map((item) => item.pageContent)
         .join('\n---xxx---\n')
     ).toMatchSnapshot()
+  })
+
+  it("input should match output", async () => {
+    const text = [racesdata, classesdata].join("");
+    const res = await hieracicalMarkdownSplitter({data: text});
+
+    expect(text.length).toBe(res.map((item) => item.pageContent).join("").length);
+
+    expect(res.map((item) => item.pageContent).join("")).toEqual(text);
   })
 })
