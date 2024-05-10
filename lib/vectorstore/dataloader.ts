@@ -22,6 +22,13 @@ import creaturesdata from './data/rulebook-15-creatures-srd'
 import npcsdata from './data/rulebook-16-npcs-srd'
 import assert from 'assert'
 
+type PatternConfig = {
+  pattern: RegExp
+  isTable?: boolean
+  ignorePattern?: boolean
+
+}
+
 type DocumentSlice = {
   data: string
   startIndexInParent: number
@@ -33,6 +40,7 @@ type DocumentSlice = {
   children?: DocumentSlice[],
   isTable?: boolean | undefined,
   isPattern?: boolean | undefined,
+  level?: number | undefined
 }
 
 const defaultData = [
@@ -98,11 +106,13 @@ const defaultRegexes = [
   },
   {
     pattern: /\r?\n\r?\n/g,
-    isTable: false
+    isTable: false,
+    ignorePattern: true
   },
   {
     pattern: /\r?\n/g,
-    isTable: false
+    isTable: false,
+    ignorePattern: true
   }
 ]
 
@@ -123,7 +133,7 @@ function getPositionsOfNeedle(inputString: string, needel: RegExp) {
 
 function handleTable(
   input: DocumentSlice,
-  patternConfig: { pattern: RegExp; isTable?: boolean }
+  patternConfig: PatternConfig
 ): DocumentSlice[] {
   const subSlicePositions = getPositionsOfNeedle(
     input.data,
@@ -147,14 +157,14 @@ function handleTable(
       length: subSlicePosition.end - subSlicePosition.start + 1,
       parentSlice: input,
       isTable: patternConfig.isTable,
-      isPattern: true
+      isPattern: !patternConfig.ignorePattern,
     } as DocumentSlice
   })
 
   const slicesAroundTables = tableSlices
     .map((tableSlice, index) => {
       //beginning until table
-      const slices = []
+      const slices = [] as DocumentSlice[]
       if (index === 0) {
         if (tableSlice.startIndexInParent !== 0) {
           //first table but not at the beginning
@@ -221,9 +231,10 @@ function handleTable(
 
   tableSlices.push(...slicesAroundTables)
   tableSlices.sort((a, b) => a.startIndexInParent - b.startIndexInParent)
+  const leveledTableSlices = tableSlices.map((slice) => { return {...slice, level: defaultRegexes.findIndex((item) => item.pattern === patternConfig.pattern)}});
 
-  input.children = tableSlices
-  return tableSlices
+  input.children = leveledTableSlices
+  return leveledTableSlices
 }
 
 function splitSliceByPattern(
@@ -325,7 +336,7 @@ function mergeCandidateSlices(
 
       if (
         lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <=
-        maxLength
+        maxLength && (mergeCandidateSlices[0].level !== undefined && nextSlice.level !== undefined && nextSlice.level >= mergeCandidateSlices[0].level)
       ) {
         mergeCandidateSlices.push(nextSlice)
       } else {
@@ -333,6 +344,20 @@ function mergeCandidateSlices(
         break
       }
     }
+
+    if(mergeCandidateSlices.length > 1) {
+      const last = mergeCandidateSlices.pop();
+    
+      if (last?.isPattern) {
+        slicesCopy.unshift(last);
+      } else {
+        if (last) {
+          mergeCandidateSlices.push(last as DocumentSlice);
+        }
+      }
+    }
+    
+
 
     foundMergePossibilites.push(mergeSlices(mergeCandidateSlices))
   }
