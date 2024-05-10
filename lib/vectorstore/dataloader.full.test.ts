@@ -1,4 +1,4 @@
-import { loadSource, splitDocs } from './dataloader'
+import { hieracicalMarkdownSplitter, loadSource, splitDocs } from './dataloader'
 
 describe('should test dataloader', () => {
   it('should test dataloader', async () => {
@@ -36,5 +36,29 @@ describe('should test dataloader', () => {
       length: res.length,
       lengthGreater1000: largeDocs.length
     }).toMatchSnapshot()
+  })
+
+  it('create readable output', async () => {
+
+    const res = await hieracicalMarkdownSplitter()
+
+    const largeDocs = res
+      .filter((item) => item.pageContent.length > 1000)
+      .sort((a, b) => a.pageContent.length - b.pageContent.length)
+
+    const smallDocs = res
+      .filter((item) => item.pageContent.length < 100)
+      .sort((a, b) => a.pageContent.length - b.pageContent.length);
+
+    console.log('small docs: ' + smallDocs.length)
+    console.log('large docs: ' + largeDocs.length)
+    console.log('all docs: ' + res.length)
+    // expect(largeDocs).toMatchSnapshot()
+
+    expect(
+      res
+        .map((item) => item.pageContent)
+        .join('\n---xxx---\n')
+    ).toMatchSnapshot()
   })
 })

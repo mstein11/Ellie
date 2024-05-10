@@ -428,8 +428,10 @@ export async function hieracicalMarkdownSplitter({
           }
         }
       }
-    } as Document
+    }
   })
+
+  langchainDocs.sort((a, b) => a.metadata.loc.lines.from - b.metadata.loc.lines.from)
 
   return langchainDocs
 }
