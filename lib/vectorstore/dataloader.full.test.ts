@@ -63,7 +63,7 @@ describe('should test dataloader', () => {
     ).toMatchSnapshot()
 
     expect(
-      res.map(item => item.pageContent).join('\n---xxx---\n')
+      res.map(item => (item.metadata.parentHeadings?.join("") ?? "") + item.pageContent).join('\n---xxx---\n')
     ).toMatchSnapshot()
   })
 

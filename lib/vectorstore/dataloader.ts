@@ -40,7 +40,8 @@ type DocumentSlice = {
   children?: DocumentSlice[],
   isTable?: boolean | undefined,
   isPattern?: boolean | undefined,
-  level?: number | undefined
+  level?: number | undefined,
+  parentHeadings?: string[]
 }
 
 const defaultData = [
@@ -158,6 +159,7 @@ function handleTable(
       parentSlice: input,
       isTable: patternConfig.isTable,
       isPattern: !patternConfig.ignorePattern,
+      parentHeadings: [...input.parentHeadings ?? []]
     } as DocumentSlice
   })
 
@@ -176,7 +178,8 @@ function handleTable(
             endIndexInDoc:
               input.startIndexInDoc + tableSlice.startIndexInParent - 1,
             length: tableSlice.startIndexInParent,
-            parentSlice: input
+            parentSlice: input,
+            parentHeadings: [...input.parentHeadings ?? []]
           })
         }
       } else {
@@ -201,7 +204,9 @@ function handleTable(
             length:
               tableSlice.startIndexInParent -
               tableSlices[index - 1].endIndexInParent,
-            parentSlice: input
+            parentSlice: input,
+            parentHeadings: [...input.parentHeadings ?? [], ...(!tableSlice.isTable ? [tableSlices[index - 1].data] : [])]
+
           })
         }
       }
@@ -220,7 +225,8 @@ function handleTable(
             endIndexInParent: input.data.length - 1,
             endIndexInDoc: input.startIndexInDoc + input.data.length - 1,
             length: input.data.length - 1 - tableSlice.endIndexInParent,
-            parentSlice: input
+            parentSlice: input,
+            parentHeadings: [...input.parentHeadings ?? [], ...(!tableSlice.isTable ? [tableSlice.data] : [])]
           })
         }
       }
@@ -296,7 +302,8 @@ function mergeSlices(slices: DocumentSlice[]): DocumentSlice {
     endIndexInDoc: lastSlice.endIndexInDoc,
     endIndexInParent: lastSlice.endIndexInParent,
     length: mergedData.length,
-    parentSlice: firstSlice.parentSlice
+    parentSlice: firstSlice.parentSlice,
+    parentHeadings: [...new Set(slices.map((item) => item.parentHeadings?.filter((_, index) => index !== ((item.parentHeadings?.length ?? 1) - 1)) ?? []).flat())]
   }
 }
 
@@ -453,6 +460,7 @@ export async function hieracicalMarkdownSplitter({
       pageContent: item.data,
       metadata: {
         id: idProvider(),
+        parentHeadings: item.parentHeadings,
         loc: {
           lines: {
             from:
@@ -465,7 +473,7 @@ export async function hieracicalMarkdownSplitter({
           characters: {
             from: item.startIndexInDoc,
             to: item.endIndexInDoc
-          }
+          },
         }
       }
     }
