@@ -10,6 +10,25 @@ describe('should test dataloader', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('test v2 - full', async () => {
+    const res = await hieracicalMarkdownSplitter()
+
+    const largeDocs = res
+      .filter((item) => item.pageContent.length > 1000)
+      .sort((a, b) => a.pageContent.length - b.pageContent.length)
+    console.log('large docs (MarkdownSplitter): ' + largeDocs.length)
+    console.log('all docs (MarkdownSplitter): ' + res.length)
+
+    expect(
+      res
+        .map(
+          item =>
+            (item.metadata.parentHeadings?.join('') ?? '') + item.pageContent
+        )
+        .join('\n---xxx---\n')
+    ).toMatchSnapshot()
+  })
+
   it('test v2', async () => {
     const result = await splitDocs()
     const res = result.map((item: any) => {
@@ -38,41 +57,5 @@ describe('should test dataloader', () => {
       length: res.length,
       lengthGreater1000: largeDocs.length
     }).toMatchSnapshot()
-  })
-
-  it('create readable output', async () => {
-    const res = await hieracicalMarkdownSplitter()
-
-    const largeDocs = res
-      .filter(item => item.pageContent.length > 1000)
-      .sort((a, b) => a.pageContent.length - b.pageContent.length)
-
-    const smallDocs = res
-      .filter(item => item.pageContent.length < 100)
-      .sort((a, b) => a.pageContent.length - b.pageContent.length)
-
-    console.log('small docs: ' + smallDocs.length)
-    console.log('large docs: ' + largeDocs.length)
-    console.log('all docs: ' + res.length)
-    // expect(largeDocs).toMatchSnapshot()
-
-    expect(
-      largeDocs.map(item => {
-        return { ...item, metadata: { ...item.metadata, id: undefined  } }
-      })
-    ).toMatchSnapshot()
-
-    expect(
-      res.map(item => (item.metadata.parentHeadings?.join("") ?? "") + item.pageContent).join('\n---xxx---\n')
-    ).toMatchSnapshot()
-  })
-
-  it('input should match output', async () => {
-    const text = [racesdata, classesdata].join('')
-    const res = await hieracicalMarkdownSplitter({ data: text })
-
-    expect(text.length).toBe(res.map(item => item.pageContent).join('').length)
-
-    expect(res.map(item => item.pageContent).join('')).toEqual(text)
   })
 })

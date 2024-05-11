@@ -430,7 +430,7 @@ export async function splitDocs({
 }
 
 export async function hieracicalMarkdownSplitter({
-  data = [racesdata, classesdata].join('\n'),
+  data = defaultData.join('\n'),
   idProvider = () => randomUUID(),
   maxLength = 1000,
   splitterRegexes = defaultRegexes
