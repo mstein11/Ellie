@@ -320,13 +320,14 @@ function mergeCandidateSlices(
       mergeCandidateSlices.push(firstSlice)
     }
 
-    while (lengthOfDocSlices(mergeCandidateSlices) < maxLength) {
+    do {
       const nextSlice = slicesCopy.shift()
       if (!nextSlice) {
         break
       }
 
       if (
+        nextSlice.data.length === 1 ||
         lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <=
           maxLength &&
         mergeCandidateSlices[0].level !== undefined &&
@@ -339,6 +340,7 @@ function mergeCandidateSlices(
         break
       }
     }
+    while (lengthOfDocSlices(mergeCandidateSlices) < maxLength)
 
     if (mergeCandidateSlices.length > 1) {
       const last = mergeCandidateSlices.pop()
