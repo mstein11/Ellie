@@ -26,7 +26,6 @@ type PatternConfig = {
   pattern: RegExp
   isTable?: boolean
   ignorePattern?: boolean
-
 }
 
 type DocumentSlice = {
@@ -37,10 +36,10 @@ type DocumentSlice = {
   endIndexInParent: number
   length: number
   parentSlice: DocumentSlice | null
-  children?: DocumentSlice[],
-  isTable?: boolean | undefined,
-  isPattern?: boolean | undefined,
-  level?: number | undefined,
+  children?: DocumentSlice[]
+  isTable?: boolean | undefined
+  isPattern?: boolean | undefined
+  level?: number | undefined
   parentHeadings?: string[]
 }
 
@@ -132,7 +131,7 @@ function getPositionsOfNeedle(inputString: string, needel: RegExp) {
   return positions
 }
 
-function handleTable(
+function handlePattern(
   input: DocumentSlice,
   patternConfig: PatternConfig
 ): DocumentSlice[] {
@@ -145,7 +144,7 @@ function handleTable(
     return [input]
   }
 
-  const tableSlices = subSlicePositions.map((subSlicePosition, index) => {
+  const patternSlices = subSlicePositions.map(subSlicePosition => {
     return {
       data: input.data.substring(
         subSlicePosition.start,
@@ -159,74 +158,79 @@ function handleTable(
       parentSlice: input,
       isTable: patternConfig.isTable,
       isPattern: !patternConfig.ignorePattern,
-      parentHeadings: [...input.parentHeadings ?? []]
+      parentHeadings: [...(input.parentHeadings ?? [])]
     } as DocumentSlice
   })
 
-  const slicesAroundTables = tableSlices
-    .map((tableSlice, index) => {
-      //beginning until table
+  const slicesAroundPatterns = patternSlices
+    .map((patternSlice, index) => {
+      //beginning until Pattern
       const slices = [] as DocumentSlice[]
       if (index === 0) {
-        if (tableSlice.startIndexInParent !== 0) {
+        if (patternSlice.startIndexInParent !== 0) {
           //first table but not at the beginning
           slices.push({
-            data: input.data.substring(0, tableSlice.startIndexInParent),
+            data: input.data.substring(0, patternSlice.startIndexInParent),
             startIndexInParent: 0,
             startIndexInDoc: input.startIndexInDoc,
-            endIndexInParent: tableSlice.startIndexInParent - 1,
+            endIndexInParent: patternSlice.startIndexInParent - 1,
             endIndexInDoc:
-              input.startIndexInDoc + tableSlice.startIndexInParent - 1,
-            length: tableSlice.startIndexInParent,
+              input.startIndexInDoc + patternSlice.startIndexInParent - 1,
+            length: patternSlice.startIndexInParent,
             parentSlice: input,
-            parentHeadings: [...input.parentHeadings ?? []]
+            parentHeadings: [...(input.parentHeadings ?? [])]
           })
         }
       } else {
         if (
-          tableSlices[index - 1].endIndexInParent !==
-          tableSlice.startIndexInParent + 1
+          patternSlices[index - 1].endIndexInParent !==
+          patternSlice.startIndexInParent + 1
         ) {
-          //text between tables
+          //text between Patterns
           slices.push({
             data: input.data.substring(
-              tableSlices[index - 1].endIndexInParent + 1,
-              tableSlice.startIndexInParent
+              patternSlices[index - 1].endIndexInParent + 1,
+              patternSlice.startIndexInParent
             ),
-            startIndexInParent: tableSlices[index - 1].endIndexInParent + 1,
+            startIndexInParent: patternSlices[index - 1].endIndexInParent + 1,
             startIndexInDoc:
               input.startIndexInDoc +
-              tableSlices[index - 1].endIndexInParent +
+              patternSlices[index - 1].endIndexInParent +
               1,
-            endIndexInParent: tableSlice.startIndexInParent - 1,
+            endIndexInParent: patternSlice.startIndexInParent - 1,
             endIndexInDoc:
-              input.startIndexInDoc + tableSlice.startIndexInParent - 1,
+              input.startIndexInDoc + patternSlice.startIndexInParent - 1,
             length:
-              tableSlice.startIndexInParent -
-              tableSlices[index - 1].endIndexInParent,
+              patternSlice.startIndexInParent -
+              patternSlices[index - 1].endIndexInParent,
             parentSlice: input,
-            parentHeadings: [...input.parentHeadings ?? [], ...(!tableSlice.isTable ? [tableSlices[index - 1].data] : [])]
-
+            parentHeadings: [
+              ...(input.parentHeadings ?? []),
+              ...(!patternSlice.isTable ? [patternSlices[index - 1].data] : [])
+            ]
           })
         }
       }
 
-      if (index === tableSlices.length - 1) {
-        if (tableSlice.endIndexInParent !== input.data.length - 1) {
-          //last table but not at the end
+      if (index === patternSlices.length - 1) {
+        if (patternSlice.endIndexInParent !== input.data.length - 1) {
+          //last Pattern but not at the end
           slices.push({
             data: input.data.substring(
-              tableSlice.endIndexInParent + 1,
+              patternSlice.endIndexInParent + 1,
               input.data.length
             ),
-            startIndexInParent: tableSlice.endIndexInParent + 1,
+            startIndexInParent: patternSlice.endIndexInParent + 1,
             startIndexInDoc:
-              input.startIndexInDoc + tableSlice.endIndexInParent + 1,
+              input.startIndexInDoc + patternSlice.endIndexInParent + 1,
             endIndexInParent: input.data.length - 1,
             endIndexInDoc: input.startIndexInDoc + input.data.length - 1,
-            length: input.data.length - 1 - tableSlice.endIndexInParent,
+            length: input.data.length - 1 - patternSlice.endIndexInParent,
             parentSlice: input,
-            parentHeadings: [...input.parentHeadings ?? [], ...(!tableSlice.isTable ? [tableSlice.data] : [])]
+            parentHeadings: [
+              ...(input.parentHeadings ?? []),
+              ...(!patternSlice.isTable ? [patternSlice.data] : [])
+            ]
           })
         }
       }
@@ -235,60 +239,30 @@ function handleTable(
     })
     .flat()
 
-  tableSlices.push(...slicesAroundTables)
-  tableSlices.sort((a, b) => a.startIndexInParent - b.startIndexInParent)
-  const leveledTableSlices = tableSlices.map((slice) => { return {...slice, level: defaultRegexes.findIndex((item) => item.pattern === patternConfig.pattern)}});
+  patternSlices.push(...slicesAroundPatterns)
+  patternSlices.sort((a, b) => a.startIndexInParent - b.startIndexInParent)
+  const leveledPatternSlices = patternSlices.map(slice => {
+    return {
+      ...slice,
+      level: defaultRegexes.findIndex(
+        item => item.pattern === patternConfig.pattern
+      )
+    }
+  })
 
-  input.children = leveledTableSlices
-  return leveledTableSlices
+  input.children = leveledPatternSlices
+  return leveledPatternSlices
 }
 
 function splitSliceByPattern(
   input: DocumentSlice,
-  patternConfig: { pattern: RegExp; isTable: boolean | undefined }
+  patternConfig: { pattern: RegExp; isTable: boolean | undefined }
 ): DocumentSlice[] {
   if (input.isPattern) {
     return [input]
   }
 
-  return handleTable(input, patternConfig);
-  
-  const subSlicePositions = getPositionsOfNeedle(
-    input.data,
-    patternConfig.pattern
-  )
-  if (subSlicePositions.length === 0) {
-    return [input]
-  }
-
-  if (
-    subSlicePositions.every(subSlicePosition => subSlicePosition.start !== 0)
-  ) {
-    const startOfFirstSubslice = subSlicePositions.toSorted(
-      (a, b) => a.start - b.start
-    )[0]
-    subSlicePositions.unshift({ start: 0, end: startOfFirstSubslice.start - 1 })
-  }
-
-  return subSlicePositions.map((subSlicePosition, index) => {
-    let endIndexSubSlice = input.data.length - 1
-    if (index < subSlicePositions.length - 1) {
-      //the start of the next slice is the end of the current slice
-      endIndexSubSlice = subSlicePositions[index + 1].start - 1
-    }
-
-    const subSlice = {
-      data: input.data.substring(subSlicePosition.start, endIndexSubSlice + 1),
-      startIndexInParent: subSlicePosition.start,
-      startIndexInDoc: input.startIndexInDoc + subSlicePosition.start,
-      endIndexInParent: endIndexSubSlice,
-      endIndexInDoc: input.startIndexInDoc + endIndexSubSlice,
-      length: endIndexSubSlice - subSlicePosition.start + 1,
-      parentSlice: input
-    }
-    input.children = [subSlice]
-    return subSlice
-  })
+  return handlePattern(input, patternConfig)
 }
 
 function mergeSlices(slices: DocumentSlice[]): DocumentSlice {
@@ -303,7 +277,18 @@ function mergeSlices(slices: DocumentSlice[]): DocumentSlice {
     endIndexInParent: lastSlice.endIndexInParent,
     length: mergedData.length,
     parentSlice: firstSlice.parentSlice,
-    parentHeadings: [...new Set(slices.map((item) => item.parentHeadings?.filter((_, index) => index !== ((item.parentHeadings?.length ?? 1) - 1)) ?? []).flat())]
+    parentHeadings: [
+      ...new Set(
+        slices
+          .map(
+            item =>
+              item.parentHeadings?.filter(
+                (_, index) => index !== (item.parentHeadings?.length ?? 1) - 1
+              ) ?? []
+          )
+          .flat()
+      )
+    ]
   }
 }
 
@@ -343,7 +328,10 @@ function mergeCandidateSlices(
 
       if (
         lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <=
-        maxLength && (mergeCandidateSlices[0].level !== undefined && nextSlice.level !== undefined && nextSlice.level >= mergeCandidateSlices[0].level)
+          maxLength &&
+        mergeCandidateSlices[0].level !== undefined &&
+        nextSlice.level !== undefined &&
+        nextSlice.level >= mergeCandidateSlices[0].level
       ) {
         mergeCandidateSlices.push(nextSlice)
       } else {
@@ -352,19 +340,17 @@ function mergeCandidateSlices(
       }
     }
 
-    if(mergeCandidateSlices.length > 1) {
-      const last = mergeCandidateSlices.pop();
-    
+    if (mergeCandidateSlices.length > 1) {
+      const last = mergeCandidateSlices.pop()
+
       if (last?.isPattern) {
-        slicesCopy.unshift(last);
+        slicesCopy.unshift(last)
       } else {
         if (last) {
-          mergeCandidateSlices.push(last as DocumentSlice);
+          mergeCandidateSlices.push(last as DocumentSlice)
         }
       }
     }
-    
-
 
     foundMergePossibilites.push(mergeSlices(mergeCandidateSlices))
   }
@@ -450,12 +436,12 @@ export async function hieracicalMarkdownSplitter({
   splitterRegexes = defaultRegexes
 } = {}): Promise<Document[]> {
   const res = await splitDocs({ data, maxLength, splitterRegexes })
-  const relevantSlices = res.filter(
-    item => !item.children || item.children.length === 0
-  ).sort((a, b) => a.startIndexInDoc - b.startIndexInDoc);
+  const relevantSlices = res
+    .filter(item => !item.children || item.children.length === 0)
+    .sort((a, b) => a.startIndexInDoc - b.startIndexInDoc)
 
   const mergedSlices = mergeCandidateSlices(relevantSlices, maxLength)
-  const langchainDocs = mergedSlices.map((item) => {
+  const langchainDocs = mergedSlices.map(item => {
     return {
       pageContent: item.data,
       metadata: {
@@ -473,13 +459,15 @@ export async function hieracicalMarkdownSplitter({
           characters: {
             from: item.startIndexInDoc,
             to: item.endIndexInDoc
-          },
+          }
         }
       }
     }
   })
 
-  langchainDocs.sort((a, b) => a.metadata.loc.characters.from - b.metadata.loc.characters.from)
+  langchainDocs.sort(
+    (a, b) => a.metadata.loc.characters.from - b.metadata.loc.characters.from
+  )
 
   return langchainDocs
 }
