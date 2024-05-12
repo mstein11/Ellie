@@ -1,7 +1,4 @@
-import { hieracicalMarkdownSplitter } from './dataloader'
-
-import  racesdata  from './data/rulebook-01-races-srd';
-import classesdata from './data/rulebook-02-classes-srd';
+import { HierarchicalMarkdownTextSplitter } from './HierarchicalMarkdownTextSplitter'
 
 describe('should test complex usecases', () => {
   it('test splitting for large table', async () => {
@@ -66,10 +63,10 @@ You start with the following equipment, in addition to the equipment granted by 
 | 19th  | +6                | Ability Score Improvement                         |
 | 20th  | +6                | Extra Attack (3)                                  |`
 
-    const result = await hieracicalMarkdownSplitter({
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.map(item => item.pageContent).join('')).toEqual(text)
     expect(result.length).toBe(2)
@@ -88,11 +85,11 @@ The Heading #2
 
 Some other Text`
 
-    const result = await hieracicalMarkdownSplitter({
-      maxLength: 50,
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      maxLength: 50
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(2)
     expect(result[0].pageContent).toBe(
@@ -122,11 +119,10 @@ The Heading #2
 
 Some other Text`
 
-    const result = await hieracicalMarkdownSplitter({
-      maxLength: 1000,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(1)
     expect(result[0].pageContent).toBe(text)
@@ -143,11 +139,11 @@ The Heading
 ===========
 `
 
-    const result = await hieracicalMarkdownSplitter({
-      maxLength: 30,
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      maxLength: 30
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(2)
     expect(result[0].pageContent).toBe('SomeTextBeforeHeading \n\n')
@@ -204,12 +200,11 @@ Some cool Text
 
 Some cool Text`
 
-      const result = await hieracicalMarkdownSplitter({
+      const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
         maxLength: 50,
-        idProvider: () => 'some-test-id-matching-schema',
-        data: text
+        idProvider: () => 'some-test-id-matching-schema'
       })
-
+      const result = await hieracicalMarkdownSplitter.createDocuments([text])
       // expect(result.length).toBe(9)
       expect(result[0].pageContent).toBe(
         'The Heading #1\n===========\n\nSome cool Text\n\n'
@@ -230,11 +225,10 @@ The Heading #2
 
 Some other Text`
 
-    const result = await hieracicalMarkdownSplitter({
-      maxLength: 1000,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(1)
     expect(result[0].pageContent).toBe(text)
@@ -251,12 +245,11 @@ The Heading
 ===========
 `
 
-    const result = await hieracicalMarkdownSplitter({
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       maxLength: 30,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      idProvider: () => 'some-test-id-matching-schema'
     })
-
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
     expect(result.length).toBe(2)
     expect(result[0].pageContent).toBe('SomeTextBeforeHeading \n\n')
     expect(result[0].metadata.loc.characters.from).toBe(0)
@@ -278,11 +271,11 @@ describe('table splitt logic', () => {
 | 1st   | +2                |
 SomeTextAfterTable`
 
-    const result = await hieracicalMarkdownSplitter({
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       maxLength: 50,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(2)
     expect(result[0].pageContent).toBe(
@@ -305,11 +298,11 @@ SomeTextAfterTable`
 |-------|-------------------|
 | 1st   | +2                |`
 
-    const result = await hieracicalMarkdownSplitter({
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       maxLength: 50,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(2)
     expect(result[0].pageContent).toBe('SomeTextBeforeTable\n')
@@ -337,11 +330,11 @@ SomeTextBetweenTable
 |-------|-------------------|
 | 2nd   | +2                |`
 
-    const result = await hieracicalMarkdownSplitter({
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       maxLength: 50,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
     expect(result.length).toBe(3)
     expect(result[0].pageContent).toBe(
@@ -366,24 +359,27 @@ SomeTextBetweenTable
   })
 })
 
-describe("merges", () => {
-  it("should merge docs", async () => {
-    const text = `# The Heading #1\n\n## second level 1\nsome Text under second level\n\n## second level 2\nSome text under second level`;
+describe('merges', () => {
+  it('should merge docs', async () => {
+    const text = `# The Heading #1\n\n## second level 1\nsome Text under second level\n\n## second level 2\nSome text under second level`
 
-    const result = await hieracicalMarkdownSplitter({
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
       maxLength: 70,
-      idProvider: () => 'some-test-id-matching-schema',
-      data: text
+      idProvider: () => 'some-test-id-matching-schema'
     })
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
-    expect(result.length).toBe(2);
-    expect(result[0].pageContent).toBe("# The Heading #1\n\n## second level 1\nsome Text under second level\n\n");
-    expect(result[1].pageContent).toBe("## second level 2\nSome text under second level");
+    expect(result.length).toBe(2)
+    expect(result[0].pageContent).toBe(
+      '# The Heading #1\n\n## second level 1\nsome Text under second level\n\n'
+    )
+    expect(result[1].pageContent).toBe(
+      '## second level 2\nSome text under second level'
+    )
   })
 
-  it("should merge pending new lines to large tables", async () => {
-    const exampleTable = 
-`| Level | Proficiency Bonus | Features                                          |
+  it('should merge pending new lines to large tables', async () => {
+    const exampleTable = `| Level | Proficiency Bonus | Features                                          |
 |-------|-------------------|---------------------------------------------------|
 | 1st   | +2                | Fighting Style, Second Wind                       |
 | 2nd   | +2                | Action Surge (one use)                            |
@@ -395,20 +391,22 @@ describe("merges", () => {
 | 8th   | +3                | Ability Score Improvement                         |
 | 9th   | +4                | Indomitable (one use)                             |
 | 10th  | +4                | Martial Archetype Feature                         |
-| 11th  | +4                | Extra Attack (2)                                  |`;
+| 11th  | +4                | Extra Attack (2)                                  |`
 
     const text = `#### The Fighter\n\n${exampleTable}\n\n\n#### Subtitle\n\nsome text after table`
 
-    const result = await hieracicalMarkdownSplitter({data: text });
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter()
+    const result = await hieracicalMarkdownSplitter.createDocuments([text])
 
-
-    expect(result[0].pageContent).toEqual("#### The Fighter\n\n")
+    expect(result[0].pageContent).toEqual('#### The Fighter\n\n')
     expect(result[1].pageContent).toEqual(`${exampleTable}\n\n\n`)
-    expect(result[2].pageContent).toEqual("#### Subtitle\n\nsome text after table");
-    expect(result.length).toBe(3);
-  });
+    expect(result[2].pageContent).toEqual(
+      '#### Subtitle\n\nsome text after table'
+    )
+    expect(result.length).toBe(3)
+  })
 
-  // it("should merge pending new lines to patterns", async () => { 
+  // it("should merge pending new lines to patterns", async () => {
   //   const text = "### A heading\n\nSome text\n\n### Another heading\n\nSome other text";
 
   //   const res = await hieracicalMarkdownSplitter({data: text, maxLength: 20 });
@@ -417,9 +415,9 @@ describe("merges", () => {
   // });
 })
 
-describe("metadata", () => {
-  it("should not have doubled ParentHeadings", async () => {
-  const data = `Barbarian
+describe('metadata', () => {
+  it('should not have doubled ParentHeadings', async () => {
+    const data = `Barbarian
 =========
 
 Class Features
@@ -511,10 +509,11 @@ At 2nd level, you gain an uncanny sense of when things nearby aren’t as they s
 You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can’t be blinded, deafened, or incapacitated.
   `
 
-  const res = await hieracicalMarkdownSplitter({data, idProvider: () => 'some-id-random-random-random'});
+    const hieracicalMarkdownSplitter = new HierarchicalMarkdownTextSplitter({
+      idProvider: () => 'some-test-id-matching-schema'
+    })
+    const res = await hieracicalMarkdownSplitter.createDocuments([data])
 
-  expect(res).toMatchSnapshot()
-
-
-  });
+    expect(res).toMatchSnapshot()
+  })
 })

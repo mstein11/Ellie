@@ -4,7 +4,7 @@ exports[`metadata should not have doubled ParentHeadings 1`] = `
 [
   {
     "metadata": {
-      "id": "some-id-random-random-random",
+      "id": "some-test-id-matching-schema",
       "loc": {
         "characters": {
           "from": 0,
@@ -59,7 +59,7 @@ granted by your background:
   },
   {
     "metadata": {
-      "id": "some-id-random-random-random",
+      "id": "some-test-id-matching-schema",
       "loc": {
         "characters": {
           "from": 882,
@@ -108,7 +108,7 @@ granted by your background:
   },
   {
     "metadata": {
-      "id": "some-id-random-random-random",
+      "id": "some-test-id-matching-schema",
       "loc": {
         "characters": {
           "from": 2841,
@@ -146,7 +146,7 @@ Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if
   },
   {
     "metadata": {
-      "id": "some-id-random-random-random",
+      "id": "some-test-id-matching-schema",
       "loc": {
         "characters": {
           "from": 3707,
@@ -174,7 +174,7 @@ Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if
   },
   {
     "metadata": {
-      "id": "some-id-random-random-random",
+      "id": "some-test-id-matching-schema",
       "loc": {
         "characters": {
           "from": 3878,
