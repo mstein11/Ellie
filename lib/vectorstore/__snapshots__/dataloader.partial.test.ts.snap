@@ -22,6 +22,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Fighter
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Features                                          |
@@ -69,6 +71,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Rogue
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Sneak Attack | Features                               |
@@ -114,6 +118,8 @@ exports[`should test dataloader create readable output 1`] = `
 ",
         "Class Features
 --------------
+",
+        "#### The Barbarian
 ",
       ],
     },
@@ -162,6 +168,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Paladin
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Features                                   | 1st | 2nd | 3rd | 4th | 5th |
@@ -208,6 +216,8 @@ exports[`should test dataloader create readable output 1`] = `
 ",
         "Class Features
 --------------
+",
+        "#### The Ranger
 ",
       ],
     },
@@ -256,6 +266,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Monk
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Martial Arts | Ki Points | Unarmored Movement | Features                                         |
@@ -302,6 +314,8 @@ exports[`should test dataloader create readable output 1`] = `
 ",
         "Class Features
 --------------
+",
+        "#### The Wizard
 ",
       ],
     },
@@ -350,6 +364,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Warlock
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Features                        | Cantrips Known | Spells Known | Spell Slots | Slot Level | Invocations Known |
@@ -396,6 +412,8 @@ exports[`should test dataloader create readable output 1`] = `
 ",
         "Class Features
 --------------
+",
+        "#### The Druid
 ",
       ],
     },
@@ -444,6 +462,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Sorcerer
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Sorcery Points | Features                       | Cantrips Known | Spells Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
@@ -490,6 +510,8 @@ exports[`should test dataloader create readable output 1`] = `
 ",
         "Class Features
 --------------
+",
+        "#### The Bard
 ",
       ],
     },
@@ -538,6 +560,8 @@ exports[`should test dataloader create readable output 1`] = `
         "Class Features
 --------------
 ",
+        "#### The Cleric
+",
       ],
     },
     "pageContent": "| Level | Proficiency Bonus | Features                                                                | Cantrips Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
@@ -570,9 +594,6 @@ exports[`should test dataloader create readable output 1`] = `
 
 exports[`should test dataloader create readable output 2`] = `
 "Races
-=====
-### Racial Traits
-Races
 =====
 
 ### Racial Traits
@@ -621,9 +642,6 @@ Some races have subraces. Members of a subrace have the traits of the parent rac
 ---xxx---
 Races
 =====
-Dwarf
------
-### Dwarf Traits
 Dwarf
 -----
 
@@ -686,9 +704,6 @@ As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience
 ---xxx---
 Races
 =====
-Elf
----
-### Elf Traits
 Elf
 ---
 
@@ -755,9 +770,6 @@ As a high elf, you have a keen mind and a mastery of at least the basics of magi
 ---xxx---
 Races
 =====
-Halfling
---------
-### Halfling Traits
 Halfling
 --------
 
@@ -840,7 +852,6 @@ Races
 Dragonborn
 ----------
 ### Dragonborn Traits
-### Dragonborn Traits
 
 Your draconic heritage manifests in a variety of traits you share with other dragonborn.
 
@@ -863,6 +874,8 @@ Races
 Dragonborn
 ----------
 ### Dragonborn Traits
+
+***Draconic Ancestry.***
 | **Dragon**   | **Damage Type**   | **Breath Weapon**            |
 |--------------|-------------------|------------------------------|
 | Black        | Acid              | 5 by 30 ft. line (Dex. save) |
@@ -912,9 +925,6 @@ Races
 =====
 Gnome
 -----
-### Gnome Traits
-Gnome
------
 
 ### Gnome Traits
 
@@ -951,7 +961,6 @@ Gnome
 -----
 ### Gnome Traits
 #### Rock Gnome
-#### Rock Gnome
 
 As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
 
@@ -979,9 +988,6 @@ Gnome
 ---xxx---
 Races
 =====
-Half-Elf
---------
-### Half-Elf Traits
 Half-Elf
 --------
 
@@ -1019,9 +1025,6 @@ Half-Elf
 ---xxx---
 Races
 =====
-Half-Orc
---------
-### Half-Orc Traits
 Half-Orc
 --------
 
@@ -1062,9 +1065,6 @@ Races
 =====
 Tiefling
 --------
-### Tiefling Traits
-Tiefling
---------
 
 ### Tiefling Traits
 
@@ -1096,10 +1096,6 @@ Tiefling
 ***Languages.*** You can speak, read, and write Common and Infernal.
 
 ---xxx---
-Barbarian
-=========
-Class Features
---------------
 Barbarian
 =========
 
@@ -1144,6 +1140,7 @@ Barbarian
 =========
 Class Features
 --------------
+#### The Barbarian
 | Level  | Proficiency Bonus | Features                      | Rages     | Rage Damage |
 |--------|-------------------|-------------------------------|-----------|-------------|
 | 1st    | +2                | Rage, Unarmored Defense       | 2         | +2          |
@@ -1173,7 +1170,6 @@ Barbarian
 =========
 Class Features
 --------------
-### Rage
 ### Rage
 
 In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.
@@ -1321,10 +1317,6 @@ Starting at 14th level, when you take damage from a creature that is within 5 fe
 ---xxx---
 Bard
 ====
-Class Features
---------------
-Bard
-====
 
 Class Features
 --------------
@@ -1368,6 +1360,7 @@ Bard
 ====
 Class Features
 --------------
+#### The Bard
 | Level | Proficieny Bonus | Features                                             | Spells Known | Cantrips Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
 |-------|------------------|------------------------------------------------------|--------------|----------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | 1st   | +2               | Spellcasting, Bardic Inspiration (d6)                | 2            | 4              | 2   | -   | -   | -   | -   | -   | -   | -   | -   |
@@ -1397,7 +1390,6 @@ Bard
 ====
 Class Features
 --------------
-### Spellcasting
 ### Spellcasting
 
 You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music.
@@ -1458,7 +1450,6 @@ Bard
 ====
 Class Features
 --------------
-### Bardic Inspiration
 ### Bardic Inspiration
 
 You can inspire others through stirring words or music. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Bardic Inspiration die, a d6.
@@ -1553,7 +1544,6 @@ Bard
 Class Features
 --------------
 ### College of Lore
-### College of Lore
 
 Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king.
 
@@ -1600,10 +1590,6 @@ Starting at 14th level, when you make an ability check, you can expend one use o
 
 
 ---xxx---
-Cleric
-======
-Class Features
---------------
 Cleric
 ======
 
@@ -1658,6 +1644,7 @@ Cleric
 ======
 Class Features
 --------------
+#### The Cleric
 | Level | Proficiency Bonus | Features                                                                | Cantrips Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
 |-------|-------------------|-------------------------------------------------------------------------|----------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | 1st   | +2                | Spellcasting, Divine Domain                                             | 3              | 2   | -   | -   | -   | -   | -   | -   | -   | -   |
@@ -1687,8 +1674,6 @@ Cleric
 ======
 Class Features
 --------------
-### Spellcasting
-#### Preparing and Casting Spells
 ### Spellcasting
 
 As a conduit for divine power, you can cast cleric spells.
@@ -1897,10 +1882,6 @@ Starting at 17th level, when you would normally roll one or more dice to restore
 ---xxx---
 Druid
 =====
-Class Features
---------------
-Druid
-=====
 
 Class Features
 --------------
@@ -1950,6 +1931,7 @@ Druid
 =====
 Class Features
 --------------
+#### The Druid
 | Level | Proficiency Bonus | Features                                          | Cantrips Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
 |-------|-------------------|---------------------------------------------------|----------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | 1st   | +2                | Druidic, Spellcasting                             | 2              | 2   | -   | -   | -   | -   | -   | -   | -   | -   |
@@ -1979,7 +1961,6 @@ Druid
 =====
 Class Features
 --------------
-### Spellcasting
 ### Druidic
 
 You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message’s presence with a successful DC 15 Wisdom (Perception) check but can’t decipher it without magic.
@@ -2111,6 +2092,7 @@ Druid
 Class Features
 --------------
 ### Wild Shape
+#### Beast Shapes
 
 
 
@@ -2141,7 +2123,6 @@ Druid
 =====
 Class Features
 --------------
-### Circle of the Land
 ### Archdruid
 
 At 20th level, you can use your Wild Shape an unlimited number of times.
@@ -2177,7 +2158,6 @@ Druid
 Class Features
 --------------
 ### Circle of the Land
-#### Circle Spells
 #### Circle Spells
 
 Your mystical connection to the land infuses you with the ability to cast certain spells. At 3rd, 5th, 7th, and 9th level you gain access to circle spells connected to the land where you became a druid. Choose that land—arctic, coast, desert, forest, grassland, mountain, or swamp—and consult the associated list of spells.
@@ -2329,10 +2309,6 @@ Some druids venerate the forces of nature themselves, but most druids are devote
 ---xxx---
 Fighter
 =======
-Class Features
---------------
-Fighter
-=======
 
 Class Features
 --------------
@@ -2377,6 +2353,7 @@ Fighter
 =======
 Class Features
 --------------
+#### The Fighter
 | Level | Proficiency Bonus | Features                                          |
 |-------|-------------------|---------------------------------------------------|
 | 1st   | +2                | Fighting Style, Second Wind                       |
@@ -2406,7 +2383,6 @@ Fighter
 =======
 Class Features
 --------------
-### Fighting Style
 ### Fighting Style
 
 You adopt a particular style of fighting as your specialty. Choose one of the following options. You can’t take a Fighting Style option more than once, even if you later get to choose again.
@@ -2496,9 +2472,6 @@ Fighter
 =======
 Martial Archetypes
 ------------------
-### Champion
-Martial Archetypes
-------------------
 
 Different fighters choose different approaches to perfecting their fighting prowess. The martial archetype you choose to emulate reflects your approach.
 
@@ -2537,10 +2510,6 @@ At 18th level, you attain the pinnacle of resilience in battle. At the start of 
 
 
 ---xxx---
-Monk
-====
-Class Features
---------------
 Monk
 ====
 
@@ -2586,6 +2555,7 @@ Monk
 ====
 Class Features
 --------------
+#### The Monk
 | Level | Proficiency Bonus | Martial Arts | Ki Points | Unarmored Movement | Features                                         |
 |-------|-------------------|--------------|-----------|--------------------|--------------------------------------------------|
 | 1st   | +2                | 1d4          | —         | -                  | Unarmored Defense, Martial Arts                  |
@@ -2795,8 +2765,6 @@ Monk
 ====
 Monastic Traditions
 -------------------
-Monastic Traditions
--------------------
 
 Three traditions of monastic pursuit are common in the monasteries scattered across the multiverse. Most monasteries practice one tradition exclusively, but a few honor the three traditions and instruct each monk according to his or her aptitude and interest. All three traditions rely on the same basic techniques, diverging as the student grows more adept. Thus, a monk need choose a tradition only upon reaching 3rd level.
 
@@ -2850,10 +2818,6 @@ You can have only one creature under the effect of this feature at a time. You c
 ---xxx---
 Paladin
 =======
-Class Features
---------------
-Paladin
-=======
 
 Class Features
 --------------
@@ -2896,6 +2860,7 @@ Paladin
 =======
 Class Features
 --------------
+#### The Paladin
 | Level | Proficiency Bonus | Features                                   | 1st | 2nd | 3rd | 4th | 5th |
 |-------|-------------------|--------------------------------------------|-----|-----|-----|-----|-----|
 | 1st   | +2                | Divine Sense, Lay on Hands                 | -   | -   | -   | -   | -   |
@@ -2981,8 +2946,6 @@ Paladin
 =======
 Class Features
 --------------
-### Spellcasting
-#### Preparing and Casting Spells
 ### Spellcasting
 
 By 2nd level, you have learned to draw on divine magic through meditation and prayer to cast spells as a cleric does.
@@ -3154,7 +3117,6 @@ Paladin
 Sacred Oaths
 ------------
 ### Oath of Devotion
-#### Channel Divinity
 #### Oath Spells
 
 You gain oath spells at the paladin levels listed.
@@ -3234,10 +3196,6 @@ If a paladin willfully violates his or her oath and shows no sign of repentance,
 ---xxx---
 Ranger
 ======
-Class Features
---------------
-Ranger
-======
 
 Class Features
 --------------
@@ -3280,6 +3238,7 @@ Ranger
 ======
 Class Features
 --------------
+#### The Ranger
 | Level | Proficiency Bonus | Features                                          | Spells Known | 1st | 2nd | 3rd | 4th | 5th |
 |-------|-------------------|---------------------------------------------------|--------------|-----|-----|-----|-----|-----|
 | 1st   | +2                | Favored Enemy, Natural Explorer                   | -            | -   | -   | -   | -   | -   |
@@ -3493,8 +3452,6 @@ Ranger
 ======
 Ranger Archetypes
 -----------------
-Ranger Archetypes
------------------
 
 The ideal of the ranger has two classic expressions: the Hunter and the Beast Master.
 
@@ -3565,10 +3522,6 @@ At 15th level, you gain one of the following features of your choice.
 ---xxx---
 Rogue
 =====
-Class Features
---------------
-Rogue
-=====
 
 Class Features
 --------------
@@ -3617,6 +3570,7 @@ Rogue
 =====
 Class Features
 --------------
+#### The Rogue
 | Level | Proficiency Bonus | Sneak Attack | Features                               |
 |-------|-------------------|--------------|----------------------------------------|
 | 1st   | +2                | 1d6          | Expertise, Sneak Attack, Thieves’ Cant |
@@ -3739,8 +3693,6 @@ Rogue
 =====
 Roguish Archetypes
 ------------------
-Roguish Archetypes
-------------------
 
 Rogues have many features in common, including their emphasis on perfecting their skills, their precise and deadly approach to combat, and their increasingly quick reflexes. But different rogues steer those talents in varying directions, embodied by the rogue archetypes. Your choice of archetype is a reflection of your focus—not necessarily an indication of your chosen profession, but a description of your preferred techniques.
 
@@ -3788,10 +3740,6 @@ When you reach 17th level, you have become adept at laying ambushes and quickly 
 ---xxx---
 Sorcerer
 ========
-Class Features
---------------
-Sorcerer
-========
 
 Class Features
 --------------
@@ -3836,6 +3784,7 @@ Sorcerer
 ========
 Class Features
 --------------
+#### The Sorcerer
 | Level | Proficiency Bonus | Sorcery Points | Features                       | Cantrips Known | Spells Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
 |-------|-------------------|----------------|--------------------------------|----------------|--------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | 1st   | +2                | -              | Spellcasting, Sorcerous Origin | 4              | 2            | 2   | -   | -   | -   | -   | -   | -   | -   | -   |
@@ -3865,7 +3814,6 @@ Sorcerer
 ========
 Class Features
 --------------
-### Spellcasting
 ### Spellcasting
 
 An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcane magic. This font of magic, whatever its origin, fuels your spells.
@@ -3920,7 +3868,6 @@ Sorcerer
 ========
 Class Features
 --------------
-### Font of Magic
 ### Sorcerous Origin
 
 Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic, both detailed at the end of the class description.
@@ -3976,7 +3923,6 @@ Sorcerer
 ========
 Class Features
 --------------
-### Metamagic
 ### Metamagic
 
 At 3rd level, you gain the ability to twist your spells to suit your needs. You gain two of the following Metamagic options of your choice. You gain another one at 10th and 17th level.
@@ -4053,8 +3999,6 @@ At 20th level, you regain 4 expended sorcery points whenever you finish a short 
 ---xxx---
 Sorcerer
 ========
-Sorcerous Origins
------------------
 Sorcerous Origins
 -----------------
 
@@ -4137,10 +4081,6 @@ Beginning at 18th level, you can channel the dread presence of your dragon ances
 ---xxx---
 Warlock
 =======
-Class Features
---------------
-Warlock
-=======
 
 Class Features
 --------------
@@ -4183,6 +4123,7 @@ Warlock
 =======
 Class Features
 --------------
+#### The Warlock
 | Level | Proficiency Bonus | Features                        | Cantrips Known | Spells Known | Spell Slots | Slot Level | Invocations Known |
 |-------|-------------------|---------------------------------|----------------|--------------|-------------|------------|-------------------|
 | 1st   | +2                | Otherworldly Patron, Pact Magic | 2              | 2            | 1           | 1st        | -                 |
@@ -4212,7 +4153,6 @@ Warlock
 =======
 Class Features
 --------------
-### Pact Magic
 ### Otherworldly Patron
 
 At 1st level, you have struck a bargain with an otherworldly being of your choice: the Archfey, the Fiend, or the Great Old One, each of which is detailed at the end of the class description. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.
@@ -4366,8 +4306,6 @@ At 20th level, you can draw on your inner reserve of mystical power while entrea
 ---xxx---
 Warlock
 =======
-Eldritch Invocations
---------------------
 Eldritch Invocations
 --------------------
 
@@ -4672,7 +4610,6 @@ Warlock
 Otherworldly Patrons
 --------------------
 ### Your Pact Boon
-### Your Pact Boon
 
 Each Pact Boon option produces a special creature or an object that reflects your patron’s nature.
 
@@ -4691,10 +4628,6 @@ Otherworldly Patrons
 
 
 ---xxx---
-Wizard
-======
-Class Features
---------------
 Wizard
 ======
 
@@ -4739,6 +4672,7 @@ Wizard
 ======
 Class Features
 --------------
+#### The Wizard
 | Level | Proficiency Bonus | Features                       | Cantrips Known | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
 |-------|-------------------|--------------------------------|----------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | 1st   | +2                | Spellcasting, Arcane Recovery  | 3              | 2   | -   | -   | -   | -   | -   | -   | -   | -   |
@@ -4768,7 +4702,6 @@ Wizard
 ======
 Class Features
 --------------
-### Spellcasting
 ### Spellcasting
 
 As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power.
@@ -4905,7 +4838,6 @@ Wizard
 Arcane Traditions
 -----------------
 ### School of Evocation
-### School of Evocation
 
 You focus your study on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid. Some evokers find employment in military forces, serving as artillery to blast enemy armies from afar. Others use their spectacular power to protect the weak, while some seek their own gain as bandits, adventurers, or aspiring tyrants.
 
@@ -4951,7 +4883,6 @@ Wizard
 ======
 Arcane Traditions
 -----------------
-### Your Spellbook
 ### Your Spellbook
 
 The spells that you add to your spellbook as you gain levels reflect the arcane research you conduct on your own, as well as intellectual breakthroughs you have had about the nature of the multiverse. You might find other spells during your adventures. You could discover a spell recorded on a scroll in an evil wizard’s chest, for example, or in a dusty tome in an ancient library.

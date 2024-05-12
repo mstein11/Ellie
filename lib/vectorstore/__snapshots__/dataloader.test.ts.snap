@@ -15,14 +15,7 @@ exports[`metadata should not have doubled ParentHeadings 1`] = `
           "to": 38,
         },
       },
-      "parentHeadings": [
-        "Barbarian
-=========
-",
-        "Class Features
---------------
-",
-      ],
+      "parentHeadings": [],
     },
     "pageContent": "Barbarian
 =========
@@ -84,6 +77,8 @@ granted by your background:
         "Class Features
 --------------
 ",
+        "#### The Barbarian
+",
       ],
     },
     "pageContent": "| Level  | Proficiency Bonus | Features                      | Rages     | Rage Damage |
@@ -130,8 +125,6 @@ granted by your background:
 ",
         "Class Features
 --------------
-",
-        "### Rage
 ",
       ],
     },

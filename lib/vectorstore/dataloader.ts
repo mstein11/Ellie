@@ -277,18 +277,7 @@ function mergeSlices(slices: DocumentSlice[]): DocumentSlice {
     endIndexInParent: lastSlice.endIndexInParent,
     length: mergedData.length,
     parentSlice: firstSlice.parentSlice,
-    parentHeadings: [
-      ...new Set(
-        slices
-          .map(
-            item =>
-              item.parentHeadings?.filter(
-                (_, index) => index !== (item.parentHeadings?.length ?? 1) - 1
-              ) ?? []
-          )
-          .flat()
-      )
-    ]
+    parentHeadings: [...firstSlice.parentHeadings?.filter(heading => slices.map(item => item.parentHeadings?.includes(heading)).every(Boolean)) ?? []]
   }
 }
 
