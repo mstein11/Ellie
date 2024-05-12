@@ -345,14 +345,14 @@ SomeTextBetweenTable
 
     expect(result.length).toBe(3)
     expect(result[0].pageContent).toBe(
-      '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |\n'
+      '| Level | Proficiency Bonus |\n|-------|-------------------|\n| 1st   | +2                |\n\n'
     )
     expect(result[0].metadata.loc.characters.from).toBe(0)
-    expect(result[0].metadata.loc.characters.to).toBe(89)
+    expect(result[0].metadata.loc.characters.to).toBe(90)
     expect(result[0].metadata.loc.lines.from).toBe(0)
-    expect(result[0].metadata.loc.lines.to).toBe(3)
-    expect(result[1].pageContent).toBe('\nSomeTextBetweenTable\n\n')
-    expect(result[1].metadata.loc.characters.from).toBe(90)
+    expect(result[0].metadata.loc.lines.to).toBe(4)
+    expect(result[1].pageContent).toBe('SomeTextBetweenTable\n\n')
+    expect(result[1].metadata.loc.characters.from).toBe(91)
     expect(result[1].metadata.loc.characters.to).toBe(112)
     expect(result[1].metadata.loc.lines.from).toBe(4)
     expect(result[1].metadata.loc.lines.to).toBe(6)
@@ -380,6 +380,41 @@ describe("merges", () => {
     expect(result[0].pageContent).toBe("# The Heading #1\n\n## second level 1\nsome Text under second level\n\n");
     expect(result[1].pageContent).toBe("## second level 2\nSome text under second level");
   })
+
+  it("should merge pending new lines to large tables", async () => {
+    const exampleTable = 
+`| Level | Proficiency Bonus | Features                                          |
+|-------|-------------------|---------------------------------------------------|
+| 1st   | +2                | Fighting Style, Second Wind                       |
+| 2nd   | +2                | Action Surge (one use)                            |
+| 3rd   | +2                | Martial Archetype                                 |
+| 4th   | +2                | Ability Score Improvement                         |
+| 5th   | +3                | Extra Attack                                      |
+| 6th   | +3                | Ability Score Improvement                         |
+| 7th   | +3                | Martial Archetype Feature                         |
+| 8th   | +3                | Ability Score Improvement                         |
+| 9th   | +4                | Indomitable (one use)                             |
+| 10th  | +4                | Martial Archetype Feature                         |
+| 11th  | +4                | Extra Attack (2)                                  |`;
+
+    const text = `#### The Fighter\n\n${exampleTable}\n\n\n#### Subtitle\n\nsome text after table`
+
+    const result = await hieracicalMarkdownSplitter({data: text });
+
+
+    expect(result[0].pageContent).toEqual("#### The Fighter\n\n")
+    expect(result[1].pageContent).toEqual(`${exampleTable}\n\n\n`)
+    expect(result[2].pageContent).toEqual("#### Subtitle\n\nsome text after table");
+    expect(result.length).toBe(3);
+  });
+
+  // it("should merge pending new lines to patterns", async () => { 
+  //   const text = "### A heading\n\nSome text\n\n### Another heading\n\nSome other text";
+
+  //   const res = await hieracicalMarkdownSplitter({data: text, maxLength: 20 });
+
+  //   expect(res[0].pageContent).toEqual("### A heading\n\n");
+  // });
 })
 
 describe("metadata", () => {

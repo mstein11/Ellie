@@ -101,7 +101,7 @@ const defaultRegexes = [
     isTable: false
   },
   {
-    pattern: /(\|.*\|\r?\n\|[-:|]*\|\r?\n)(\|.*\|\r?\n?)*/g,
+    pattern: /(\|.*\|\r?\n\|[-:|]*\|\r?\n)(\|.*\|\r?\n?)*(\n)*/g,
     isTable: true
   },
   {
@@ -326,9 +326,7 @@ function mergeCandidateSlices(
         break
       }
 
-      if (
-        nextSlice.data.length === 1 ||
-        lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <=
+      if (lengthOfDocSlices(mergeCandidateSlices) + nextSlice.length <=
           maxLength &&
         mergeCandidateSlices[0].level !== undefined &&
         nextSlice.level !== undefined &&
