@@ -71,5 +71,14 @@ export async function loadSourceV2({
     regexps: splitterRegexes
   })
   const docs = await splitter.createDocuments([data])
-  return docs
+  return docs.filter(doc => doc.pageContent).map(doc => {
+    return {
+      ...doc,
+      metadata: {
+        ...doc.metadata,
+        originalText: doc.pageContent,
+      },
+      pageContent: doc.metadata.parentHeadings?.join('') + doc.pageContent
+    }
+  })
 }
