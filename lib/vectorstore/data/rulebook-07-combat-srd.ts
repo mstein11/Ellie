@@ -1,329 +1,517 @@
-const data = `Races
-=====
+const data = `Combat
+======
 
-### Racial Traits
+The Order of Combat
+-------------------
 
-The description of each race includes racial traits that are common to members of that race. The following entries appear among the traits of most races.
+A typical combat encounter is a clash between two sides, a flurry of weapon swings, feints, parries, footwork, and spellcasting. The game organizes the chaos of combat into a cycle of rounds and turns. A
+**round** represents about 6 seconds in the game world. During a round, each participant in a battle takes a **turn**. The order of turns is determined at the beginning of a combat encounter, when everyone rolls initiative. Once everyone has taken a turn, the fight continues to the next round if neither side has defeated the other.
 
-#### Ability Score Increase
+##### Combat Step by Step
 
-Every race increases one or more of a character’s ability scores.
+1.  **Determine surprise.** The GM determines whether anyone involved in the combat encounter is surprised.
+2.  **Establish positions.** The GM decides where all the characters and monsters are located. Given the adventurers’ marching order or their stated positions in the room or other location, the GM figures out where the adversaries are̶how far away and in what direction.
+3.  **Roll initiative.** Everyone involved in the combat encounter rolls initiative, determining the order of combatants’ turns.
+4.  **Take turns.** Each participant in the battle takes a turn in initiative order.
+5.  **Begin the next round.** When everyone involved in the combat has had a turn, the round ends. Repeat step 4 until the fighting stops.
 
-#### Age
+### Surprise
 
-The age entry notes the age when a member of the race is considered an adult, as well as the race’s expected lifespan. This information can help you decide how old your character is at the start of the game. You can choose any age for your character, which could provide an explanation for some of your ability scores. For example, if you play a young or very old character, your age could explain a particularly low Strength or Constitution score, while advanced age could account for a high Intelligence or Wisdom.
+A band of adventurers sneaks up on a bandit camp, springing from the trees to attack them. A gelatinous cube glides down a dungeon passage, unnoticed by the adventurers until the cube engulfs one of them. In these situations, one side of the battle gains surprise over the other.
 
-#### Alignment
+The GM determines who might be surprised. If neither side tries to be stealthy, they automatically notice each other. Otherwise, the GM compares the Dexterity (Stealth) checks of anyone hiding with the passive Wisdom (Perception) score of each creature on the opposing side. Any character or monster that doesn’t notice a threat is surprised at the start of the encounter.
 
-Most races have tendencies toward certain alignments, described in this entry. These are not binding for player characters, but considering why your dwarf is chaotic, for example, in defiance of lawful dwarf society can help you better define your character.
+If you’re surprised, you can’t move or take an action on your first turn of the combat, and you can’t take a reaction until that turn ends. A member of a group can be surprised even if the other members aren’t.
 
-#### Size
+### Initiative
 
-Characters of most races are Medium, a size category including creatures that are roughly 4 to 8 feet tall. Members of a few races are Small (between 2 and 4 feet tall), which means that certain rules of the game affect them differently. The most important of these rules is that Small characters have trouble wielding heavy weapons, as explained in “Equipment.”
+Initiative determines the order of turns during combat. When combat starts, every participant makes a Dexterity check to determine their place in the initiative order. The GM makes one roll for an entire group of identical creatures, so each member of the group acts at the same time.
 
-#### Speed
+The GM ranks the combatants in order from the one with the highest Dexterity check total to the one with the lowest. This is the order (called the initiative order) in which they act during each round. The initiative order remains the same from round to round.
 
-Your speed determines how far you can move when traveling (“Adventuring”) and fighting (“Combat”).
+If a tie occurs, the GM decides the order among tied GM-controlled creatures, and the players decide the order among their tied characters. The GM can decide the order if the tie is between a monster and a player character. Optionally, the GM can have the tied characters and monsters each roll a d20 to determine the order, highest roll going first.
 
-#### Languages
+### Your Turn
 
-By virtue of your race, your character can speak, read, and write certain languages.
+On your turn, you can **move** a distance up to your speed and **take one action**. You decide whether to move first or take your action first. Your speed— sometimes called your walking speed—is noted on your character sheet.
 
-#### Subraces
+The most common actions you can take are described in the “Actions in Combat” section later in this chapter. Many class features and other abilities provide additional options for your action.
 
-Some races have subraces. Members of a subrace have the traits of the parent race in addition to the traits specified for their subrace. Relationships among subraces vary significantly from race to race and world to world.
+The “Movement and Position” section later in this chapter gives the rules for your move.
 
-Dwarf
+You can forgo moving, taking an action, or doing anything at all on your turn. If you can’t decide what to do on your turn, consider taking the Dodge or Ready action, as described in “Actions in Combat.”
+
+#### Bonus Actions
+
+Various class features, spells, and other abilities let you take an additional action on your turn called a bonus action. The Cunning Action feature, for example, allows a rogue to take a bonus action. You can take a bonus action only when a special ability, spell, or other feature of the game states that you can do something as a bonus action. You otherwise don’t have a bonus action to take.
+
+You can take only one bonus action on your turn, so you must choose which bonus action to use when you have more than one available.
+
+You choose when to take a bonus action during your turn, unless the bonus action’s timing is specified, and anything that deprives you of your ability to take actions also prevents you from taking a bonus action.
+
+#### Other Activity on Your Turn
+
+Your turn can include a variety of flourishes that require neither your action nor your move.
+
+You can communicate however you are able, through brief utterances and gestures, as you take your turn.
+
+You can also interact with one object or feature of the environment for free, during either your move or your action. For example, you could open a door during your move as you stride toward a foe, or you could draw your weapon as part of the same action you use to attack.
+
+If you want to interact with a second object, you need to use your action. Some magic items and other special objects always require an action to use, as stated in their descriptions.
+
+The GM might require you to use an action for any of these activities when it needs special care or when it presents an unusual obstacle. For instance, the GM could reasonably expect you to use an action to open a stuck door or turn a crank to lower a drawbridge.
+
+### Reactions
+
+Certain special abilities, spells, and situations allow you to take a special action called a reaction. A reaction is an instant response to a trigger of some kind, which can occur on your turn or on someone else’s. The opportunity attack, described later in this chapter, is the most common type of reaction.
+
+When you take a reaction, you can’t take another one until the start of your next turn. If the reaction interrupts another creature’s turn, that creature can continue its turn right after the reaction.
+
+Movement and Position
+---------------------
+
+In combat, characters and monsters are in constant motion, often using movement and position to gain the upper hand.
+
+On your turn, you can move a distance up to your speed. You can use as much or as little of your speed as you like on your turn, following the rules here.
+
+Your movement can include jumping, climbing, and swimming. These different modes of movement can be combined with walking, or they can constitute your entire move. However you’re moving, you deduct the distance of each part of your move from your speed until it is used up or until you are done moving.
+
+### Breaking Up Your Move
+
+You can break up your movement on your turn, using some of your speed before and after your action. For example, if you have a speed of 30 feet, you can move 10 feet, take your action, and then move 20 feet.
+
+#### Moving between Attacks
+
+If you take an action that includes more than one weapon attack, you can break up your movement even further by moving between those attacks. For example, a fighter who can make two attacks with the Extra Attack feature and who has a speed of 25 feet could move 10 feet, make an attack, move 15 feet, and then attack again.
+
+#### Using Different Speeds
+
+If you have more than one speed, such as your walking speed and a flying speed, you can switch back and forth between your speeds during your move. Whenever you switch, subtract the distance you’ve already moved from the new speed. The result determines how much farther you can move. If the result is 0 or less, you can’t use the new speed during the current move.
+
+For example, if you have a speed of 30 and a flying speed of 60 because a wizard cast the *fly* spell on you, you could fly 20 feet, then walk 10 feet, and then leap into the air to fly 30 feet more.
+
+### Difficult Terrain
+
+Combat rarely takes place in bare rooms or on featureless plains. Boulder-strewn caverns, briar- choked forests, treacherous staircases—the setting of a typical fight contains difficult terrain.
+
+Every foot of movement in difficult terrain costs 1 extra foot. This rule is true even if multiple things in a space count as difficult terrain.
+
+Low furniture, rubble, undergrowth, steep stairs, snow, and shallow bogs are examples of difficult terrain. The space of another creature, whether hostile or not, also counts as difficult terrain.
+
+### Being Prone
+
+Combatants often find themselves lying on the ground, either because they are knocked down or because they throw themselves down. In the game, they are prone, a condition described in appendix A.
+
+You can **drop prone** without using any of your speed. **Standing up** takes more effort; doing so costs an amount of movement equal to half your speed. For example, if your speed is 30 feet, you must spend
+
+15 feet of movement to stand up. You can’t stand up if you don’t have enough movement left or if your speed is 0.
+
+To move while prone, you must **crawl** or use magic such as teleportation. Every foot of movement while crawling costs 1 extra foot. Crawling 1 foot in difficult terrain, therefore, costs 3 feet of movement.
+
+### Moving Around Other Creatures
+
+You can move through a nonhostile creature’s space. In contrast, you can move through a hostile creature’s space only if the creature is at least two sizes larger or smaller than you. Remember that another creature’s space is difficult terrain for you.
+
+Whether a creature is a friend or an enemy, you can’t willingly end your move in its space.
+
+If you leave a hostile creature’s reach during your move, you provoke an opportunity attack, as explained later in the chapter.
+
+### Flying Movement
+
+Flying creatures enjoy many benefits of mobility, but they must also deal with the danger of falling. If a flying creature is knocked prone, has its speed reduced to 0, or is otherwise deprived of the ability to move, the creature falls, unless it has the ability to hover or it is being held aloft by magic, such as by the *fly* spell.
+
+### Creature Size
+
+Each creature takes up a different amount of space. The Size Categories table shows how much space a creature of a particular size controls in combat. Objects sometimes use the same size categories.
+
+#### Size Categories
+
+| Size       | Space                  |
+|------------|------------------------|
+| Tiny       | 2½ by 2½ ft.           |
+| Small      | 5 by 5 ft.             |
+| Medium     | 5 by 5 ft.             |
+| Large      | 10 by 10 ft.           |
+| Huge       | 15 by 15 ft.           |
+| Gargantuan | 20 by 20 ft. or larger |
+
+#### Space
+
+A creature’s space is the area in feet that it effectively controls in combat, not an expression of its physical dimensions. A typical Medium creature isn’t 5 feet wide, for example, but it does control a space that wide. If a Medium hobgoblin stands in a 5- foot-wide doorway, other creatures can’t get through unless the hobgoblin lets them.
+
+A creature’s space also reflects the area it needs to fight effectively. For that reason, there’s a limit to the number of creatures that can surround another creature in combat. Assuming Medium combatants, eight creatures can fit in a 5-foot radius around another one.
+
+Because larger creatures take up more space, fewer of them can surround a creature. If five Large creatures crowd around a Medium or smaller one, there’s little room for anyone else. In contrast, as many as twenty Medium creatures can surround a Gargantuan one.
+
+#### Squeezing into a Smaller Space
+
+A creature can squeeze through a space that is large enough for a creature one size smaller than it. Thus, a Large creature can squeeze through a passage that’s only 5 feet wide. While squeezing through a space, a creature must spend 1 extra foot for every foot it moves there, and it has disadvantage on attack rolls and Dexterity saving throws. Attack rolls against the creature have advantage while it’s in the smaller space.
+
+### Interacting with Objects Around You
+
+Here are a few examples of the sorts of thing you can do in tandem with your movement and action:
+- draw or sheathe a sword
+- open or close a door
+- withdraw a potion from your backpack
+- pick up a dropped axe
+- take a bauble from a table
+- remove a ring from your finger
+- stuff some food into your mouth
+- plant a banner in the ground
+- fish a few coins from your belt pouch
+- drink all the ale in a flagon
+- throw a lever or a switch
+- pull a torch from a sconce
+- take a book from a shelf you can reach
+- extinguish a small flame
+- don a mask
+- pull the hood of your cloak up and over your head
+- put your ear to a door
+- kick a small stone
+- turn a key in a lock
+- tap the floor with a 10-foot pole
+- hand an item to another character
+
+Actions in Combat
+-----------------
+
+When you take your action on your turn, you can take one of the actions presented here, an action you gained from your class or a special feature, or an action that you improvise. Many monsters have action options of their own in their stat blocks.
+
+When you describe an action not detailed elsewhere in the rules, the GM tells you whether that action is possible and what kind of roll you need to make, if any, to determine success or failure.
+
+### Attack
+
+The most common action to take in combat is the Attack action, whether you are swinging a sword, firing an arrow from a bow, or brawling with your fists.
+
+With this action, you make one melee or ranged attack. See the “Making an Attack” section for the rules that govern attacks.
+
+Certain features, such as the Extra Attack feature of the fighter, allow you to make more than one attack with this action.
+
+### Cast a Spell
+
+Spellcasters such as wizards and clerics, as well as many monsters, have access to spells and can use them to great effect in combat. Each spell has a casting time, which specifies whether the caster must use an action, a reaction, minutes, or even hours to cast the spell. Casting a spell is, therefore, not necessarily an action. Most spells do have a casting time of 1 action, so a spellcaster often uses his or her action in combat to cast such a spell.
+
+### Dash
+
+When you take the Dash action, you gain extra movement for the current turn. The increase equals your speed, after applying any modifiers. With a speed of 30 feet, for example, you can move up to 60 feet on your turn if you dash.
+
+Any increase or decrease to your speed changes this additional movement by the same amount. If your speed of 30 feet is reduced to 15 feet, for instance, you can move up to 30 feet this turn if you dash.
+
+### Disengage
+
+If you take the Disengage action, your movement doesn’t provoke opportunity attacks for the rest of the turn.
+
+### Dodge
+
+When you take the Dodge action, you focus entirely on avoiding attacks. Until the start of your next turn, any attack roll made against you has disadvantage if you can see the attacker, and you make Dexterity saving throws with advantage. You lose this benefit if you are incapacitated (as explained in appendix A) or if your speed drops to 0.
+
+### Help
+
+You can lend your aid to another creature in the completion of a task. When you take the Help action, the creature you aid gains advantage on the next ability check it makes to perform the task you are helping with, provided that it makes the check before the start of your next turn.
+
+Alternatively, you can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally’s attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+
+### Hide
+
+When you take the Hide action, you make a Dexterity (Stealth) check in an attempt to hide, following the rules for hiding. If you succeed, you gain certain benefits, as described in the “Unseen Attackers and Targets” section later in this chapter.
+
+### Ready
+
+Sometimes you want to get the jump on a foe or wait for a particular circumstance before you act. To do so, you can take the Ready action on your turn, which lets you act using your reaction before the start of your next turn.
+
+First, you decide what perceivable circumstance will trigger your reaction. Then, you choose the action you will take in response to that trigger, or you choose to move up to your speed in response to it. Examples include “If the cultist steps on the trapdoor, I’ll pull the lever that opens it,” and “If the goblin steps next to me, I move away.”
+
+When the trigger occurs, you can either take your reaction right after the trigger finishes or ignore the trigger. Remember that you can take only one reaction per round.
+
+When you ready a spell, you cast it as normal but hold its energy, which you release with your reaction when the trigger occurs. To be readied, a spell must have a casting time of 1 action, and holding onto the spell’s magic requires concentration. If your concentration is broken, the spell dissipates without taking effect. For example, if you are concentrating on the *web* spell and ready *magic missile*, your *web* spell ends, and if you take damage before you release *magic missile* with your reaction, your concentration might be broken.
+
+### Search
+
+When you take the Search action, you devote your attention to finding something. Depending on the nature of your search, the GM might have you make a Wisdom (Perception) check or an Intelligence (Investigation) check.
+
+### Use an Object
+
+You normally interact with an object while doing something else, such as when you draw a sword as part of an attack. When an object requires your action for its use, you take the Use an Object action. This action is also useful when you want to interact with more than one object on your turn.
+
+Making an Attack
+----------------
+
+Whether you’re striking with a melee weapon, firing a weapon at range, or making an attack roll as part of a spell, an attack has a simple structure.
+
+1.  **Choose a target.** Pick a target within your attack’s range: a creature, an object, or a location.
+2.  **Determine modifiers.** The GM determines whether the target has cover and whether you have advantage or disadvantage against the target. In addition, spells, special abilities, and other effects can apply penalties or bonuses to your attack roll.
+3.  **Resolve the attack.** You make the attack roll. On a hit, you roll damage, unless the particular attack has rules that specify otherwise. Some attacks cause special effects in addition to or instead of damage.
+
+If there’s ever any question whether something you’re doing counts as an attack, the rule is simple: if you’re making an attack roll, you’re making an attack.
+
+### Attack Rolls
+
+When you make an attack, your attack roll determines whether the attack hits or misses. To make an attack roll, roll a d20 and add the appropriate modifiers. If the total of the roll plus modifiers equals or exceeds the target’s Armor Class (AC), the attack hits. The AC of a character is determined at character creation, whereas the AC of a monster is in its stat block.
+
+#### Modifiers to the Roll
+
+When a character makes an attack roll, the two most common modifiers to the roll are an ability modifier and the character’s proficiency bonus. When a monster makes an attack roll, it uses whatever modifier is provided in its stat block.
+
+***Ability Modifier.*** The ability modifier used for a melee weapon attack is Strength, and the ability modifier used for a ranged weapon attack is Dexterity. Weapons that have the finesse or thrown property break this rule.
+
+Some spells also require an attack roll. The ability modifier used for a spell attack depends on the spellcasting ability of the spellcaster.
+
+***Proficiency Bonus.*** You add your proficiency bonus to your attack roll when you attack using a weapon with which you have proficiency, as well as when you attack with a spell.
+
+#### Rolling 1 or 20
+
+Sometimes fate blesses or curses a combatant, causing the novice to hit and the veteran to miss.
+
+If the d20 roll for an attack is a 20, the attack hits regardless of any modifiers or the target’s AC. This is called a critical hit, which is explained later in this chapter.
+
+If the d20 roll for an attack is a 1, the attack misses regardless of any modifiers or the target’s AC.
+
+### Unseen Attackers and Targets
+
+Combatants often try to escape their foes’ notice by hiding, casting the invisibility spell, or lurking in darkness.
+
+When you attack a target that you can’t see, you have disadvantage on the attack roll. This is true whether you’re guessing the target’s location or you’re targeting a creature you can hear but not see. If the target isn’t in the location you targeted, you automatically miss, but the GM typically just says that the attack missed, not whether you guessed the target’s location correctly.
+
+When a creature can’t see you, you have advantage on attack rolls against it. If you are hidden—both unseen and unheard—when you make an attack, you give away your location when the attack hits or misses.
+
+### Ranged Attacks
+
+When you make a ranged attack, you fire a bow or a crossbow, hurl a handaxe, or otherwise send projectiles to strike a foe at a distance. A monster might shoot spines from its tail. Many spells also involve making a ranged attack.
+
+#### Range
+
+You can make ranged attacks only against targets within a specified range.
+
+If a ranged attack, such as one made with a spell, has a single range, you can’t attack a target beyond this range.
+
+Some ranged attacks, such as those made with a longbow or a shortbow, have two ranges. The smaller number is the normal range, and the larger number is the long range. Your attack roll has disadvantage when your target is beyond normal range, and you can’t attack a target beyond the long range.
+
+#### Ranged Attacks in Close Combat
+
+Aiming a ranged attack is more difficult when a foe is next to you. When you make a ranged attack with a weapon, a spell, or some other means, you have disadvantage on the attack roll if you are within 5 feet of a hostile creature who can see you and who isn’t incapacitated.
+
+### Melee Attacks
+
+Used in hand-to-hand combat, a melee attack allows you to attack a foe within your reach. A melee attack typically uses a handheld weapon such as a sword, a warhammer, or an axe. A typical monster makes a melee attack when it strikes with its claws, horns, teeth, tentacles, or other body part. A few spells also involve making a melee attack.
+
+Most creatures have a 5-foot **reach** and can thus attack targets within 5 feet of them when making a melee attack. Certain creatures (typically those larger than Medium) have melee attacks with a greater reach than 5 feet, as noted in their descriptions.
+
+Instead of using a weapon to make a melee weapon attack, you can use an **unarmed strike**: a punch, kick, head-butt, or similar forceful blow (none of which count as weapons). On a hit, an unarmed strike deals bludgeoning damage equal to 1 + your Strength modifier. You are proficient with your unarmed strikes.
+
+#### Opportunity Attacks
+
+In a fight, everyone is constantly watching for a chance to strike an enemy who is fleeing or passing by. Such a strike is called an opportunity attack.
+
+You can make an opportunity attack when a hostile creature that you can see moves out of your reach. To make the opportunity attack, you use your reaction to make one melee attack against the provoking creature. The attack occurs right before the creature leaves your reach.
+
+You can avoid provoking an opportunity attack by taking the Disengage action. You also don’t provoke an opportunity attack when you teleport or when someone or something moves you without using your movement, action, or reaction. For example, you don’t provoke an opportunity attack if an explosion hurls you out of a foe’s reach or if gravity causes you to fall past an enemy.
+
+#### Two-Weapon Fighting
+
+When you take the Attack action and attack with a light melee weapon that you’re holding in one hand, you can use a bonus action to attack with a different light melee weapon that you’re holding in the other hand. You don’t add your ability modifier to the damage of the bonus attack, unless that modifier is negative.
+
+If either weapon has the thrown property, you can throw the weapon, instead of making a melee attack with it.
+
+#### Contests in Combat
+
+Battle often involves pitting your prowess against that of your foe. Such a challenge is represented by a contest. This section includes the most common contests that require an action in combat: grappling and shoving a creature. The GM can use these contests as models for improvising others.
+
+#### Grappling
+
+When you want to grab a creature or wrestle with it, you can use the Attack action to make a special melee attack, a grapple. If you’re able to make multiple attacks with the Attack action, this attack replaces one of them.
+
+The target of your grapple must be no more than one size larger than you and must be within your reach. Using at least one free hand, you try to seize the target by making a grapple check instead of an attack roll: a Strength (Athletics) check contested by the target’s Strength (Athletics) or Dexterity (Acrobatics) check (the target chooses the ability to use). If you succeed, you subject the target to the grappled condition (see appendix A). The condition specifies the things that end it, and you can release the target whenever you like (no action required).
+
+***Escaping a Grapple.*** A grappled creature can use its action to escape. To do so, it must succeed on a Strength (Athletics) or Dexterity (Acrobatics) check contested by your Strength
+(Athletics) check.
+
+***Moving a Grappled Creature.*** When you move, you can drag or carry the grappled creature with you, but your speed is halved, unless the creature is two or more sizes smaller than you.
+
+#### Shoving a Creature
+
+Using the Attack action, you can make a special melee attack to shove a creature, either to knock it prone or push it away from you. If you’re able to make multiple attacks with the Attack action, this attack replaces one of them.
+
+The target must be no more than one size larger than you and must be within your reach. Instead of making an attack roll, you make a Strength (Athletics) check contested by the target’s Strength (Athletics) or Dexterity (Acrobatics) check (the target chooses the ability to use). If you win the contest, you either knock the target prone or push it 5 feet away from you.
+
+Cover
 -----
 
-### Dwarf Traits
+Walls, trees, creatures, and other obstacles can provide cover during combat, making a target more difficult to harm. A target can benefit from cover only when an attack or other effect originates on the opposite side of the cover.
 
-Your dwarf character has an assortment of inborn abilities, part and parcel of dwarven nature.
+There are three degrees of cover. If a target is behind multiple sources of cover, only the most protective degree of cover applies; the degrees aren’t added together. For example, if a target is behind a creature that gives half cover and a tree trunk that gives three-quarters cover, the target has three-quarters cover.
 
-***Ability Score Increase.*** Your Constitution score increases by 2.
+A target with **half cover** has a +2 bonus to AC and Dexterity saving throws. A target has half cover if an obstacle blocks at least half of its body. The obstacle might be a low wall, a large piece of furniture, a narrow tree trunk, or a creature, whether that creature is an enemy or a friend.
 
-***Age.*** Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years.
+A target with **three-quarters cover** has a +5 bonus to AC and Dexterity saving throws. A target has three-quarters cover if about three-quarters of it is covered by an obstacle. The obstacle might be a portcullis, an arrow slit, or a thick tree trunk.
 
-***Alignment.*** Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.
+A target with **total cover** can’t be targeted directly by an attack or a spell, although some spells can reach such a target by including it in an area of effect. A target has total cover if it is completely concealed by an obstacle.
 
-***Size.*** Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium.
+Damage and Healing
+------------------
 
-***Speed.*** Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor.
+Injury and the risk of death are constant companions of those who explore fantasy gaming worlds. The thrust of a sword, a well-placed arrow, or a blast of flame from a *fireball* spell all have the potential to damage, or even kill, the hardiest of creatures.
 
-***Darkvision.*** Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.
+### Hit Points
 
-***Dwarven Resilience.*** You have advantage on saving throws against poison, and you have resistance against poison damage.
+Hit points represent a combination of physical and mental durability, the will to live, and luck. Creatures with more hit points are more difficult to kill. Those with fewer hit points are more fragile.
 
-***Dwarven Combat Training.*** You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.
+A creature’s current hit points (usually just called hit points) can be any number from the creature’s hit point maximum down to 0. This number changes frequently as a creature takes damage or receives healing.
 
-***Tool Proficiency.*** You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools.
+Whenever a creature takes damage, that damage is subtracted from its hit points. The loss of hit points has no effect on a creature’s capabilities until the creature drops to 0 hit points.
 
-***Stonecunning.*** Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+### Damage Rolls
 
-***Languages.*** You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
+Each weapon, spell, and harmful monster ability specifies the damage it deals. You roll the damage die or dice, add any modifiers, and apply the damage to your target. Magic weapons, special abilities, and other factors can grant a bonus to damage. With a penalty, it is possible to deal 0 damage, but never negative damage.
 
-#### Hill Dwarf
+When attacking with a **weapon**, you add your ability modifier—the same modifier used for the attack roll—to the damage. A **spell** tells you which dice to roll for damage and whether to add any modifiers.
 
-As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
+If a spell or other effect deals damage to **more** **than one target** at the same time, roll the damage once for all of them. For example, when a wizard casts *fireball* or a cleric casts *flame strike*, the spell’s damage is rolled once for all creatures caught in the blast.
 
-***Ability Score Increase.*** Your Wisdom score increases by 1.
+#### Critical Hits
 
-***Dwarven Toughness.*** Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.
+When you score a critical hit, you get to roll extra dice for the attack’s damage against the target. Roll all of the attack’s damage dice twice and add them together. Then add any relevant modifiers as normal. To speed up play, you can roll all the damage dice at once.
 
-Elf
----
+For example, if you score a critical hit with a dagger, roll 2d4 for the damage, rather than 1d4, and then add your relevant ability modifier. If the attack involves other damage dice, such as from the rogue’s Sneak Attack feature, you roll those dice twice as well.
 
-### Elf Traits
+#### Damage Types
 
-Your elf character has a variety of natural abilities, the result of thousands of years of elven refinement.
+Different attacks, damaging spells, and other harmful effects deal different types of damage. Damage types have no rules of their own, but other rules, such as damage resistance, rely on the types.
 
-***Ability Score Increase.*** Your Dexterity score increases by 2.
+The damage types follow, with examples to help a GM assign a damage type to a new effect.
 
-***Age.*** Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old.
+***Acid.*** The corrosive spray of a black dragon’s breath and the dissolving enzymes secreted by a black pudding deal acid damage.
 
-***Alignment.*** Elves love freedom, variety, and self- expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not. The drow are an exception; their exile has made them vicious and dangerous. Drow are more often evil than not.
+***Bludgeoning.*** Blunt force attacks—hammers, falling, constriction, and the like—deal bludgeoning damage.
 
-***Size.*** Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium.
+***Cold.*** The infernal chill radiating from an ice devil’s spear and the frigid blast of a white dragon’s breath deal cold damage.
 
-***Speed.*** Your base walking speed is 30 feet.
+***Fire.*** Red dragons breathe fire, and many spells conjure flames to deal fire damage.
 
-***Darkvision.*** Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.
+***Force.*** Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including *magic missile* and *spiritual weapon*.
 
-***Keen Senses.*** You have proficiency in the Perception skill.
+***Lightning.*** A *lightning bolt* spell and a blue dragon’s breath deal lightning damage.
 
-***Fey Ancestry.*** You have advantage on saving throws against being charmed, and magic can’t put you to sleep.
+***Necrotic.*** Necrotic damage, dealt by certain undead and a spell such as *chill touch*, withers matter and even the soul.
 
-***Trance.*** Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice.
+***Piercing.*** Puncturing and impaling attacks, including spears and monsters’ bites, deal piercing damage.
 
-After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+***Poison.*** Venomous stings and the toxic gas of a green dragon’s breath deal poison damage.
 
-***Languages.*** You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
+***Psychic.*** Mental abilities such as a mind flayer’s psionic blast deal psychic damage.
 
-#### High Elf
+***Radiant.*** Radiant damage, dealt by a cleric’s *flame strike* spell or an angel’s smiting weapon, sears the flesh like fire and overloads the spirit with power.
 
-As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be superior to non-elves and even other elves. The other type is more common and more friendly, and often encountered among humans and other races.
+***Slashing.*** Swords, axes, and monsters’ claws deal slashing damage.
 
-***Ability Score Increase.*** Your Intelligence score increases by 1.
+***Thunder.*** A concussive burst of sound, such as the effect of the *thunderwave* spell, deals thunder damage.
 
-***Elf Weapon Training.*** You have proficiency with the longsword, shortsword, shortbow, and longbow.
+### Damage Resistance and Vulnerability
 
-***Cantrip.*** You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
+Some creatures and objects are exceedingly difficult or unusually easy to hurt with certain types of damage.
 
-***Extra Language.*** You can speak, read, and write one extra language of your choice.
+If a creature or an object has **resistance** to a damage type, damage of that type is halved against it. If a creature or an object has **vulnerability** to a damage type, damage of that type is doubled against it.
 
-Halfling
---------
+Resistance and then vulnerability are applied after all other modifiers to damage. For example, a creature has resistance to bludgeoning damage and is hit by an attack that deals 25 bludgeoning damage. The creature is also within a magical aura that reduces all damage by 5. The 25 damage is first reduced by 5 and then halved, so the creature takes 10 damage.
 
-### Halfling Traits
+Multiple instances of resistance or vulnerability that affect the same damage type count as only one instance. For example, if a creature has resistance to fire damage as well as resistance to all nonmagical damage, the damage of a nonmagical fire is reduced by half against the creature, not reduced by three- quarters.
 
-Your halfling character has a number of traits in common with all other halflings.
+### Healing
 
-***Ability Score Increase.*** Your Dexterity score increases by 2.
+Unless it results in death, damage isn’t permanent. Even death is reversible through powerful magic. Rest can restore a creature’s hit points, and magical methods such as a *cure wounds* spell or a *potion of healing* can remove damage in an instant.
 
-***Age.*** A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century.
+When a creature receives healing of any kind, hit points regained are added to its current hit points. A creature’s hit points can’t exceed its hit point maximum, so any hit points regained in excess of this number are lost. For example, a druid grants a ranger 8 hit points of healing. If the ranger has 14 current hit points and has a hit point maximum of 20, the ranger regains 6 hit points from the druid, not 8.
 
-***Alignment.*** Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways.
+A creature that has died can’t regain hit points until magic such as the *revivify* spell has restored it to life.
 
-***Size.*** Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small.
+### Dropping to 0 Hit Points
 
-***Speed.*** Your base walking speed is 25 feet.
+When you drop to 0 hit points, you either die outright or fall unconscious, as explained in the following sections.
 
-***Lucky.*** When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+#### Instant Death
 
-***Brave.*** You have advantage on saving throws against being frightened.
+Massive damage can kill you instantly. When damage reduces you to 0 hit points and there is damage remaining, you die if the remaining damage equals or exceeds your hit point maximum.
 
-***Halfling Nimbleness.*** You can move through the space of any creature that is of a size larger than yours.
+For example, a cleric with a maximum of 12 hit points currently has 6 hit points. If she takes 18 damage from an attack, she is reduced to 0 hit points, but 12 damage remains. Because the remaining damage equals her hit point maximum, the cleric dies.
 
-***Languages.*** You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
+#### Falling Unconscious
 
-#### Lightfoot
+If damage reduces you to 0 hit points and fails to kill you, you fall unconscious (see appendix A). This unconsciousness ends if you regain any hit points.
 
-As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You’re inclined to be affable and get along well with others.
+#### Death Saving Throws
 
-Lightfoots are more prone to wanderlust than other halflings, and often dwell alongside other races or take up a nomadic life.
+Whenever you start your turn with 0 hit points, you must make a special saving throw, called a death saving throw, to determine whether you creep closer to death or hang onto life. Unlike other saving throws, this one isn’t tied to any ability score. You are in the hands of fate now, aided only by spells and features that improve your chances of succeeding on a saving throw.
 
-***Ability Score Increase.*** Your Charisma score increases by 1.
+Roll a d20. If the roll is 10 or higher, you succeed. Otherwise, you fail. A success or failure has no effect by itself. On your third success, you become stable (see below). On your third failure, you die. The successes and failures don’t need to be consecutive; keep track of both until you collect three of a kind. The number of both is reset to zero when you regain any hit points or become stable.
 
-***Naturally Stealthy.*** You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+***Rolling 1 or 20.*** When you make a death saving throw and roll a 1 on the d20, it counts as two failures. If you roll a 20 on the d20, you regain 1 hit point.
 
-Human
------
+***Damage at 0 Hit Points.*** If you take any damage while you have 0 hit points, you suffer a death saving throw failure. If the damage is from a critical hit, you suffer two failures instead. If the damage equals or exceeds your hit point maximum, you suffer instant death.
 
-### Human Traits
+#### Stabilizing a Creature
 
-It’s hard to make generalizations about humans, but your human character has these traits.
+The best way to save a creature with 0 hit points is to heal it. If healing is unavailable, the creature can at least be stabilized so that it isn’t killed by a failed death saving throw.
 
-***Ability Score Increase.*** Your ability scores each increase by 1.
+You can use your action to administer first aid to an unconscious creature and attempt to stabilize it, which requires a successful DC 10 Wisdom (Medicine) check.
 
-***Age.*** Humans reach adulthood in their late teens and live less than a century.
+A **stable** creature doesn’t make death saving throws, even though it has 0 hit points, but it does remain unconscious. The creature stops being stable, and must start making death saving throws again, if it takes any damage. A stable creature that isn’t healed regains 1 hit point after 1d4 hours.
 
-***Alignment.*** Humans tend toward no particular alignment. The best and the worst are found among them.
+#### Monsters and Death
 
-***Size.*** Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium.
+Most GMs have a monster die the instant it drops to 0 hit points, rather than having it fall unconscious and make death saving throws.
 
-***Speed.*** Your base walking speed is 30 feet.
+Mighty villains and special nonplayer characters are common exceptions; the GM might have them fall unconscious and follow the same rules as player characters.
 
-***Languages.*** You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.
+### Knocking a Creature Out
 
-Dragonborn
-----------
+Sometimes an attacker wants to incapacitate a foe, rather than deal a killing blow. When an attacker reduces a creature to 0 hit points with a melee attack, the attacker can knock the creature out. The attacker can make this choice the instant the damage is dealt. The creature falls unconscious and is stable.
 
-### Dragonborn Traits
+### Temporary Hit Points
 
-Your draconic heritage manifests in a variety of traits you share with other dragonborn.
+Some spells and special abilities confer temporary hit points to a creature. Temporary hit points aren’t actual hit points; they are a buffer against damage, a pool of hit points that protect you from injury.
 
-***Ability Score Increase.*** Your Strength score increases by 2, and your Charisma score increases by 1.
+When you have temporary hit points and take damage, the temporary hit points are lost first, and any leftover damage carries over to your normal hit points. For example, if you have 5 temporary hit points and take 7 damage, you lose the temporary hit points and then take 2 damage.
 
-***Age.*** Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.
+Because temporary hit points are separate from your actual hit points, they can exceed your hit point maximum. A character can, therefore, be at full hit points and receive temporary hit points.
 
-***Alignment.*** Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains.
+Healing can’t restore temporary hit points, and they can’t be added together. If you have temporary hit points and receive more of them, you decide whether to keep the ones you have or to gain the new ones. For example, if a spell grants you 12 temporary hit points when you already have 10, you can have 12 or 10, not 22.
 
-***Size.*** Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium.
+If you have 0 hit points, receiving temporary hit points doesn’t restore you to consciousness or stabilize you. They can still absorb damage directed at you while you’re in that state, but only true healing can save you.
 
-***Speed.*** Your base walking speed is 30 feet.
+Unless a feature that grants you temporary hit points has a duration, they last until they’re depleted or you finish a long rest.
 
-***Draconic Ancestry.***
+Mounted Combat
+--------------
 
-| **Dragon**   | **Damage Type**   | **Breath Weapon**            |
-|--------------|-------------------|------------------------------|
-| Black        | Acid              | 5 by 30 ft. line (Dex. save) |
-| Blue         | Lightning         | 5 by 30 ft. line (Dex. save) |
-| Brass        | Fire              | 5 by 30 ft. line (Dex. save) |
-| Bronze       | Lightning         | 5 by 30 ft. line (Dex. save) |
-| Copper       | Acid              | 5 by 30 ft. line (Dex. save) |
-| Gold         | Fire              | 15 ft. cone (Dex. save)      |
-| Green        | Poison            | 15 ft. cone (Con. save)      |
-| Red          | Fire              | 15 ft. cone (Dex. save)      |
-| Silver       | Cold              | 15 ft. cone (Con. save)      |
-| White        | Cold              | 15 ft. cone (Con. save)      |
+A knight charging into battle on a warhorse, a wizard casting spells from the back of a griffon, or a cleric soaring through the sky on a pegasus all enjoy the benefits of speed and mobility that a mount can provide.
 
-***Draconic Ancestry.*** You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.
+A willing creature that is at least one size larger than you and that has an appropriate anatomy can serve as a mount, using the following rules.
 
-***Breath Weapon.*** You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.
+### Mounting and Dismounting
 
-When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level.
+Once during your move, you can mount a creature that is within 5 feet of you or dismount. Doing so costs an amount of movement equal to half your speed. For example, if your speed is 30 feet, you must spend 15 feet of movement to mount a horse. Therefore, you can’t mount it if you don’t have 15 feet of movement left or if your speed is 0.
 
-After you use your breath weapon, you can’t use it again until you complete a short or long rest.
+If an effect moves your mount against its will while you’re on it, you must succeed on a DC 10 Dexterity saving throw or fall off the mount, landing prone in a space within 5 feet of it. If you’re knocked prone while mounted, you must make the same saving throw.
 
-***Damage Resistance.*** You have resistance to the damage type associated with your draconic ancestry.
+If your mount is knocked prone, you can use your reaction to dismount it as it falls and land on your feet. Otherwise, you are dismounted and fall prone in a space within 5 feet it.
 
-***Languages.*** You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.
+### Controlling a Mount
 
-Gnome
------
+While you’re mounted, you have two options. You can either control the mount or allow it to act independently. Intelligent creatures, such as dragons, act independently.
 
-### Gnome Traits
+You can control a mount only if it has been trained to accept a rider. Domesticated horses, donkeys, and similar creatures are assumed to have such training. The initiative of a controlled mount changes to match yours when you mount it. It moves as you direct it, and it has only three action options: Dash, Disengage, and Dodge. A controlled mount can move and act even on the turn that you mount it.
 
-Your gnome character has certain characteristics in common with all other gnomes.
+An independent mount retains its place in the initiative order. Bearing a rider puts no restrictions on the actions the mount can take, and it moves and acts as it wishes. It might flee from combat, rush to attack and devour a badly injured foe, or otherwise act against your wishes.
 
-***Ability Score Increase.*** Your Intelligence score increases by 2.
+In either case, if the mount provokes an opportunity attack while you’re on it, the attacker can target you or the mount.
 
-***Age.*** Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years.
+Underwater Combat
+-----------------
 
-***Alignment.*** Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious.
+When adventurers pursue sahuagin back to their undersea homes, fight off sharks in an ancient shipwreck, or find themselves in a flooded dungeon room, they must fight in a challenging environment. Underwater the following rules apply.
 
-***Size.*** Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small.
+When making a **melee weapon attack**, a creature that doesn’t have a swimming speed (either natural or granted by magic) has disadvantage on the attack roll unless the weapon is a dagger, javelin, shortsword, spear, or trident.
 
-***Speed.*** Your base walking speed is 25 feet.
+A **ranged weapon attack** automatically misses a target beyond the weapon’s normal range. Even against a target within normal range, the attack roll has disadvantage unless the weapon is a crossbow, a net, or a weapon that is thrown like a javelin (including a spear, trident, or dart).
 
-***Darkvision.*** Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.
-
-***Gnome Cunning.*** You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.
-
-***Languages.*** You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.
-
-#### Rock Gnome
-
-As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
-
-***Ability Score Increase.*** Your Constitution score increases by 1.
-
-***Artificer’s Lore.*** Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.
-
-***Tinker.*** You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.
-
-When you create a device, choose one of the following options:
-
-- *Clockwork Toy.* This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.
-- *Fire Starter.* The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.
-- *Music Box.* When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed.
-
-Half-Elf
---------
-
-### Half-Elf Traits
-
-Your half-elf character has some qualities in common with elves and some that are unique to half-elves.
-
-***Ability Score Increase.*** Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.
-
-***Age.*** Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years.
-
-***Alignment.*** Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for
-followers. They chafe at rules, resent others’ demands, and sometimes prove unreliable, or at least unpredictable.
-
-***Size.*** Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium.
-
-***Speed.*** Your base walking speed is 30 feet.
-
-***Darkvision.*** Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.
-
-***Fey Ancestry.*** You have advantage on saving throws against being charmed, and magic can’t put you to sleep.
-
-***Skill Versatility.*** You gain proficiency in two skills of your choice.
-
-***Languages.*** You can speak, read, and write Common, Elvish, and one extra language of your choice.
-
-Half-Orc
---------
-
-### Half-Orc Traits
-
-Your half-orc character has certain traits deriving from your orc ancestry.
-
-***Ability Score Increase.*** Your Strength score increases by 2, and your Constitution score increases by 1.
-
-***Age.*** Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years.
-
-***Alignment.*** Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil.
-
-***Size.*** Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium.
-
-***Speed.*** Your base walking speed is 30 feet.
-
-***Darkvision.*** Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.
-
-***Menacing.*** You gain proficiency in the Intimidation skill.
-
-***Relentless Endurance.*** When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.
-
-***Savage Attacks.*** When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.
-
-***Languages.*** You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.
-
-Tiefling
---------
-
-### Tiefling Traits
-
-Tieflings share certain racial traits as a result of their infernal descent.
-
-***Ability Score Increase.*** Your Intelligence score increases by 1, and your Charisma score increases by 2.
-
-***Age.*** Tieflings mature at the same rate as humans but live a few years longer.
-
-***Alignment.*** Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment.
-
-***Size.*** Tieflings are about the same size and build as humans. Your size is Medium.
-
-***Speed.*** Your base walking speed is 30 feet.
-
-***Darkvision.*** Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.
-
-***Hellish Resistance.*** You have resistance to fire damage.
-
-***Infernal Legacy.*** You know the *thaumaturgy* cantrip. When you reach 3rd level, you can cast the *hellish rebuke* spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the *darkness* spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.
-
-***Languages.*** You can speak, read, and write Common and Infernal.
-`;
+Creatures and objects that are fully immersed in water have resistance to fire damage.`;
 export default data;

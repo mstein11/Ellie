@@ -22,7 +22,7 @@ import creaturesdata from './data/rulebook-15-creatures-srd'
 import npcsdata from './data/rulebook-16-npcs-srd'
 import { HierarchicalMarkdownTextSplitter } from './HierachicalMarkdownTextSplitter/HierarchicalMarkdownTextSplitter'
 
-const defaultData = [
+export const defaultData = [
   racesdata,
   classesdata,
   beyond1stdata,

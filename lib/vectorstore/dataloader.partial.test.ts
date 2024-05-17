@@ -1,5 +1,6 @@
 import racesdata from './data/rulebook-01-races-srd'
 import classesdata from './data/rulebook-02-classes-srd'
+import { defaultData, loadSourceV2 } from './dataloader'
 import { HierarchicalMarkdownTextSplitter } from './HierachicalMarkdownTextSplitter/HierarchicalMarkdownTextSplitter'
 
 describe('should test dataloader', () => {
@@ -40,5 +41,11 @@ describe('should test dataloader', () => {
     expect(text.length).toBe(res.map(item => item.pageContent).join('').length)
 
     expect(res.map(item => item.pageContent).join('')).toEqual(text)
+  })
+
+  it('dataloader input should match output', async () => {
+
+    const res = await loadSourceV2();
+    expect(res.map(item => item.metadata.originalText).join('')).toEqual(defaultData.join('\n'))
   })
 })

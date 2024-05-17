@@ -21,7 +21,7 @@ describe('should test dataloader', () => {
       res
         .map(
           item =>
-            (item.metadata.parentHeadings?.join('') ?? '') + item.pageContent
+            item.pageContent
         )
         .join('\n---xxx---\n')
     ).toMatchSnapshot()
