@@ -21,17 +21,21 @@ async function main() {
   const source = await loadSourceV2()
 
   await vectorStore.addModels(
-    await prisma.$transaction(
-      source.map((doc) =>
-        prisma.document.create({
-          data: {
-            content: doc.pageContent,
-            metadata: doc.metadata,
-            id: doc.metadata.id,
-          }
-        })
+    await prisma.$transaction(async trx => {
+      await trx.document.deleteMany()
+
+      return await Promise.all(
+        source.map(doc =>
+          trx.document.create({
+            data: {
+              content: doc.pageContent,
+              metadata: doc.metadata,
+              id: doc.metadata.id
+            }
+          })
+        )
       )
-    )
+    })
   )
 }
 
