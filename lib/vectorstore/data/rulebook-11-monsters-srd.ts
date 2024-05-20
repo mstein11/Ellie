@@ -1,5 +1,4 @@
-const data = `
-Monsters
+const data = `Monsters
 ========
 
 A monster’s statistics, sometimes referred to as its **stat block**, provide the essential information that you need to run the monster.

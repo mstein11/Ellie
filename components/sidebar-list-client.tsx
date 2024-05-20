@@ -12,7 +12,7 @@ import useRepopulateChatHistoryResult from '@/lib/hooks/use-repopulate-chat-hist
 export function SidebarListClient({ userId, isRateLimited, chats = [] }: { userId?: string, isRateLimited: boolean, chats?: Chat[] }) {
   const [chatsState, setChatsState] = useState<Chat[]>(chats)
   const [isLoading, setLoading] = useState(false)
-  const [maxChats, setMaxChats] = useState(10)
+  const [maxChats, setMaxChats] = useState(chats.length || 0)
   const { isRateLimitedClientState , setIsRateLimited } = useKvStoreAvailableResult((state) => { return { isRateLimitedClientState: state.isRateLimited, setIsRateLimited: state.setIsRateLimited } });
 
   if (isRateLimited) {
@@ -21,15 +21,14 @@ export function SidebarListClient({ userId, isRateLimited, chats = [] }: { userI
 
   useEffect(() => {
     const unsub = useRepopulateChatHistoryResult.subscribe((cur, prev) => {
-      console.log("loading Chats", cur, prev );
-      loadChats();
+      loadChats(maxChats);
     });
     return unsub;
   })
   
 
-  const loadChats = async () => {
-    const retrievedChats = await getChats(userId, 0, maxChats);
+  const loadChats = async (n: number) => {
+    const retrievedChats = await getChats(userId, 0, n);
     if (retrievedChats === "rate-limited") {
       setIsRateLimited(true);
       setChatsState(chats)
@@ -58,9 +57,10 @@ export function SidebarListClient({ userId, isRateLimited, chats = [] }: { userI
       )}
       <div className="flex justify-center p-4">
         <Button variant="ghost" onClick={() => {
-            setLoading(true)
-            setMaxChats(maxChats + 10)
-            loadChats()
+            setLoading(true);
+            const newMaxChats = maxChats + 10;
+            setMaxChats(newMaxChats);
+            loadChats(newMaxChats);
         }}>
           {isLoading && <IconSpinner className="mr-2" />}
           Load more

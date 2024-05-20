@@ -1,0 +1,12 @@
+services:
+  postgres:
+    container_name: postgres
+    image: ankane/pgvector
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=elli-db
+    ports:
+      - 6500:5432
+    volumes:
+     - ./init.sql:/docker-entrypoint-initdb.d/init.sql

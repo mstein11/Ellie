@@ -1,5 +1,5 @@
 import { PrismaVectorStore } from '@langchain/community/vectorstores/prisma'
-import { loadSource } from '@/lib/vectorstore/dataloader'
+import { loadSourceV2 } from '@/lib/vectorstore/dataloader'
 import { Prisma, PrismaClient, Document } from '@prisma/client'
 import { OpenAIEmbeddings } from '@langchain/openai'
 const prisma = new PrismaClient()
@@ -17,20 +17,25 @@ async function main() {
     }
   )
 
-  const source = await loadSource()
+  //const source = await loadSource()
+  const source = await loadSourceV2()
 
   await vectorStore.addModels(
-    await prisma.$transaction(
-      source.documents.map((doc) =>
-        prisma.document.create({
-          data: {
-            content: doc.pageContent,
-            metadata: doc.metadata,
-            id: doc.metadata.id,
-          }
-        })
+    await prisma.$transaction(async trx => {
+      await trx.document.deleteMany()
+
+      return await Promise.all(
+        source.map(doc =>
+          trx.document.create({
+            data: {
+              content: doc.pageContent,
+              metadata: doc.metadata,
+              id: doc.metadata.id
+            }
+          })
+        )
       )
-    )
+    })
   )
 }
 
