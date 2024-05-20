@@ -4,6 +4,11 @@ import { Prisma, PrismaClient, Document } from '@prisma/client'
 import { OpenAIEmbeddings } from '@langchain/openai'
 const prisma = new PrismaClient()
 async function main() {
+
+  console.log('Starting seed...')
+  console.log('env', process.env.NODE_ENV)
+  console.log('db', process.env.POSTGRES_HOST)
+
   const vectorStore = PrismaVectorStore.withModel<Document>(prisma).create(
     new OpenAIEmbeddings(),
     {
@@ -35,6 +40,8 @@ async function main() {
           })
         )
       )
+    }, {
+      timeout: 1000 * 60 * 5
     })
   )
 }

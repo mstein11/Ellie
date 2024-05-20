@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"{app,lib,components}**/*.{ts,tsx,mdx}\" --cache",
     "test": "jest",
     "prisma:seed": "tsx prisma/seed.ts",
+    "prisma:seed:prod": "dotenv -e .env.prod -- tsx prisma/seed.ts",
     "postinstall": "prisma generate"
   },
   "dependencies": {
