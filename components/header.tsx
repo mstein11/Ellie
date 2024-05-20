@@ -65,7 +65,7 @@ export function Header() {
       <div className="flex items-center justify-end space-x-2">
         <a
           target="_blank"
-          href="https://github.com/mstein11/elminster-gpt"
+          href="https://github.com/mstein11/Ellie"
           rel="noopener noreferrer"
           className={cn(buttonVariants({ variant: 'outline' }))}
         >

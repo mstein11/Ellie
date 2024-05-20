@@ -11,7 +11,7 @@ import { Header } from '@/components/header'
 export const metadata = {
   metadataBase: new URL(`https://elminster-gpt.vercel.app/`),
   title: {
-    default: 'ElminsterGPT AI Chatbot'
+    default: 'Ellie AI Chatbot'
   },
   description: '',
   icons: {
