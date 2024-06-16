@@ -90,7 +90,7 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
                 {message.retrievalResults.map(
                   (res: ApiResonseDocumentRetrieval) => {
                     return (
-                      <small>
+                      <small key={res.id}>
                         <a className="hover:underline cursor-pointer" onClick={() => handleReferenceDocClick(res.id)}>
                           {res.parentHeadings?.join(' -> ') ?? '-'}
                         </a>
