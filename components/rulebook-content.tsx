@@ -14,7 +14,7 @@ export function RulebookContent({scrollToId = ''}) {
   const [rulebook, setData] = useState<{content: string, id: string}[] | null>(null)
   const [isLoading, setLoading] = useState(true)
 
-  const {retrievalResultId } = useRetrievalResult()
+  const { selectedRetrievalResultId } = useRetrievalResult()
 
   useEffect(() => {
     fetch('/api/content')
@@ -26,15 +26,16 @@ export function RulebookContent({scrollToId = ''}) {
   }, [])
 
     useEffect(() => {
-        const element = document.querySelector(`[data-id="${retrievalResultId}"]`);
+        const element = document.querySelector(`[data-id="${selectedRetrievalResultId}"]`);
         if (element) {
+
           element?.scrollIntoView({ behavior: 'smooth' });
         }
         
     });
 
     if (isLoading) return <Loading />
-    if (!rulebook) return <p>No profile data</p>
+    if (!rulebook) return <p>No data</p>
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden p-[25px] pt-0">

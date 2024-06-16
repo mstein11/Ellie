@@ -1,3 +1,6 @@
+'use client'
+
+
 import * as React from 'react'
 
 import Link from 'next/link'
@@ -8,11 +11,17 @@ import { RulebookContent } from '@/components/rulebook-content'
 import { buttonVariants } from '@/components/ui/button'
 import { IconArrowDown } from '@/components/ui/icons'
 
+import useRetrievalResult from '@/lib/hooks/use-retrieval'
+
+
 interface ChatHistoryProps {
   userId?: string
 }
 
-export async function Rulebook({ userId }: ChatHistoryProps) {
+export function Rulebook({ userId }: ChatHistoryProps) {
+
+  const seletedReference = useRetrievalResult().getSelectedRetrievalResult();
+
   return (
     <div className="flex flex-col h-full">
       <div className="px-2 my-4">
@@ -24,7 +33,9 @@ export async function Rulebook({ userId }: ChatHistoryProps) {
           )}
         >
           <IconArrowDown className="-translate-x-2 stroke-2" />
-            Dungeons and Dragons - Systems Reference Document
+          { seletedReference && seletedReference.parentHeadings ? (
+            seletedReference.parentHeadings.join(", ")
+          ) : "Dungeons and Dragons - Systems Reference Document" }
         </Link>
       </div>
       <React.Suspense

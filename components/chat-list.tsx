@@ -2,6 +2,7 @@ import { type Message } from 'ai'
 
 import { Separator } from '@/components/ui/separator'
 import { ChatMessage } from '@/components/chat-message'
+import useRetrievalResult from '@/lib/hooks/use-retrieval'
 
 export interface ChatList {
   messages: Message[]

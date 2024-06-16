@@ -32,6 +32,14 @@ export class VectoreStoreRepository {
     })
   }
 
+  getDocumentFromDb = async (id: string) => {
+    return await prisma.document.findUnique({
+      where: {
+        id
+      }
+    })
+  }
+
   getRetriever(k: number = 5) {
     //return this.loadedVectoreStore.asRetriever(k,undefined, undefined, undefined, undefined, true)
     return this.loadedVectoreStore.asRetriever(k)

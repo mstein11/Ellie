@@ -1,7 +1,6 @@
 // Inspired by Chatbot-UI and modified to fit the needs of this project
 // @see https://github.com/mckaywrigley/chatbot-ui/blob/main/components/Chat/ChatMessage.tsx
 
-import { Message } from 'ai'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 
@@ -10,9 +9,18 @@ import { CodeBlock } from '@/components/ui/codeblock'
 import { MemoizedReactMarkdown } from '@/components/markdown'
 import { IconOpenAI, IconUser } from '@/components/ui/icons'
 import { ChatMessageActions } from '@/components/chat-message-actions'
+import { MessageWithRetrievalResult } from './chat'
+import { ApiResonseDocumentRetrieval } from '@/app/api/chat/retrieve/route'
+import useRetrievalResult from '@/lib/hooks/use-retrieval'
+
+import Link from 'next/link'
 
 export interface ChatMessageProps {
-  message: Message
+  message: MessageWithRetrievalResult
+}
+
+function handleReferenceDocClick(id: string) {
+  useRetrievalResult.getState().setSelectedRetrievalResultId(id)
 }
 
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
@@ -73,6 +81,31 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
         >
           {message.content}
         </MemoizedReactMarkdown>
+        {message.retrievalResults ? (
+          <>
+            {message.retrievalResults ? (
+              <div className='text-xs text-muted-foreground'>
+                <b>Sources:</b>
+                <br />
+                {message.retrievalResults.map(
+                  (res: ApiResonseDocumentRetrieval) => {
+                    return (
+                      <small>
+                        <a className="hover:underline cursor-pointer" onClick={() => handleReferenceDocClick(res.id)}>
+                          {res.parentHeadings?.join(' -> ') ?? '-'}
+                        </a>
+                        <br />
+                      </small>
+                    )
+                  }
+                )}
+              </div>
+            ) : (
+              ''
+            )}
+          </>
+        ) : null}
+
         <ChatMessageActions message={message} />
       </div>
     </div>

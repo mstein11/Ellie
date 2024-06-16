@@ -26,11 +26,16 @@ import { ChatRequestOptions } from 'ai'
 import useRetrievalResult from '@/lib/hooks/use-retrieval'
 import useKvStoreAvailableResult from '@/lib/hooks/use-kvstore-available'
 import useRepopulateChatHistoryResult from '@/lib/hooks/use-repopulate-chat-history'
+import { ApiResonseDocumentRetrieval } from '@/app/api/chat/retrieve/route'
 
 const IS_PREVIEW = process.env.VERCEL_ENV === 'preview'
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string
+}
+
+export interface MessageWithRetrievalResult extends Message {
+  retrievalResults?: any | undefined
 }
 
 export function Chat({ id, initialMessages, className }: ChatProps) {
@@ -40,7 +45,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
 
   
 
-  const { setRetrievalResultId } = useRetrievalResult()
+  const { pushRetrievalResultContextItems, retrievalResultContextItems, resetState, selectedRetrievalResultId } = useRetrievalResult()
   const { isRateLimited } = useKvStoreAvailableResult();
   const { requestRepopulation } = useRepopulateChatHistoryResult();
   
@@ -57,9 +62,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     stop,
     isLoading,
     input,
-    setInput,
-    handleSubmit
-  } = useChat({
+    setInput  } = useChat({
     initialMessages,
     id,
     body: {
@@ -79,6 +82,26 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
     }
   })
 
+  
+  const messagesWithRetrievalResults: MessageWithRetrievalResult[] = [
+    ...messages
+  ]
+  messages.forEach((message, index) => {
+    if (
+      retrievalResultContextItems.some(
+        retrievalContextItem =>
+          retrievalContextItem.relatesToMessageId === message.id
+      ) &&
+      messagesWithRetrievalResults.length > index + 1
+    ) {
+      messagesWithRetrievalResults[index + 1].retrievalResults =
+        retrievalResultContextItems.find(
+          retrievalContextItem =>
+            retrievalContextItem.relatesToMessageId === message.id
+        )?.retrievalResults
+    }
+  })
+
   const chatMessageSubmit = async (
     message: Message | CreateMessage,
     chatRequestOptions?: ChatRequestOptions
@@ -88,15 +111,20 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
       body: JSON.stringify({ newMessage: message.content, messages: messages.map(m => m.content)}),
       headers: { 'Content-Type': 'application/json' }
     }).then(async res => {
-      const json = await res.json()
+      const json = await res.json() as ApiResonseDocumentRetrieval[]
       if (json && json.length) {
-        setRetrievalResultId(json[0].id)
-      } else {
-        console.log('no retrieval result')
+        pushRetrievalResultContextItems({
+          retrievalResults: json,
+          relatesToMessageId: message.id
+        })
       }
     })
 
     return await append(message, chatRequestOptions)
+  }
+
+  if (!messages.length && selectedRetrievalResultId) {
+    resetState();
   }
 
   return (
@@ -117,7 +145,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         stop={stop}
         append={chatMessageSubmit}
         reload={reload}
-        messages={messages}
+        messages={messagesWithRetrievalResults}
         input={input}
         setInput={setInput}
       />
