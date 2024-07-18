@@ -1,5 +1,5 @@
 import { PrismaVectorStore } from '@langchain/community/vectorstores/prisma'
-import { loadSourceV2 } from '@/lib/vectorstore/dataloader'
+import { loadSource, loadSource_, loadSourceV2 } from '@/lib/vectorstore/dataloader'
 import { Prisma, PrismaClient, Document } from '@prisma/client'
 import { OpenAIEmbeddings } from '@langchain/openai'
 const prisma = new PrismaClient()
@@ -22,7 +22,7 @@ async function main() {
     }
   )
 
-  //const source = await loadSource()
+  //const source = await loadSource_()
   const source = await loadSourceV2()
 
   await vectorStore.addModels(

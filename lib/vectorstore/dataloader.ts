@@ -61,6 +61,19 @@ export async function loadSource({
   return { documents: output, ids }
 }
 
+export async function loadSource_({
+  data = defaultData.join('\n'),
+  idProvider = () => randomUUID()
+} = {}): Promise<Document[]>  {
+  const source = await loadSource({ data, idProvider });
+
+  return source.documents.map((doc: Document, idx: number) => {
+    doc.metadata.id = source.ids[idx];
+    return doc;
+  });
+
+}
+
 export async function loadSourceV2({
   data = defaultData.join('\n'),
   maxLength = 1000,

@@ -30,7 +30,7 @@ export async function POST(req: Request) {
         return { 
             id: doc.metadata.id, 
             pageContent: doc.pageContent, 
-            parentHeadings: (fullDoc?.metadata as any).parentHeadings.map(sanitizeHeading) || []
+            parentHeadings: (fullDoc?.metadata as any).parentHeadings?.map(sanitizeHeading) || []
         } as ApiResonseDocumentRetrieval 
     }));
     return Response.json(res);
