@@ -101,6 +101,59 @@ Wizard Spells
 
 The hierarchical context is preserved. While this splitting logic is supported by the Python version of Langchain, we had to implement our own solution for the JavaScript version. Details can be found in `/lib/vectorstore/HierarchicalMarkdownTextSplitter`.
 
+### Learning #3:
+
+For continuously improving a RAG pipeline, it is necessary to have the means to measure the acutal performance of one iteration against another one. Without this information improving a RAG pipeline becomes a guessing game; improvements in certain aspects might have adverse effects in others. 
+
+#### The Problem
+
+There are 2 requirements to measuring a RAG pipelines performance.
+
+1. We need to have a ground truth sample set containing sample question and the ground truth answers to those question. 
+2. We to have a mechanism to compare the performance of our RAG pipeline when answering the sample questions with the ground truth answers. 
+
+#### The solution
+
+ragas is a framework that allows for the automatic generation of a sample set and the automatic evaluation of a RAG pipeline on a set of sample questions. ragas generates questions and ground truth answers to that questions based on the knowledge base provided.
+
+ragas also can evaluate a RAG pipeline performance on a sample set based on 4 metrics:
+
+**Faithfulness**: How factually acurate is the generated answer.
+
+**Answer Relevancy**: How relevant ist the generated answer to the question.
+
+**Context Precision**: The signal to noise ratio of retrieved context.
+
+**Context Recall**: Can it retrieve all relevant information required to answer the question.
+
+When comparing the different splitting technique from Learning #2, the results from ragas indicated an improvement:
+
+##### Default Langchain Markdown Splitter
+| Context Precision | Faithfulness | Answer Relevancy | Context Recall |
+|-------------------|--------------|-----------------|----------------|
+| 0.8856            | 0.8379       | 0.9451          | 0.7946         |
+| 0.8942            | 0.8507       | 0.9427          | 0.7726         |
+| 0.9093            | 0.8576       | 0.9443          | 0.7953         |
+| 0.8901            | 0.8451       | 0.9452          | 0.7881         |
+| 0.8889            | 0.8569       | 0.9480          | 0.7953         |
+
+##### With Contextual Chunk Headers
+| Context Precision | Faithfulness | Answer Relevancy | Context Recall |
+|-------------------|--------------|-----------------|----------------|
+| 0.9383            | 0.9750       | 0.9098          | 0.9025         |
+| 0.9373            | 0.9750       | 0.9094          | 0.8925         |
+| 0.9433            | 0.9474       | 0.9082          | 0.9025         |
+| 0.9401            | 0.9750       | 0.9120          | 0.9025         |
+| 0.9481            | 0.9150       | 0.9068          | 0.8811         |
+
+
+
+
+#### Drawbacks
+
+* The generation of test questions is very expension. 20 Question/Ground Truth samples resulted in a cost of 5 Euro.
+* The Evaluation step is non deterministic. Each run of the evaluation results in sightly different scores of those metrics. 
+
 
 ## References
 
