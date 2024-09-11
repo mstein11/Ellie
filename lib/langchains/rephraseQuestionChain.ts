@@ -1,5 +1,5 @@
 import { PromptTemplate } from '@langchain/core/prompts'
-import { ChatOpenAI } from '@langchain/openai'
+import EllieBaseChatModel from './EllieBaseChatModel'
 import { StringOutputParser } from '@langchain/core/output_parsers'
 import { RunnableSequence } from '@langchain/core/runnables'
 
@@ -23,7 +23,7 @@ export function getrephraseQuestionChain() {
       chat_history: input => input.chat_history
     },
     reformatPrompt,
-    new ChatOpenAI({
+    new EllieBaseChatModel({
       temperature: 0
     }),
     new StringOutputParser()

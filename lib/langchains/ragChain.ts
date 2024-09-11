@@ -1,6 +1,6 @@
 import { PromptTemplate } from '@langchain/core/prompts'
 import { VectoreStoreRepository } from '@/lib/vectorstore/VectorstoreRepository'
-import { ChatOpenAI } from '@langchain/openai'
+import EllieBaseChatModel from './EllieBaseChatModel'
 import { HttpResponseOutputParser } from 'langchain/output_parsers'
 import { Document } from 'langchain/document'
 import { RunnableSequence } from '@langchain/core/runnables'
@@ -39,7 +39,7 @@ export function getRagChain(
       chat_history: input => input.chat_history
     },
     prompt,
-    new ChatOpenAI({
+    new EllieBaseChatModel({
       temperature: 0,
       callbacks: [
         {
