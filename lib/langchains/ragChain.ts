@@ -27,7 +27,7 @@ Question:
 export function getRagChain(
   chainCompletionCallback?: (output: LLMResult) => Promise<void>
 ) {
-    const repo = new VectoreStoreRepository()
+  const repo = new VectoreStoreRepository()
   const retriever = repo.getRetriever(5)
 
   const retrievalChain = retriever.pipe(combineDocumentsFn)
